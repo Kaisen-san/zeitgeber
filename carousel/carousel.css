@@ -1,0 +1,54 @@
+/* initialize */
+* {
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #323236;
+}
+/* initialize */
+
+/* margins to compensate for absolute positioning */
+.carousel {
+    margin-top: 10px;
+    margin-bottom: 33vw;
+}
+
+/* fixed image size based on view width for responsiveness */
+.carousel-image  {
+    width: 30vw;
+    position: absolute;
+    transition: transform 0.7s ease-in-out, right 0.7s ease-in-out, -webkit-filter 0.7s ease-in-out;
+}
+
+/* rotation animation settings */
+.middle {
+    transform: scale(1);
+    right: 35vw;
+    z-index: 100;
+    -webkit-filter: opacity(100%) blur(0px);
+}
+
+.right {
+    transform: scale(.6);
+    right: 15vw; 
+    box-shadow: 0 0 10px rgba(black,.5);  
+    z-index: 1;
+    -webkit-filter: opacity(80%) blur(3px);
+}
+
+.left {
+    transform: scale(.6);
+    right: 55vw; 
+    z-index: 1;
+    -webkit-filter: opacity(80%) blur(3px);
+}
+
+.hide {
+    transform: scale(.4);
+    right: 35vw; 
+    z-index: 0;
+    -webkit-filter: opacity(0%) blur(0px);
+}
