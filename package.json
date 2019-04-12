@@ -1,0 +1,29 @@
+{
+  "name": "zeitgeber",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kaisen-san/zeitgeber.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kaisen-san/zeitgeber/issues"
+  },
+  "homepage": "https://github.com/Kaisen-san/zeitgeber#readme",
+  "devDependencies": {
+    "nodemon": "^1.18.11"
+  },
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "sqlite": "^3.0.3"
+  }
+}
