@@ -1,0 +1,108 @@
+.primary-color { color: #f19a67; }
+.secondary-color { color:  #1c3c50; }
+.third-color { color: #e6e4e1; }
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: sans-serif;
+}
+
+header {
+  position: fixed;
+  width: 80%;
+  display: flex;
+  background-color: #e6e4e1;
+  /* background-color: #51989b; */
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding: 0 10%;
+}
+
+section {
+  padding: 60px 10% 0 10%;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #1c3c50;
+}
+
+header > div {
+  display: inline-flex;
+}
+
+.logo {
+  width: 100px;
+  height: auto;
+  margin-left: 30px;
+  opacity: 1;
+}
+
+.menu {
+  display: inline-flex;
+}
+
+.menu li {
+  display: inline-flex;
+  padding-left: 50px;
+}
+
+.menu a {
+  font-size: 20px;
+}
+
+.main {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.71), rgba(0, 0, 0, 0.71)), url(http://placehold.it/1200x800&text=logo);
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  background-attachment: fixed;
+}
+
+.main-content {
+  height: inherit;
+  width: 20vw;
+  display: flex;
+  align-items: center;
+  font-size: 48px;
+}
+
+.carrosel {
+  display: flex;
+  justify-content: center;
+}
+
+.carrosel > div {
+  display: flex;
+  height: 10vw;
+}
+
+.middle {
+  order: 2;
+  transform: scale(1.5);
+  transition: transform 0.7s ease-in-out;
+}
+
+.left {
+  order: 1;
+}
+
+.right {
+  order: 3;
+}
+
+.left, .right {
+  transform: scale(1);
+  transition: transform 0.7s ease-in-out;
+}
+
+.hide {
+  display: none;
+}
