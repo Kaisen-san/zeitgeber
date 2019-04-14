@@ -12,17 +12,20 @@
 
 /* sets up the entire cloud section */
 .cloud {
+    /* grid set up */
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     grid-auto-flow: dense;
     grid-gap: 20px;
     justify-content: space-around;
     align-items: center;
 
-    background-image: linear-gradient(rgba(0,0,0,0.05), rgba(153, 214, 255, 0.25), rgba(0,0,0,0.05));
+    /* set a gradient background in the cloud section */
+    background-image: linear-gradient(rgba(50,50,50,0.05), rgba(153, 214, 255, 0.25), rgba(50,50,50,0.05));
     background-size: cover;
     background-position: center;
 
+    /* spacing */
     padding: 2vh 0;
 }
 
@@ -42,6 +45,7 @@
     background-image: linear-gradient(270deg, rgba(0,0,0,0), rgba(0,100,0,0.71), rgba(0,0,0,0));
 }
 
+/* adjust image so it doesn't blow out of the section */
 .cloud-image {
     display: block;
     object-fit: cover;
@@ -49,22 +53,48 @@
 }
 
 /* scroll effect so the items fade in from the left */
-.scroll-effect {
+.cloud-scroll-effect {
     filter: opacity(0);
     transform: translateX(-400px);
 }
 
-@media only screen and (max-width: 720px) {
-    .cloud {
-        display: flex;
-        flex-direction: column;
-    }
-    .cloud-image {
-        order: 1;
-        margin-bottom: 10px;
-    }
+.cloud-button {
+    display: block;
+    margin: 10px 35% 0 35%;
+    max-width: 20%;
+    padding: 10px 0px;
 
+    text-decoration: none;
+    cursor: pointer;
+    user-select: none;
+
+    background-color: #008cff;
+    text-align: center;
+    color: white;
+    border-radius: 2px;
+
+    box-shadow: 2px 2px 3px rgb(175, 175, 175);
+
+    transition: background-color 0.1s ease-in-out;
+}
+
+.cloud-button:hover {
+    background-color: #4aaeff;
+}
+
+#cloud-button-clicked {
+    background-color: #0086f3;
+}
+
+@media only screen and (max-width: 720px) {
+    /* swap order of elements within grid when screen is small enough so picture is on top */
     .cloud-content {
         order: 2;
+    }
+
+    /* adjust button size */
+    .cloud-button {
+        margin: 10px 30% 0 30%;
+        max-width: 30%;
     }
 }
