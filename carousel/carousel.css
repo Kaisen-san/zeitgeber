@@ -12,43 +12,87 @@ body {
 
 /* margins to compensate for absolute positioning */
 .carousel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* container for carousel images */
+.carousel-image-container {
     margin-top: 10px;
     margin-bottom: 33vw;
 }
+
+/* container for carousel buttons */
+.carousel-button-container {
+    display: flex;
+    /* display: none; */
+    width: 30%;
+    justify-content: space-around;
+}
+
 
 /* fixed image size based on view width for responsiveness */
 .carousel-image  {
     width: 30vw;
     position: absolute;
     transition: transform 0.7s ease-in-out, right 0.7s ease-in-out, -webkit-filter 0.7s ease-in-out;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+/* configurations for carousel button */
+.carousel-button {
+    cursor: pointer;
+    /* border: 2px gray;
+    border-radius: 50px; */
 }
 
 /* rotation animation settings */
-.middle {
+.carousel-middle {
     transform: scale(1);
     right: 35vw;
     z-index: 100;
-    -webkit-filter: opacity(100%) blur(0px);
+    filter: opacity(100%) blur(0px);
 }
 
-.right {
+.carousel-right {
     transform: scale(.6);
     right: 15vw; 
     box-shadow: 0 0 10px rgba(black,.5);  
     z-index: 1;
-    -webkit-filter: opacity(80%) blur(3px);
+    filter: opacity(80%) blur(3px);
 }
 
-.left {
+.carousel-left {
     transform: scale(.6);
     right: 55vw; 
     z-index: 1;
-    -webkit-filter: opacity(80%) blur(3px);
+    filter: opacity(80%) blur(3px);
 }
 
-.hide {
+.carousel-hide {
     transform: scale(.4);
     right: 35vw; 
     z-index: 0;
-    -webkit-filter: opacity(0%) blur(0px);
+    filter: opacity(0%) blur(0px);
+}
+
+/* responsiveness to adjust the images */
+@media only screen and (max-width: 720px) {
+    .carousel-left, .carousel-right {
+        filter: opacity(0%);
+    }
+
+    .carousel-image {
+        width: 60vw;
+    }
+
+    .carousel-image-container {
+        margin-bottom: 65vw;
+    }
+
+    .carousel-middle {
+        right: 20vw;    
+    }
 }
