@@ -1,42 +1,38 @@
-@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700');
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
-@import url('https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic');
-
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700');
 
 :root {
-  --primary-clr: #f19a67;
-  --primary-clr-light: rgba(241, 154, 103, .71);
+  --primary-clr: #f09865;
+  --primary-clr-light: #f0ac65;
   --secondary-clr: #1c3c50;
-  --secondary-clr-light: rgba(28, 60, 80, 0.71);
+  --secondary-clr-light: #1c5060;
   --light-theme: #f0f0f0;
   --ff-lato: 'Lato', sans-serif;
-  --ff-droid: 'Droid Serif', serif;
 }
 
 *,
 *::before,
 *::after {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
 body {
-  margin: 0;
   font-family: var(--ff-lato);
-  font-weight: 400;
   display: grid;
   grid-template:
     "header header header" 4em
     "main main main" max-content
     "cloud cloud cloud" auto
-    ". zeitgeber ." 15em
-    "footer footer footer" 32em
-    / 1fr minmax(400px, auto) 1fr;
+    ". zeitgeber ." auto
+    "footer footer footer" auto
+    / 1fr minmax(400px, 5fr) 1fr;
 }
 
 header {
   grid-area: header;
   display: grid;
-  grid-template-columns: 1fr [img-start] auto [img-end] 1fr [nav-start] minmax(600px, 3fr) [nav-end] 1fr;
+  grid-template-columns: 1fr [img-start] auto [img-end] 1fr [nav-start] minmax(400px, 3fr) [nav-end] 1fr;
   background: var(--light-theme);
   text-align: center;
   position: fixed;
@@ -100,7 +96,7 @@ nav a:hover::before {
 }
 
 .logo__img {
-  width: 9em;
+  width: 8em;
   height: inherit;
 }
 
@@ -121,17 +117,18 @@ main {
     "hero hero hero" 80vh
     ". products ." max-content
     ". carrosel ." auto
-    / 1fr auto 1fr
+    / 1fr minmax(300px, 5fr) 1fr;
 }
 
 .hero {
   grid-area: hero;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.71), rgba(0, 0, 0, 0.71)), url('https://unsplash.it/1200/800');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.71), rgba(0, 0, 0, 0.71)), url('https://unsplash.it/1600/1200');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   display: flex;
   align-items: center;
+  width: 100%;
 }
 
 .hero__title {
@@ -139,22 +136,21 @@ main {
   font-weight: 300;
   padding: 0 3em 0 1.5em;
   color: var(--light-theme);
+  width: 100%;
 }
 
 .products {
   grid-area: products;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 1.5em;
 }
 
 .products__card {
   width: 300px;
-  height: 490px;
+  height: 450px;
   position: relative;
-
   margin: 10px;
   padding: 5px;
   border-left-width: 20px;
@@ -162,8 +158,7 @@ main {
   border-radius: 10px;
   box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.5);
   text-align: center;
-
-  background: url(https://source.unsplash.com/300x490);
+  background: url('https://unsplash.it/300/450?image=1');
   background-repeat: no-repeat;
 }
 
@@ -209,10 +204,9 @@ main {
 
 h3 {
   font-size: 20px;
-  font-weight: 500;
+  font-weight: 700;
   letter-spacing: 2px;
   color: var(--light-theme);
-  font-family: var(--ff-lato);
   margin-bottom: 0;
 }
 
@@ -228,8 +222,7 @@ hr {
   width: 170px;
   margin: 0 auto;
   color: var(--light-theme);
-  font-family: var(--ff-droid);
-  font-size: 13px;
+  font-size: .85em;
   font-style: italic;
   line-height: 18px;
 }
@@ -242,8 +235,6 @@ hr {
   margin: 0 auto;
   padding: 0 50px;
   color: var(--light-theme);
-  font-family: var(--ff-droid);
-  font-style: 16px;
   line-height: 24px;
   z-index: 20;
   opacity: 0;
@@ -252,7 +243,6 @@ hr {
 
 .carousel {
   grid-area: carrosel;
-  background: blue;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -262,21 +252,21 @@ hr {
 /* container for carousel images */
 .carousel-image-container {
   margin-top: 10px;
-  margin-bottom: 33vw;
+  margin-bottom: 33%;
 }
 
 /* container for carousel buttons */
 .carousel-button-container {
   display: flex;
-  display: none;
   width: 30%;
   justify-content: space-around;
+  display: none;
 }
 
 
 /* fixed image size based on view width for responsiveness */
 .carousel-image {
-  width: 30vw;
+  width: 30%;
   position: absolute;
   transition: transform 0.7s ease-in-out, right 0.7s ease-in-out, -webkit-filter 0.7s ease-in-out;
   user-select: none;
@@ -293,14 +283,14 @@ hr {
 /* rotation animation settings */
 .carousel-middle {
   transform: scale(1);
-  right: 35vw;
+  right: 35%;
   z-index: 100;
   filter: opacity(100%) blur(0px);
 }
 
 .carousel-right {
   transform: scale(.6);
-  right: 15vw;
+  right: 15%;
   box-shadow: 0 0 10px rgba(black, .5);
   z-index: 1;
   filter: opacity(80%) blur(3px);
@@ -308,14 +298,14 @@ hr {
 
 .carousel-left {
   transform: scale(.6);
-  right: 55vw;
+  right: 55%;
   z-index: 1;
   filter: opacity(80%) blur(3px);
 }
 
 .carousel-hide {
   transform: scale(.4);
-  right: 35vw;
+  right: 35%;
   z-index: 0;
   filter: opacity(0%) blur(0px);
 }
@@ -329,15 +319,15 @@ hr {
   }
 
   .carousel-image {
-    width: 60vw;
+    width: 60%;
   }
 
   .carousel-image-container {
-    margin-bottom: 65vw;
+    margin-bottom: 65%;
   }
 
   .carousel-middle {
-    right: 20vw;
+    right: 20%;
   }
 }
 
@@ -355,12 +345,12 @@ hr {
   background-position: center;
 
   /* spacing */
-  padding: 2vh 0;
+  padding: 2% 0;
 }
 
 /* adds margin and transition effect to each item */
 .cloud-item {
-  margin: 0 2vw;
+  margin: 0 2%;
   transition: transform 0.7s ease-in-out, filter 0.7s ease-in-out;
   justify-self: center;
 }
@@ -401,9 +391,7 @@ hr {
   text-align: center;
   color: var(--light-theme);
   border-radius: 2px;
-
   box-shadow: 2px 2px 3px rgb(175, 175, 175);
-
   transition: background-color 0.1s ease-in-out;
 }
 
@@ -429,38 +417,259 @@ hr {
 
 .zeitgeber {
   grid-area: zeitgeber;
-  background-color: green;
+}
+
+.blog-card {
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+  box-shadow: 0 3px 7px -1px rgba(#000, .1);
+  background: #fff;
+  line-height: 1.5;
+  font-family: sans-serif;
+  border-radius: 5px;
+  overflow: hidden;
+  z-index: 0;
+}
+      
+.meta {
+  position: relative;
+  height: 350px;
+  margin: 5px;
+}
+      
+.photo {
+  background: url('https://unsplash.it/1800/1200?image=2');   
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  /* background-size: contain; */
+  background-position: center;
+}
+      
+.description {
+  padding: 5px;
+  background: #fff;
+  position: relative;
+  z-index: 1;
+  margin: 5px;
+}
+
+.description h2 {
+  font-size: 1rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: #a2a2a2;
+  margin-top: 5px;
+}
+
+.description h1 {
+  line-height: 1;
+  margin: 0;
+  font-size: 1.7rem;
+} 
+
+.description p {
+  position: relative;
+  margin: 1rem 0 0;
+}
+ 
+.read-more {
+  text-align: right;
+}
+
+.read-more a {
+  color: #5ad67d;
+  display: inline-block;
+  position: relative;       
+}
+
+@media screen and ( min-width: 640px ) {
+  .meta {
+  flex-basis: 40%;
+  height: auto;
+  }
+
+  .description {
+    flex-basis: 60%;
+  }
+
+  .alt {
+    flex-direction: row-reverse;
+  }
 }
 
 footer {
   grid-area: footer;
   display: grid;
   grid-template:
-    ". contact ." 30em
+    ". contact ." auto
     "copyright copyright copyright" 2em
-    / 1fr auto 1fr;
+    / 1fr minmax(400px, auto) 1fr;
+  background: rgba(28, 60, 80, .50);
 }
 
 .contact {
   grid-area: contact;
-  background-color: pink;
+  color: var(--secondary-clr);
+  background: var(--light-theme);
+  width: 800px ;
+  padding: 50px;
+  margin: 100px auto;
+  border-radius: 30px;
+  position: relative;
+}
+
+.contact__title {
+  letter-spacing: 5px;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.contact__form,
+.contact__form__item {
+  width: 100%;
+}
+
+.contact__form__item {
+  position: relative;
+}
+
+.contact__form__input,
+.contact__form__msg {
+  width: 100%;
+  background: #fff;
+  border: 0;
+  outline: none;
+}
+
+.contact__form__input {
+  border-radius: 30px;
+  margin-bottom: 12px;
+  padding: 15px 40px;
+}
+
+.contact__form__input + .fas {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+}
+
+.contact__form__msg {
+  height: 125px;
+  border-radius: 15px;
+  margin-bottom: 30px;
+  padding: 15px;
+  resize: none;
+}
+
+.contact__form__btn {
+  width: 100%;
+  color: var(--light-theme);
+  background: var(--secondary-clr);
+  text-align: center;
+  padding: 12px;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.contact__form__btn:hover {
+  background: var(--secondary-clr-light);
+}
+
+.contact__form__btn .fas {
+  margin-left: 10px;
+  font-size: 12px;
+}
+
+.contact__social {
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.contact__social__facebook,
+.contact__social__twitter,
+.contact__social__google {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+}
+
+.contact__social__facebook .fab,
+.contact__social__twitter .fab,
+.contact__social__google .fab{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+}
+
+.contact__social__facebook {
+  background: #5178d9;
+}
+
+.contact__social__facebook:hover {
+  background: rgba(81, 120, 247);
+}
+
+.contact__social__twitter {
+  background: #41caf6;
+}
+
+.contact__social__twitter:hover {
+  background: rgba(65, 202, 226);
+}
+
+.contact__social__google {
+  background: #fb4f4f;
+}
+
+.contact__social__google:hover {
+  background: rgba(231, 79, 79);
 }
 
 .copyright {
   grid-area: copyright;
-  background-color: orange;
+  color: var(--light-theme);
+  background: var(--secondary-clr-light);
+  font-size: .75em;
 }
 
-.products,
 .carrosel,
 .cloud,
 .zeitgeber,
-.contact,
 .copyright {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1em;
+}
+
+.copyright {
+  justify-content: space-between;
+  padding: 0 15vw;
+}
+
+@media screen and (max-width: 800px) {
+  .contact {
+    width: auto;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .copyright {
+    padding: 0 7vw;
+  }
 }
 
 @media screen and (max-width: 800px) {

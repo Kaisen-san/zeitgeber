@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Zeitgeber Store</title>
   <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
@@ -55,7 +56,7 @@
       </article>
       <article class="products__card">
         <div class="title-content">
-          <h3>Produto 2</h3>
+          <h3>Produto 3</h3>
           <hr/>
           <div class="intro">Categoria</div>
         </div>
@@ -67,7 +68,7 @@
       </article>
       <article class="products__card">
         <div class="title-content">
-          <h3>Produto 2</h3>
+          <h3>Produto 4</h3>
           <hr/>
           <div class="intro">Categoria</div>
         </div>
@@ -79,7 +80,7 @@
       </article>
       <article class="products__card">
         <div class="title-content">
-          <h3>Produto 2</h3>
+          <h3>Produto 5</h3>
           <hr/>
           <div class="intro">Categoria</div>
         </div>
@@ -91,7 +92,7 @@
       </article>
       <article class="products__card">
         <div class="title-content">
-          <h3>Produto 2</h3>
+          <h3>Produto 6</h3>
           <hr/>
           <div class="intro">Categoria</div>
         </div>
@@ -103,7 +104,7 @@
       </article>
       <article class="products__card">
         <div class="title-content">
-          <h3>Produto 2</h3>
+          <h3>Produto 7</h3>
           <hr/>
           <div class="intro">Categoria</div>
         </div>
@@ -115,31 +116,7 @@
       </article>
       <article class="products__card">
         <div class="title-content">
-          <h3>Produto 2</h3>
-          <hr/>
-          <div class="intro">Categoria</div>
-        </div>
-        <div class="card-info">
-          <p>Breve descrição e link para compra</p>
-        </div>
-        <div class="gradient-overlay"></div>
-        <div class="color-overlay"></div>
-      </article>
-      <article class="products__card">
-        <div class="title-content">
-          <h3>Produto 2</h3>
-          <hr/>
-          <div class="intro">Categoria</div>
-        </div>
-        <div class="card-info">
-          <p>Breve descrição e link para compra</p>
-        </div>
-        <div class="gradient-overlay"></div>
-        <div class="color-overlay"></div>
-      </article>
-      <article class="products__card">
-        <div class="title-content">
-          <h3>Produto 2</h3>
+          <h3>Produto 8</h3>
           <hr/>
           <div class="intro">Categoria</div>
         </div>
@@ -152,11 +129,11 @@
     </section>
     <section class="carousel">
       <div class="carousel-image-container">
-        <img src="https://unsplash.it/500" alt="" class="carousel-image carousel-left">
-        <img src="https://unsplash.it/500" alt="" class="carousel-image carousel-middle">
-        <img src="https://unsplash.it/500" alt="" class="carousel-image carousel-right">
-        <img src="https://unsplash.it/500" alt="" class="carousel-image carousel-hide">
-        <img src="https://unsplash.it/500" alt="" class="carousel-image carousel-hide">
+        <img src="https://unsplash.it/500?image=500" alt="" class="carousel-image carousel-left">
+        <img src="https://unsplash.it/500?image=500" alt="" class="carousel-image carousel-middle">
+        <img src="https://unsplash.it/500?image=500" alt="" class="carousel-image carousel-right">
+        <img src="https://unsplash.it/500?image=500" alt="" class="carousel-image carousel-hide">
+        <img src="https://unsplash.it/500?image=500" alt="" class="carousel-image carousel-hide">
       </div>
       <div class="carousel-button-container">
         <a class="carousel-button">♦</a>
@@ -170,7 +147,7 @@
 
   <aside id="cloud" class="cloud">
     <div class="cloud-item cloud-content cloud-scroll-effect">
-      <h1>Lorem ipsum dolor sit amet consectetur adipisicing.</h1>
+      <h1>Cloud: Lorem ipsum dolor sit amet.</h1>
       <span class="cloud-hr"></span>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores vel quisquam officia porro sed excepturi laudantium laborum dolorem, aliquid delectus!</p>
       <br>
@@ -186,15 +163,57 @@
   </aside>
     
   <aside id="zeitgeber" class="zeitgeber">
-    <h1>Zeitgeber</h1>
+    <div class="blog-card alt">
+      <div class="description">
+        <h1>Zeitgeber: Lorem ipsum dolor sit amet.</h1>
+        <h2>Breve descrição</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sitLorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sit.</p>
+        <p class="read-more"><a href="#">Saiba Mais</a></p>
+      </div>
+      <div class="meta">	
+        <div class="photo"></div>
+      </div>
+    </div>
   </aside>
 
   <footer>
     <div id="contact" class="contact">
-      <h1>Contact</h1>
+      <div class="contact__title">
+        <h1>Contact Us</h1>
+      </div>
+      <form action="/contact" method="POST" class="contact__form">
+        <div class="contact__form__item">
+          <input type="text" class="contact__form__input" placeholder="Username">
+          <i class="fas fa-user"></i>
+        </div>
+        <div class="contact__form__item">
+          <input type="email" class="contact__form__input" placeholder="Email">
+          <i class="fas fa-envelope"></i>
+        </div>
+        <div class="contact__form__item">
+          <textarea class="contact__form__msg" cols="30" rows="10" placeholder="Message..."></textarea>
+        </div>
+        <div class="contact__form__item">
+          <button type="submit" class="contact__form__btn">
+            <span>Submit<i class="fas fa-arrow-right"></i></span>
+          </button>
+        </div>
+      </form>
+      <div class="contact__social">
+        <div class="contact__social__facebook">
+          <i class="fab fa-facebook-f"></i>
+        </div>
+        <div class="contact__social__twitter">
+          <i class="fab fa-twitter"></i>
+        </div>
+        <div class="contact__social__google">
+          <i class="fab fa-google-plus-g"></i>
+        </div>
+      </div>
     </div>
     <div class="copyright">
-      <p>Copyright</p>
+      <p>Tech 4 People - Todos os direitos reservados 2019</p>
+      <p>© Saturno Group</p>
     </div>
   </footer>
 
