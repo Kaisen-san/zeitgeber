@@ -29,9 +29,8 @@ const images = Array.from(document.querySelectorAll(".carousel-image"));
 const buttons = Array.from(document.querySelectorAll(".carousel-button"));
 
 // function that moves the images
-const warp = function(event, position){
+const warp = function(position){
     // makes it so the current middle image being clicked moves to the next image
-    if(Array.from(event.target.classList).includes("carousel-middle")) position++;
     if(position > images.length - 1) position = 0;
 
     // adjusts position for the other side images
@@ -53,15 +52,29 @@ const warp = function(event, position){
     images[leftPosition].classList.remove("carousel-hide");
     images[rightPosition].classList.add("carousel-right");
     images[rightPosition].classList.remove("carousel-hide");
+
+    highlight(position);
 };
+
+// highlight the button for the current image on the carousel
+const highlight = function(position){
+    buttons.forEach(btn => {
+        btn.style = "background-color: var(--light-theme);"
+    });
+    buttons[position].style = "background-color: var(--secondary-clr);"
+}
+
+// highlight the default image
+highlight(1);
 
 // add the listeners
 for (let i = 0; i < images.length; i++) {
     images[i].addEventListener("click", (event) => {
-        warp(event, i);
+        if(Array.from(event.target.classList).includes("carousel-middle")) warp(i+1);
+        else warp(i);
     });
     buttons[i].addEventListener("click", (event) => {
-        warp(event, i);
+        warp(i);
     });
 }
 

@@ -251,22 +251,23 @@ hr {
 
 /* container for carousel images */
 .carousel-image-container {
-  margin-top: 10px;
-  margin-bottom: 33%;
+  margin-top: 20px;
+  margin-bottom: 47%;
 }
 
 /* container for carousel buttons */
 .carousel-button-container {
   display: flex;
   width: 30%;
+  margin-bottom: 20px;
   justify-content: space-around;
-  display: none;
+  /* display: none; */
 }
 
 
 /* fixed image size based on view width for responsiveness */
 .carousel-image {
-  width: 30%;
+  width: 45%;
   position: absolute;
   transition: transform 0.7s ease-in-out, right 0.7s ease-in-out, -webkit-filter 0.7s ease-in-out;
   user-select: none;
@@ -276,21 +277,25 @@ hr {
 /* configurations for carousel button */
 .carousel-button {
   cursor: pointer;
-  /* border: 2px gray;
-  border-radius: 50px; */
+  user-select: none;
+  border: 1px solid var(--secondary-clr-light);
+  padding: 3px;
+  background-color: var(--secondary-clr-light);
+  border-radius: 20px;
+  transition: background-color 0.2s ease-in-out;
 }
 
 /* rotation animation settings */
 .carousel-middle {
   transform: scale(1);
-  right: 35%;
+  right: 27.5%;
   z-index: 100;
   filter: opacity(100%) blur(0px);
 }
 
 .carousel-right {
   transform: scale(.6);
-  right: 15%;
+  right: -5%;
   box-shadow: 0 0 10px rgba(black, .5);
   z-index: 1;
   filter: opacity(80%) blur(3px);
@@ -298,7 +303,7 @@ hr {
 
 .carousel-left {
   transform: scale(.6);
-  right: 55%;
+  right: 60%;
   z-index: 1;
   filter: opacity(80%) blur(3px);
 }
