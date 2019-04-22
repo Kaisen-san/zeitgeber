@@ -24,7 +24,7 @@ body {
     "header header header" 4em
     "main main main" max-content
     "cloud cloud cloud" auto
-    ". zeitgeber ." auto
+    "zeitgeber zeitgeber zeitgeber" auto
     "footer footer footer" auto
     / 1fr minmax(400px, 5fr) 1fr;
 }
@@ -422,9 +422,18 @@ hr {
 
 .zeitgeber {
   grid-area: zeitgeber;
+  /* grid set up */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  background: #fff;
+
+  /* spacing */
+  padding: 2% 0;
 }
 
-.blog-card {
+/* .blog-card {
   display: flex;
   flex-direction: column;
   margin: 5px;
@@ -451,7 +460,7 @@ hr {
   right: 0;
   bottom: 0;
   left: 0;
-  /* background-size: contain; */
+  /* background-size: contain;
   background-position: center;
 }
       
@@ -461,9 +470,9 @@ hr {
   position: relative;
   z-index: 1;
   margin: 5px;
-}
+} */
 
-.description h2 {
+.zeitgeber h2 {
   font-size: 1rem;
   font-weight: 300;
   text-transform: uppercase;
@@ -471,18 +480,18 @@ hr {
   margin-top: 5px;
 }
 
-.description h1 {
+.zeitgeber h1 {
   line-height: 1;
   margin: 0;
   font-size: 1.7rem;
 } 
 
-.description p {
+.zeitgeber p {
   position: relative;
   margin: 1rem 0 0;
 }
  
-.read-more {
+/* .read-more {
   text-align: right;
 }
 
@@ -490,10 +499,18 @@ hr {
   color: #5ad67d;
   display: inline-block;
   position: relative;       
-}
+} */
 
-@media screen and ( min-width: 640px ) {
-  .meta {
+@media only screen and ( max-width: 720px ) {
+  .zeitgeber {
+    flex-direction: column;
+  }
+
+  .cloud-content {
+    order: -1;
+  }
+
+  /* .meta {
   flex-basis: 40%;
   height: auto;
   }
@@ -504,7 +521,7 @@ hr {
 
   .alt {
     flex-direction: row-reverse;
-  }
+  } */
 }
 
 footer {
