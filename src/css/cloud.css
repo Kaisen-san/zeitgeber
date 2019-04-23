@@ -61,7 +61,7 @@
   background-color: var(--secondary-clr);
 }
 
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 768px) {
   .cloud {
     flex-direction: column;
   }

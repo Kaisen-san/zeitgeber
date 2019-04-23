@@ -2,7 +2,7 @@
   grid-area: contact;
   color: var(--secondary-clr);
   background: var(--light-theme);
-  width: 800px ;
+  width: 50% ;
   padding: 50px;
   margin: 5em auto;
   border-radius: 30px;
@@ -127,7 +127,7 @@
   background: rgba(231, 79, 79);
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 768px) {
   .contact {
     width: auto;
   }

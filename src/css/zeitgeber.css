@@ -41,7 +41,7 @@
   transform: translateX(400px);
 }
 
-@media only screen and ( max-width: 720px ) {
+@media only screen and ( max-width: 768px ) {
   .zeitgeber {
     flex-direction: column;
   }

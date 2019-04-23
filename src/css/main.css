@@ -51,22 +51,25 @@ main {
     / 1fr minmax(400px, 5fr) 1fr;
 }
 
-section,
-aside {
+section {
   padding: 5em 0;
+}
+
+aside {
+  padding: 5em 1.5em;
 }
 
 footer {
   grid-area: footer;
   display: grid;
   grid-template:
-    ". contact ." auto
+    "contact contact contact" auto
     "copyright copyright copyright" 2em
     / 1fr minmax(400px, auto) 1fr;
   /* background: rgba(28, 60, 80, .50); */
 }
 
-@media screen and (max-width: 800px) {
+@media (max-width: 768px) {
   header {
     display: flex;
     align-items: center;
