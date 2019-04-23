@@ -1,6 +1,8 @@
 const carousel = ( imgArr, btnArr, idx ) => {
   imgArr.forEach( e => e.classList.remove( 'carousel-left', 'carousel-middle', 'carousel-right', 'carousel-hide' ) );
 
+  idx = ( idx === imgArr.length ) ? 0 : idx;
+
   let leftIdx = ( idx - 1 === -1 ) ? imgArr.length - 1 : idx - 1;
   let rightIdx = ( idx + 1 === imgArr.length ) ? 0 : idx + 1;
 
