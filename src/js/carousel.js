@@ -24,7 +24,10 @@ const buttonsArr = Array.from( document.querySelectorAll('.carousel-button') );
 
 imagesArr.forEach( ( img, idx ) => {
   img.addEventListener( 'click', evt => {
-    carousel( imagesArr, buttonsArr, idx );
+    const i =
+      Array.from(evt.target.classList).includes('carousel-middle') ? idx + 1 : idx;
+
+    carousel( imagesArr, buttonsArr, i );
   });
 });
 
