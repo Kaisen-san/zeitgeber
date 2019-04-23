@@ -1,0 +1,16 @@
+.copyright {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15vw;
+  grid-area: copyright;
+  color: var(--light-theme);
+  background: var(--secondary-clr-light);
+  font-size: .75em;
+}
+
+@media screen and (max-width: 800px) {
+  .copyright {
+    padding: 0 7vw;
+  }
+}

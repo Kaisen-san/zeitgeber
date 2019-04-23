@@ -1,0 +1,52 @@
+.zeitgeber {
+  grid-area: zeitgeber;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  /* set a gradient background in the cloud section */
+  background-image: linear-gradient(rgba(50, 50, 50, 0.05), rgba(153, 214, 255, 0.25), rgba(15, 10, 10, 0.05));
+  background-size: cover;
+  background-position: center;
+  overflow-x: hidden;
+}
+
+.zeitgeber h2 {
+  font-size: 1rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: #a2a2a2;
+  margin-top: 5px;
+}
+
+.zeitgeber h1 {
+  line-height: 1;
+  margin: 0;
+  font-size: 1.7rem;
+}
+
+.zeitgeber p {
+  position: relative;
+  margin: 1rem 0 0;
+}
+
+.zeitgeber-item {
+  margin: 0 2%;
+  transition: transform 0.7s ease-in-out, filter 0.7s ease-in-out;
+  justify-self: center;
+}
+
+/* scroll effect so the items fade in from the left */
+.zeitgeber-scroll-effect {
+  filter: opacity(0);
+  transform: translateX(400px);
+}
+
+@media only screen and ( max-width: 720px ) {
+  .zeitgeber {
+    flex-direction: column;
+  }
+
+  .zeitgeber-item {
+    padding-bottom: 1.5em;
+  }
+}

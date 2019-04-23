@@ -1,229 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Zeitgeber Store</title>
-  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
-  <link rel="stylesheet" href="/css/style.css">
+  <%- include('partials/head') %>
 </head>
 <body>
   <header>
-    <a class="logo" href="#"><img class="logo__img" src="/img/tech4people.svg" alt="Tech4People"></a>
-    <input type="checkbox" id="nav-toggle" class="nav-toggle"> 
-    <label for="nav-toggle" class="nav-toggle__label"><span></span></label>
-    <nav>
-      <ul>
-        <li><a href="#products">Produtos</a></li>
-        <li><a href="#cloud">Cloud</a></li>
-        <li><a href="#zeitgeber">Zeitgeber</a></li>
-        <li><a href="#contact">Contato</a></li>
-        <li><a href="/signin">Entrar</a></li>
-      </ul>
-    </nav>
+    <%- include('partials/navbar') %>
   </header>
 
   <main>
-    <section class="hero">
-      <h1 class="hero__title">Lorem ipsum dolor sit amet.</h1>
-    </section>
-    <section id="products" class="products">
-      <article class="products__card">
-        <div class="title-content">
-          <h3>Bioimpedância</h3>
-          <hr/>
-          <div class="intro">Categoria</div>
-        </div>
-        <div class="card-info">
-          <p>Breve descrição e link para compra</p>
-        </div>
-        <div class="gradient-overlay"></div>
-        <div class="color-overlay"></div>
-      </article>
-      <article class="products__card">
-        <div class="title-content">
-          <h3>EEG</h3>
-          <hr/>
-          <div class="intro">Eletroencefalôgrafo</div>
-        </div>
-        <div class="card-info">
-          <p>Breve descrição e link para compra</p>
-        </div>
-        <div class="gradient-overlay"></div>
-        <div class="color-overlay"></div>
-      </article>
-      <article class="products__card">
-        <div class="title-content">
-          <h3>Hórus</h3>
-          <hr/>
-          <div class="intro">Actígrafo</div>
-        </div>
-        <div class="card-info">
-          <p>Breve descrição e link para compra</p>
-        </div>
-        <div class="gradient-overlay"></div>
-        <div class="color-overlay"></div>
-      </article>
-      <article class="products__card">
-        <div class="title-content">
-          <h3>NIRS</h3>
-          <hr/>
-          <div class="intro">Categoria</div>
-        </div>
-        <div class="card-info">
-          <p>Breve descrição e link para compra</p>
-        </div>
-        <div class="gradient-overlay"></div>
-        <div class="color-overlay"></div>
-      </article>
-      <article class="products__card">
-        <div class="title-content">
-          <h3>Oxígrafo</h3>
-          <hr/>
-          <div class="intro">Categoria</div>
-        </div>
-        <div class="card-info">
-          <p>Breve descrição e link para compra</p>
-        </div>
-        <div class="gradient-overlay"></div>
-        <div class="color-overlay"></div>
-      </article>
-      <article class="products__card">
-        <div class="title-content">
-          <h3>Plataforma de Força</h3>
-          <hr/>
-          <div class="intro">Categoria</div>
-        </div>
-        <div class="card-info">
-          <p>Breve descrição e link para compra</p>
-        </div>
-        <div class="gradient-overlay"></div>
-        <div class="color-overlay"></div>
-      </article>
-    </section>
-    <section class="carousel">
-      <div class="carousel-image-container">
-        <img src="/img/ca-01.jpg" alt="" class="carousel-image carousel-hide">
-        <img src="/img/ca-02.jpg" alt="" class="carousel-image carousel-hide">
-        <img src="/img/ca-03.jpg" alt="" class="carousel-image carousel-hide">
-        <img src="/img/ca-04.jpg" alt="" class="carousel-image carousel-hide">
-        <img src="/img/ca-05.jpg" alt="" class="carousel-image carousel-hide">
-        <img src="/img/ca-06.jpg" alt="" class="carousel-image carousel-hide">
-        <img src="/img/ca-07.jpg" alt="" class="carousel-image carousel-hide">
-        <img src="/img/ca-08.jpg" alt="" class="carousel-image carousel-hide">
-        <img src="/img/ca-09.jpg" alt="" class="carousel-image carousel-left">
-        <img src="/img/ca-10.jpg" alt="" class="carousel-image carousel-middle">
-        <img src="/img/ca-11.jpg" alt="" class="carousel-image carousel-right">
-        <img src="/img/ca-12.jpg" alt="" class="carousel-image carousel-hide">
-        <img src="/img/ca-13.jpg" alt="" class="carousel-image carousel-hide">
-        <img src="/img/ca-14.jpg" alt="" class="carousel-image carousel-hide">
-        <img src="/img/ca-15.jpg" alt="" class="carousel-image carousel-hide">
-        <img src="/img/ca-16.jpg" alt="" class="carousel-image carousel-hide">
-        <img src="/img/ca-17.jpg" alt="" class="carousel-image carousel-hide">
-        <img src="/img/ca-18.jpg" alt="" class="carousel-image carousel-hide">
-        <img src="/img/ca-19.jpg" alt="" class="carousel-image carousel-hide">
-        <img src="/img/ca-20.jpg" alt="" class="carousel-image carousel-hide">
-      </div>
-      <div class="carousel-button-container">
-        <a class="carousel-button"></a>
-        <a class="carousel-button"></a>
-        <a class="carousel-button"></a>
-        <a class="carousel-button"></a>
-        <a class="carousel-button"></a>
-        <a class="carousel-button"></a>
-        <a class="carousel-button"></a>
-        <a class="carousel-button"></a>
-        <a class="carousel-button"></a>
-        <a class="carousel-button carousel-button-active"></a>
-        <a class="carousel-button"></a>
-        <a class="carousel-button"></a>
-        <a class="carousel-button"></a>
-        <a class="carousel-button"></a>
-        <a class="carousel-button"></a>
-        <a class="carousel-button"></a>
-        <a class="carousel-button"></a>
-        <a class="carousel-button"></a>
-        <a class="carousel-button"></a>
-        <a class="carousel-button"></a>
-      </div>
-    </section>
+    <%- include('partials/hero') %>
+
+    <%- include('partials/products') %>
+
+    <%- include('partials/carousel') %>
   </main>
 
-  <aside id="cloud" class="cloud">
-    <div class="cloud-item cloud-content cloud-scroll-effect">
-      <h1>Cloud: Lorem ipsum dolor sit amet.</h1>
-      <span class="cloud-hr"></span>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores vel quisquam officia porro sed excepturi laudantium laborum dolorem, aliquid delectus!</p>
-      <br>
-      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem voluptatem molestias cupiditate repudiandae officiis error earum ipsam qui dicta voluptates dolorem aut cumque officia consectetur repellendus, sequi suscipit, eaque maiores?</p>
-      <br>
-      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime quidem aspernatur velit tempore recusandae! Eius ut sed ipsum dicta neque commodi beatae, aut aliquam quas velit voluptate vitae ab necessitatibus ullam ratione! Quod nostrum illum magnam dolorum, corporis quisquam odit.</p>
-      <br>
-      <a class="cloud-button">Saiba Mais</a>
-    </div>
-    <div class="cloud-item cloud-scroll-effect">
-      <img src="/img/pg-cloud.png" alt="" class="cloud-image">
-    </div>
-  </aside>
-    
-  <aside id="zeitgeber" class="zeitgeber">
-    <div class="zeitgeber-item zeitgeber-scroll-effect">	
-      <img src="/img/pg-zeitgeber.png" alt="" class="cloud-image">
-    </div>
-    <div class="zeitgeber-item cloud-content zeitgeber-scroll-effect">
-      <h1>Zeitgeber: Lorem ipsum dolor sit amet.</h1>
-      <span class="cloud-hr"></span>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores vel quisquam officia porro sed excepturi laudantium laborum dolorem, aliquid delectus!</p>
-      <br>
-      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem voluptatem molestias cupiditate repudiandae officiis error earum ipsam qui dicta voluptates dolorem aut cumque officia consectetur repellendus, sequi suscipit, eaque maiores?</p>
-      <br>
-      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime quidem aspernatur velit tempore recusandae! Eius ut sed ipsum dicta neque commodi beatae, aut aliquam quas velit voluptate vitae ab necessitatibus ullam ratione! Quod nostrum illum magnam dolorum, corporis quisquam odit.</p>
-      <br>
-      <a class="cloud-button">Saiba Mais</a>
-    </div>
-  </aside>
+  <%- include('partials/cloud') %>
+
+  <%- include('partials/zeitgeber') %>
 
   <footer>
-    <div id="contact" class="contact">
-      <div class="contact__title">
-        <h1>Contact Us</h1>
-      </div>
-      <form action="/contact" method="POST" class="contact__form">
-        <div class="contact__form__item">
-          <input type="text" class="contact__form__input" placeholder="Username">
-          <i class="fas fa-user"></i>
-        </div>
-        <div class="contact__form__item">
-          <input type="email" class="contact__form__input" placeholder="Email">
-          <i class="fas fa-envelope"></i>
-        </div>
-        <div class="contact__form__item">
-          <textarea class="contact__form__msg" cols="30" rows="10" placeholder="Message..."></textarea>
-        </div>
-        <div class="contact__form__item">
-          <button type="submit" class="contact__form__btn">
-            <span>Submit<i class="fas fa-arrow-right"></i></span>
-          </button>
-        </div>
-      </form>
-      <div class="contact__social">
-        <div class="contact__social__facebook">
-          <i class="fab fa-facebook-f"></i>
-        </div>
-        <div class="contact__social__twitter">
-          <i class="fab fa-twitter"></i>
-        </div>
-        <div class="contact__social__google">
-          <i class="fab fa-google-plus-g"></i>
-        </div>
-      </div>
-    </div>
-    <div class="copyright">
-      <p>Tech 4 People - Todos os direitos reservados 2019</p>
-      <p>© Saturno Group</p>
-    </div>
+    <%- include('partials/contact') %>
+
+    <%- include('partials/copyright') %>
   </footer>
 
   <script src="/js/index.js"></script>
