@@ -5,26 +5,18 @@
   justify-content: center;
   flex-direction: column;
   position: relative;
-  /* set a gradient background in the cloud section */
-  background-image: linear-gradient(rgba(50, 50, 50, 0.05), rgba(153, 214, 255, 0.25), rgba(50, 50, 50, 0.05));
-  background-size: cover;
-  background-position: center;
 }
 
-/* container for carousel images */
 .carousel-image-container {
   margin-bottom: 30%;
 }
 
-/* container for carousel buttons */
 .carousel-button-container {
   display: flex;
   width: 30%;
   justify-content: space-around;
-  /* display: none; */
 }
 
-/* fixed image size based on view width for responsiveness */
 .carousel-image {
   width: 40%;
   position: absolute;
@@ -33,7 +25,6 @@
   -webkit-user-drag: none;
 }
 
-/* configurations for carousel button */
 .carousel-button {
   cursor: pointer;
   user-select: none;
@@ -48,7 +39,6 @@
   background-color: var(--secondary-clr-light);
 }
 
-/* rotation animation settings */
 .carousel-middle {
   transform: scale(1);
   right: 30%;
@@ -78,7 +68,6 @@
   filter: opacity(0%) blur(0px);
 }
 
-/* responsiveness to adjust the images */
 @media (max-width: 1023.98px) {
   .carousel-left,
   .carousel-right {
