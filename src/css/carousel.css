@@ -49,7 +49,6 @@
 .carousel-right {
   transform: scale(.6);
   right: 0%;
-  box-shadow: 0 0 10px rgba(black, .5);
   z-index: 1;
   filter: opacity(80%) blur(3px);
 }
