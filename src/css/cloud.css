@@ -1,35 +1,44 @@
-/* sets up the entire cloud section */
 .cloud {
   grid-area: cloud;
   display: flex;
   align-items: center;
   justify-content: space-around;
+  background-image: linear-gradient(rgba(50, 50, 50, 0.05), rgba(153, 214, 255, 0.25), rgba(50, 50, 50, 0.05));
+  background-size: cover;
+  background-position: center;
 }
 
-/* adds margin and transition effect to each item */
+.cloud h1 {
+  font-size: 3em;
+  letter-spacing: 1px;
+}
+
+.cloud p {
+  position: relative;
+  margin-top: 1.1em;
+  line-height: 1.2em;
+  letter-spacing: 1px;
+}
+
 .cloud-item {
   margin: 0 2%;
   transition: transform 0.7s ease-in-out, filter 0.7s ease-in-out;
   justify-self: center;
 }
 
-/* stylized line between h1 and paragraphs */
 .cloud-hr {
   display: block;
   margin: 10px;
   height: 4px;
-
   background-image: linear-gradient(270deg, rgba(0, 0, 0, 0), var(--primary-clr-light), rgba(0, 0, 0, 0));
 }
 
-/* adjust image so it doesn't blow out of the section */
 .cloud-image {
   display: block;
   object-fit: cover;
   width: 100%;
 }
 
-/* scroll effect so the items fade in from the left */
 .cloud-scroll-effect {
   filter: opacity(0);
   transform: translateX(-400px);
@@ -37,14 +46,12 @@
 
 .cloud-button {
   display: block;
-  margin: 10px 35% 0 35%;
+  margin: 2.5em auto 0;
   max-width: 20%;
   padding: 10px 0px;
-
   text-decoration: none;
   cursor: pointer;
   user-select: none;
-
   background-color: var(--secondary-clr);
   text-align: center;
   color: var(--light-theme);
@@ -61,22 +68,30 @@
   background-color: var(--secondary-clr);
 }
 
-@media only screen and (max-width: 768px) {
+@media (max-width: 1023.98px) {
+  .cloud h1 {
+    font-size: 2em;
+  }
+
+  .cloud-image {
+    height: 400px;
+  }
+
+  .cloud-button {
+    max-width: 30%;
+  }
+}
+
+@media (max-width: 768px) {
   .cloud {
     flex-direction: column;
   }
 
-  /* adjust button size */
   .cloud-button {
-    margin: 10px 30% 1.5em 30%;
-    max-width: 30%;
+    margin-bottom: 2.5em;
   }
 
-  .cloud-content {
-    order: -1;
-  }
-
-  .cloud-item.cloud-content {
-    padding-bottom: 1.5em;
+  .cloud-image {
+    height: auto;
   }
 }

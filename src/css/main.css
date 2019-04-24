@@ -24,6 +24,7 @@ body {
     "header header header" 4em
     "main main main" max-content
     "cloud cloud cloud" auto
+    "carrosel carrosel carrosel" auto
     "zeitgeber zeitgeber zeitgeber" auto
     "footer footer footer" auto
     / 1fr minmax(400px, 5fr) 1fr;
@@ -32,7 +33,7 @@ body {
 header {
   grid-area: header;
   display: grid;
-  grid-template-columns: 1fr [img-start] auto [img-end] 1fr [nav-start] minmax(400px, 3fr) [nav-end] 1fr;
+  grid-template-columns: 1fr [img-start] auto [img-end] 1fr [nav-start] minmax(600px, 3fr) [nav-end] 1fr;
   background: var(--light-theme);
   text-align: center;
   position: fixed;
@@ -47,7 +48,6 @@ main {
   grid-template:
     "hero hero hero" 80vh
     ". products ." max-content
-    "carrosel carrosel carrosel" auto
     / 1fr minmax(400px, 5fr) 1fr;
 }
 
@@ -69,7 +69,7 @@ footer {
   /* background: rgba(28, 60, 80, .50); */
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1023.98px) {
   header {
     display: flex;
     align-items: center;
