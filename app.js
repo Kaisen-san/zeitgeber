@@ -14,6 +14,14 @@ app.get('/', (req, res, next) => {
   res.render('index');
 });
 
+app.get('/login', (req, res, next) => {
+  res.redirect('/');
+});
+
+app.post('/contact', (req, res, next) => {
+  res.redirect('/');
+});
+
 
 app.listen(port, (err) => {
   if (err) {
