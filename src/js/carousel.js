@@ -1,4 +1,4 @@
-const carousel = ( imgArr, btnArr, idx ) => {
+const animateCarousel = ( imgArr, btnArr, idx ) => {
   imgArr.forEach( e => e.classList.remove( 'carousel-left', 'carousel-middle', 'carousel-right', 'carousel-hide' ) );
 
   idx = ( idx === imgArr.length ) ? 0 : idx;
@@ -29,12 +29,12 @@ imagesArr.forEach( ( img, idx ) => {
     const i =
       Array.from(evt.target.classList).includes('carousel-middle') ? idx + 1 : idx;
 
-    carousel( imagesArr, buttonsArr, i );
+    animateCarousel( imagesArr, buttonsArr, i );
   });
 });
 
 buttonsArr.forEach( ( btn, idx ) => {
   btn.addEventListener( 'click', evt => {
-    carousel( imagesArr, buttonsArr, idx );
+    animateCarousel( imagesArr, buttonsArr, idx );
   });
 });
