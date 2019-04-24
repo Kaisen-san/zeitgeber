@@ -4,7 +4,6 @@
   place-items: center;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   grid-gap: 1.5em;
-  cursor: pointer;
 }
 
 .products__card:nth-of-type(1) {
@@ -60,6 +59,7 @@
   border-radius: 10px;
   box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.5);
   text-align: center;
+  cursor: pointer;
 }
 
 .products__card .color-overlay {
