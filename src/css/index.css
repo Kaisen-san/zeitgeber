@@ -68,7 +68,7 @@ footer {
   display: grid;
   grid-template:
     "contact contact contact" auto
-    "copyright copyright copyright" 2em
+    "copyright copyright copyright" auto
     / 1fr minmax(400px, auto) 1fr;
   /* background: rgba(28, 60, 80, .50); */
 }
