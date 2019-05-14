@@ -24,7 +24,7 @@
 }
 
 .copyright__maua {
-  height: 56px;
+  height: 55px;
   /* width: 90px; */
   padding-right: 15px;
 }
@@ -37,11 +37,19 @@
 
 .copyright__github {
   height: 14px;
+  margin-right: 3px;
+}
+
+.copyright__developed {
+  margin-bottom: 4px;
 }
 
 .copyright__member {
   text-decoration: none;
   color: var(--light-theme);
+  display: flex;
+  align-items: center;
+  margin-bottom: 2px;
 }
 
 @media screen and (max-width: 768px) {
