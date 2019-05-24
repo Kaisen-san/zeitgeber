@@ -4,10 +4,17 @@ const mincss = require('gulp-clean-css');
 const tinify = require('gulp-tinifier');
 const minjs = require('gulp-jsmin');
 
-gulp.task('min-css', async () => {
-  return gulp.src('src/css/*.css')
+gulp.task('min-css-main', async () => {
+  return gulp.src('src/css/main/*.css')
     .pipe(mincss())
     .pipe(concat('main.css'))
+    .pipe(gulp.dest('public/css'));
+});
+
+gulp.task('min-css-product', async () => {
+  return gulp.src('src/css/product/*.css')
+    .pipe(mincss())
+    .pipe(concat('product.css'))
     .pipe(gulp.dest('public/css'));
 });
 
@@ -35,10 +42,11 @@ gulp.task('comp-imgs', async () => {
 });
 
 gulp.task('watch', async () => {
-  gulp.watch('src/css/*.css', gulp.parallel('min-css'));
+  gulp.watch('src/css/main/*.css', gulp.parallel('min-css-main'));
+  gulp.watch('src/css/product/*.css', gulp.parallel('min-css-product'));
   gulp.watch('src/js/*.js', gulp.parallel('min-js'));
   gulp.watch('src/img/*.{ico,svg,jpeg}', gulp.parallel('cpy-noncomp-imgs'));
   // gulp.watch('src/img/*.{png,jpg}', gulp.parallel('comp-imgs'));
 });
 
-gulp.task('default', gulp.parallel('min-css', 'min-js', 'cpy-noncomp-imgs', 'comp-imgs', 'watch'));
+gulp.task('default', gulp.parallel('min-css-main', 'min-css-product', 'min-js', 'cpy-noncomp-imgs', 'comp-imgs', 'watch'));

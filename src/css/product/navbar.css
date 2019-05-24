@@ -1,0 +1,142 @@
+nav {
+  grid-column: nav-start / nav-end;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav li {
+  margin-left: 1.5em;
+}
+
+nav a {
+  position: relative;
+  color: var(--secondary-clr);
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+nav a:hover {
+  color: var(--primary-clr);
+}
+
+nav a::before {
+  content: '';
+  display: block;
+  height: 5px;
+  background: var(--primary-clr);
+  position: absolute;
+  top: -.75em;
+  left: 0;
+  right: 0;
+  transform: scale(0, 1);
+  transition: transform 250ms ease-in-out;
+}
+
+nav a:hover::before {
+  transform: scale(1, 1);
+}
+
+.logo {
+  grid-column: img-start / img-end;
+  height: inherit;
+}
+
+.logo__img {
+  width: 8em;
+  height: inherit;
+}
+
+.nav-toggle {
+  display: none;
+}
+
+.nav-toggle__label {
+  display: none;
+}
+
+@media screen and (max-width: 1023.98px) {
+  nav {
+    display: block;
+    position: absolute;
+    text-align: left;
+    top: 100%;
+    left: 0;
+    background: var(--light-theme);
+    width: 100%;
+    transform: scale(1, 0);
+    transform-origin: top;
+    transition: transform 400ms ease-in-out;
+  }
+
+  nav ul {
+    display: block;
+  }
+
+  nav li {
+    margin-left: 1em;
+    margin-bottom: 1em;
+  }
+
+  nav a {
+    opacity: 0;
+    transition: opacity 150ms ease-in-out;
+  }
+
+  nav a::before {
+    all: unset;
+  }
+
+  .nav-toggle:checked ~ nav {
+    transform: scale(1, 1);
+  }
+
+  .nav-toggle:checked ~ nav a {
+    opacity: 1;
+    transition: opacity 250ms ease-in-out 250ms;
+  }
+
+  .nav-toggle__label {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    text-align: left;
+    top: 0;
+    left: 0;
+    margin-left: 1em;
+    height: 100%;
+  }
+
+  .nav-toggle__label span,
+  .nav-toggle__label span::before,
+  .nav-toggle__label span::after {
+    display: block;
+    position: relative;
+    background: var(--secondary-clr);
+    height: 2px;
+    width: 2em;
+    border-radius: 2px;
+  }
+
+  .nav-toggle__label span::before,
+  .nav-toggle__label span::after {
+    content: '';
+    position: absolute;
+  }
+
+  .nav-toggle__label span::before {
+    bottom: 7px;
+  }
+
+  .nav-toggle__label span::after {
+    top: 7px;
+  }
+}

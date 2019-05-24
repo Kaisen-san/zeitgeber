@@ -14,6 +14,10 @@ app.get('/', (req, res, next) => {
   res.render('index');
 });
 
+app.get('/product', (req, res, next) => {
+  res.render('products');
+});
+
 app.get('/login', (req, res, next) => {
   res.redirect('/');
 });
