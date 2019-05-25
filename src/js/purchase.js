@@ -14,21 +14,28 @@ allImages.forEach(e => e.addEventListener( 'click', evt => {
 const zoomImage = document.querySelector(".purchase-zoom-image");
 const zoomElement = document.querySelector(".purchase-zoom");
 
-const zoomIn = (zoomImg, zoomDisplay, zoomContainer) => {
-    zoomContainer.classList.toggle("purchase-zoom-active");
-    zoomDisplay.src = zoomImg.src;
-    document.body.classList.add("purchase-lock");
-}
-
-const zoomOut = (zoomContainer) => {
-    zoomContainer.classList.toggle("purchase-zoom-active");
-    document.body.classList.remove("purchase-lock");
+const toggleOverlay = (overlayContainer) => {
+    overlayContainer.classList.toggle("purchase-overlay");
+    document.body.classList.toggle("purchase-lock");
 }
 
 selectedImage.addEventListener( 'click', evt => {
-    zoomIn(selectedImage, zoomImage, zoomElement);
+    toggleOverlay(zoomElement);
+    zoomImage.src = selectedImage.src;
 });
 
 zoomElement.addEventListener( 'click', evt => {
-    zoomOut(zoomElement);
+    toggleOverlay(zoomElement);
+});
+
+const buyButton = document.querySelector(".purchase-send");
+const buyElement = document.querySelector(".purchase-buy");
+const buyOverlayHide = document.querySelector(".purchase-cancel");
+
+buyButton.addEventListener( 'click', evt => {
+    toggleOverlay(buyElement);
+});
+
+buyOverlayHide.addEventListener( 'click', evt => {
+    toggleOverlay(buyElement);
 });

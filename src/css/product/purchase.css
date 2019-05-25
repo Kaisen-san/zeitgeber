@@ -34,23 +34,6 @@
     border-color: rgb(56, 56, 56);
 }
 
-.purchase-zoom {
-    display: none;
-}
-
-.purchase-zoom-active {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    cursor: zoom-out;
-    z-index: 10000;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(56, 56, 56, 0.7);
-}
-
 .purchase-zoom-image {
     max-height: 85%;
 }
@@ -108,4 +91,49 @@
 
 .purchase-send:active {
     background-color: var(--secondary-clr);
+}
+
+.purchase-contact {
+    color: white;
+    font-size: 2em;
+}
+
+.purchase-zoom, .purchase-buy {
+    display: none;
+}
+
+.purchase-zoom {
+    cursor: zoom-out;
+}
+
+.purchase-overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 10000;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(56, 56, 56, 0.7);
+}
+
+.purchase-cancel {
+    margin-right: 10px;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    right: 0;
+    font-size: 5em;
+    color: white;
+}
+
+@media screen and (max-width: 1024px) {
+    .purchase {
+        flex-direction: column;
+    }
+
+    .purchase-images, .purchase-options {
+        width: 100%;
+    }
 }
