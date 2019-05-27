@@ -86,7 +86,9 @@ const slideMove = (evt) => {
 }
 
 imagesElement.addEventListener( 'mousedown', evt => {
-    slideStart(evt);
+    isDown = true;
+    // determines an offset comparing current position and where the user clicked
+    offsetX = evt.clientX - currentPosition;
 });
 
 imagesElement.addEventListener( 'mouseup', evt => {
@@ -94,17 +96,29 @@ imagesElement.addEventListener( 'mouseup', evt => {
 });
 
 imagesElement.addEventListener( 'mousemove', evt => {
-    slideMove(evt);
+    if (isDown) {
+        imageSlider.style.transform = "translateX(" + (evt.clientX - offsetX) + "px)";
+        currentPosition = evt.clientX - offsetX;
+    }
 });
 
-imagesElement.addEventListener( 'touchdown', evt => {
-    slideStart();
+// optimize mobile handling -> slow as hell for some reason
+// also glitches out when tapping once after you slide it to the left?
+
+imagesElement.addEventListener( 'touchstart', evt => {
+    isDown = true;
+    // determines an offset comparing current position and where the user clicked
+    console.log(evt.touches[0].clientX);    
+    offsetX = evt.touches[0].clientX - currentPosition;
 });
 
-imagesElement.addEventListener( 'touchup', evt => {
+imagesElement.addEventListener( 'touchend', evt => {
     slideEnd();
 });
 
 imagesElement.addEventListener( 'touchmove', evt => {
-    slideMove();
+    if (isDown) {
+        imageSlider.style.transform = "translateX(" + (evt.changedTouches[0].clientX - offsetX) + "px)";
+        currentPosition = evt.changedTouches[0].clientX - offsetX;
+    }
 });
