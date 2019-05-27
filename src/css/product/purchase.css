@@ -10,13 +10,22 @@
     flex-direction: column;
     width: 55%;
     margin-right: 5%;
+    
+    cursor: grab;
+}
+
+.purchase-slider {
+    display: flex;
+    align-items: flex-start;
+    
+    transition: transform 0.05s ease-in-out;
 }
 
 .purchase-image-list {
-    display: flex;
+    overflow-x: hidden;
     margin-top: 10px;
-    justify-content: space-between;
-    align-items: flex-start;
+    border: 3px solid var(--light-theme);
+    background-color: var(--light-theme);
 }
 
 .purchase-image-display {
@@ -27,7 +36,12 @@
 .purchase-image-unselected {
     width: 18%;
     padding: 2px;
+    margin-right: 2.5%;
     border: 2px solid rgb(180, 180, 180);
+
+    user-select: none;
+    -webkit-user-drag: none;
+    cursor: pointer;
 }
 
 .purchase-image-selected {

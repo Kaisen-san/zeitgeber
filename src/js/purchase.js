@@ -42,3 +42,69 @@ buyButton.addEventListener( 'click', evt => {
 buyOverlayHide.addEventListener( 'click', evt => {
     toggleOverlay(buyElement);
 });
+
+// Dragging the image slider
+const imagesElement = document.querySelector(".purchase-image-list");
+const imageSlider = document.querySelector(".purchase-slider");
+let isDown = false;
+let offsetX = 0;
+let currentPosition = 0;
+let initialPosition = allImages[0].getBoundingClientRect().left;
+
+const slideStart = (evt) => {
+    isDown = true;
+    // determines an offset comparing current position and where the user clicked
+    offsetX = evt.clientX - currentPosition;
+}
+
+// this requires a bit clearer code
+const slideEnd = () => {
+    isDown = false;
+    // how to do this without jQuery?
+    let imageWidth = $(allImages[0]).outerWidth(true);
+    // current X position of first image
+    let currFirstPos = allImages[0].getBoundingClientRect().left;
+    // which image to snap to
+    let snapPosition = (currFirstPos > initialPosition) ?
+        0 : Math.floor((currFirstPos - initialPosition) / imageWidth);
+    // set current position to where it'll snap to
+    if (allImages.length < 5)
+        currentPosition = 0;
+    else if (-snapPosition > allImages.length - 5)
+        currentPosition = -(allImages.length - 5) * imageWidth;
+    else
+        currentPosition = snapPosition * imageWidth;
+
+    imageSlider.style.transform = "translateX(" + currentPosition + "px)";
+}
+
+const slideMove = (evt) => {
+    if (isDown) {
+        imageSlider.style.transform = "translateX(" + (evt.clientX - offsetX) + "px)";
+        currentPosition = evt.clientX - offsetX;
+    }
+}
+
+imagesElement.addEventListener( 'mousedown', evt => {
+    slideStart(evt);
+});
+
+imagesElement.addEventListener( 'mouseup', evt => {
+    slideEnd();
+});
+
+imagesElement.addEventListener( 'mousemove', evt => {
+    slideMove(evt);
+});
+
+imagesElement.addEventListener( 'touchdown', evt => {
+    slideStart();
+});
+
+imagesElement.addEventListener( 'touchup', evt => {
+    slideEnd();
+});
+
+imagesElement.addEventListener( 'touchmove', evt => {
+    slideMove();
+});
