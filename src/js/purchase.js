@@ -1,3 +1,4 @@
+// Change currently selected image
 const allImages = Array.from( document.getElementsByClassName("purchase-image-unselected") );
 const selectedImage = document.querySelector(".purchase-image-display");
 
@@ -11,6 +12,7 @@ allImages.forEach(e => e.addEventListener( 'click', evt => {
     changeImage(allImages, selectedImage, e);
 }));
 
+// Zoom when clicking selected image
 const zoomImage = document.querySelector(".purchase-zoom-image");
 const zoomElement = document.querySelector(".purchase-zoom");
 
@@ -28,6 +30,7 @@ zoomElement.addEventListener( 'click', evt => {
     toggleOverlay(zoomElement);
 });
 
+// Open up overlay to continue purchase (sending email)
 const buyButton = document.querySelector(".purchase-send");
 const buyElement = document.querySelector(".purchase-buy");
 const buyOverlayHide = document.querySelector(".purchase-cancel");
