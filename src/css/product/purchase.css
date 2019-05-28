@@ -1,24 +1,29 @@
 .purchase {
     grid-area: purchase;
     display: flex;
-    width: 90%;
+    width: 80%;
     margin: 20px 5%;
 }
 
 .purchase-images {
     display: flex;
     flex-direction: column;
-    width: 55%;
+    width: 50%;
     margin-right: 5%;
     
     cursor: grab;
 }
 
 .purchase-slider {
+    width: 100%;
     display: flex;
     align-items: flex-start;
     
-    transition: transform 0.05s ease-in-out;
+    transition: transform 0.2s ease-in-out;
+}
+
+.purchase-slider:active {
+    transition: transform 0s ease-in-out;
 }
 
 .purchase-image-list {
@@ -31,12 +36,13 @@
 .purchase-image-display {
     width: 100%;
     cursor: zoom-in;
+    user-select: none;
+    -webkit-user-drag: none;
 }
 
 .purchase-image-unselected {
-    width: 18%;
-    padding: 2px;
-    margin-right: 2.5%;
+    width: 20%;
+    /* padding-right: 2.5%; */
     border: 2px solid rgb(180, 180, 180);
 
     user-select: none;
@@ -57,7 +63,7 @@
 }
 
 .purchase-options {
-    width: 40%;
+    width: 45%;
 }
 
 .purchase-form {
@@ -72,6 +78,14 @@
 
 .purchase-description {
     font-size: 1.2em;
+}
+
+.purchase-hr {
+    border: 0;
+    display: block;
+    margin: 10px;
+    height: 4px;
+    background-image: linear-gradient(270deg, rgba(0, 0, 0, 0), var(--primary-clr-light), rgba(0, 0, 0, 0));
 }
 
 .purchase-option {
@@ -98,6 +112,7 @@
     width: 20px;
     background-color: #eee;
     border-radius: 2px;
+    transition: background-color 0.2s ease-in-out;
 }
 
 .purchase-checkbox:hover {
@@ -105,11 +120,11 @@
 }
 
 .purchase-input:checked ~ .purchase-checkbox {
-    background-color: #2196F3;
+    background-color: var(--primary-clr-light);
 }
 
 .purchase-input:checked + .purchase-checkbox:hover {
-    background-color: rgb(26, 125, 206);
+    background-color: var(--primary-clr);
 }
 
 .purchase-checkbox:after {
@@ -134,7 +149,7 @@
 .purchase-send {
     display: block;
     margin: 2.5em 0;
-    width: 80%;
+    width: 100%;
     padding: 10px 0px;
     text-decoration: none;
     cursor: pointer;
@@ -201,5 +216,9 @@
 
     .purchase-options {
         margin-top: 15px;
+    }
+
+    .purchase-zoom-image {
+        max-width: 90%;
     }
 }

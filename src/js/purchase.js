@@ -2,6 +2,8 @@
 const allImages = Array.from( document.getElementsByClassName("purchase-image-unselected") );
 const selectedImage = document.querySelector(".purchase-image-display");
 
+let isSliding = false;
+
 const changeImage = (imageList, imageDisplay, imageIcon) => {
     imageList.forEach(e => e.classList.remove('purchase-image-selected'));
     imageIcon.classList.add("purchase-image-selected");
@@ -9,7 +11,7 @@ const changeImage = (imageList, imageDisplay, imageIcon) => {
 }
 
 allImages.forEach(e => e.addEventListener( 'click', evt => {
-    changeImage(allImages, selectedImage, e);
+    if (!isSliding) changeImage(allImages, selectedImage, e);
 }));
 
 // Zoom when clicking selected image
@@ -68,14 +70,17 @@ const slideEnd = () => {
     let snapPosition = (currFirstPos > initialPosition) ?
         0 : Math.floor((currFirstPos - initialPosition) / imageWidth);
     // set current position to where it'll snap to
-    if (allImages.length < 5)
+    if (allImages.length < 5) {
         currentPosition = 0;
-    else if (-snapPosition > allImages.length - 5)
+    }
+    else if (-snapPosition > allImages.length - 5) {
         currentPosition = -(allImages.length - 5) * imageWidth;
-    else
+    }
+    else {
         currentPosition = snapPosition * imageWidth;
-
+    }
     imageSlider.style.transform = "translateX(" + currentPosition + "px)";
+    setTimeout(() => { isSliding = false; } , 100);
 }
 
 const slideMove = (evt) => {
@@ -91,34 +96,40 @@ imagesElement.addEventListener( 'mousedown', evt => {
     offsetX = evt.clientX - currentPosition;
 });
 
-imagesElement.addEventListener( 'mouseup', evt => {
-    slideEnd();
+document.body.addEventListener( 'mouseup', evt => {
+    if (isDown && isSliding) slideEnd();
+    else isDown = false;
 });
 
-imagesElement.addEventListener( 'mousemove', evt => {
+document.body.addEventListener( 'mousemove', evt => {
     if (isDown) {
+        isSliding = true;
         imageSlider.style.transform = "translateX(" + (evt.clientX - offsetX) + "px)";
         currentPosition = evt.clientX - offsetX;
     }
 });
 
-// optimize mobile handling -> slow as hell for some reason
-// also glitches out when tapping once after you slide it to the left?
-
 imagesElement.addEventListener( 'touchstart', evt => {
+    let style = imageSlider.getAttribute('style');
+    imageSlider.setAttribute('style', style + "transition: transform 0s ease-in-out;");
     isDown = true;
     // determines an offset comparing current position and where the user clicked
-    console.log(evt.touches[0].clientX);    
     offsetX = evt.touches[0].clientX - currentPosition;
 });
 
-imagesElement.addEventListener( 'touchend', evt => {
-    slideEnd();
+document.body.addEventListener( 'touchend', evt => {
+    if (isDown && isSliding) {
+        let style = imageSlider.getAttribute('style');
+        imageSlider.setAttribute('style', style + "transition: transform 0.2s ease-in-out;");
+        slideEnd();
+    }
+    else isDown = false;
 });
 
-imagesElement.addEventListener( 'touchmove', evt => {
+document.body.addEventListener( 'touchmove', evt => {
     if (isDown) {
+        isSliding = true;
         imageSlider.style.transform = "translateX(" + (evt.changedTouches[0].clientX - offsetX) + "px)";
-        currentPosition = evt.changedTouches[0].clientX - offsetX;
+        currentPosition = evt.touches[0].clientX - offsetX;
     }
 });
