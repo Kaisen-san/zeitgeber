@@ -1,11 +1,13 @@
 {
   "version": 2,
   "builds": [
-    { "src": "public/js/index.js", "use": "@now/static" },
+    { "src": "public/js/common.min.js", "use": "@now/static" },
+    { "src": "public/js/entry.min.js", "use": "@now/static" },
     { "src": "app.js", "use": "@now/node-server" }
   ],
   "routes": [
-    { "src": "/js/index.js", "dest": "public/js/index.js" },
+    { "src": "/js/common.min.js", "dest": "public/js/common.min.js" },
+    { "src": "/js/entry.min.js", "dest": "public/js/entry.min.js" },
     { "src": "/.*", "dest": "app.js" }
   ]
 }
