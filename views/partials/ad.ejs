@@ -1,0 +1,23 @@
+<aside id="<%= id %>" class="ad">
+  <% if ( imageSide === 'left' ) { %>
+    <div class="ad__item">
+      <img class="ad__image ad__image--left" src="<%= imageSrc %>" alt="<%= imageAlt %>">
+    </div>
+  <% } %>
+
+  <div class="ad__item">
+    <h1 class="ad__title"><%= title %></h1>
+    <%- include( 'divisor' ) %>
+    <% content.forEach( c => { %>
+      <p class="ad__content"><%= c %></p>
+    <% }) %>
+
+    <%- include( 'button', { ref: buttonRef, content: buttonTitle, extraClasses: '' } ) %>
+  </div>
+
+  <% if ( imageSide === 'right' ) { %>
+    <div class="ad__item">
+      <img class="ad__image ad__image--right" src="<%= imageSrc %>" alt="<%= imageAlt %>">
+    </div>
+  <% } %>
+</aside>

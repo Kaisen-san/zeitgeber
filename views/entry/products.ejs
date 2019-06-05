@@ -1,0 +1,9 @@
+<section id="products" class="products">
+  <% products.forEach( p => { %>
+    <%- include( '../partials/product', {
+      title: p.title,
+      code: p.code,
+      description: p.description
+    }) %>
+  <% }); %>
+</section>
