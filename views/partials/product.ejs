@@ -1,14 +1,12 @@
-<article class="products__card">
-  <div class="title-content">
-    <h3><%= title %></h3>
-    <hr/>
-    <div class="intro"><%= category %></div>
+<article class="product">
+  <div class="product__title-wrapper">
+    <h3 class="product__title"><%= title %></h3>
+    <%- include( 'divisor' ) %>
+    <p class="product__code"><%= code %></p>
   </div>
 
-  <div class="card-info">
-    <p><%= description %></p>
-  </div>
-  
-  <div class="gradient-overlay"></div>
-  <div class="color-overlay"></div>
+  <p class="product__description"><%= description %></p>
+  <div class="product__description-overlay"></div>
+
+  <div class="product__card-overlay"></div>
 </article>

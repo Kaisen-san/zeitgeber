@@ -4,21 +4,35 @@ const mincss = require('gulp-clean-css');
 const tinify = require('gulp-tinifier');
 const minjs = require('gulp-jsmin');
 
-gulp.task('min-css', async () => {
-  return gulp.src('src/css/*.css')
+gulp.task('min-css-common', async () => {
+  return gulp.src('src/css/common/*.css')
     .pipe(mincss())
-    .pipe(concat('main.css'))
+    .pipe(concat('common.min.css'))
     .pipe(gulp.dest('public/css'));
 });
 
-gulp.task('min-js', async () => {
-  return gulp.src('src/js/*.js')
+gulp.task('min-css-entry', async () => {
+  return gulp.src('src/css/entry/*.css')
+    .pipe(mincss())
+    .pipe(concat('entry.min.css'))
+    .pipe(gulp.dest('public/css'));
+});
+
+gulp.task('min-js-common', async () => {
+  return gulp.src('src/js/common/*.js')
     .pipe(minjs())
-    .pipe(concat('index.js'))
+    .pipe(concat('common.min.js'))
     .pipe(gulp.dest('public/js'));
 });
 
-gulp.task('cpy-noncomp-imgs', async () => {
+gulp.task('min-js-entry', async () => {
+  return gulp.src('src/js/entry/*.js')
+    .pipe(minjs())
+    .pipe(concat('entry.min.js'))
+    .pipe(gulp.dest('public/js'));
+});
+
+gulp.task('copy-noncomp-imgs', async () => {
   return gulp.src('src/img/*.{ico,svg,jpeg}')
     .pipe(gulp.dest('public/img'));
 });
@@ -35,10 +49,12 @@ gulp.task('comp-imgs', async () => {
 });
 
 gulp.task('watch', async () => {
-  gulp.watch('src/css/*.css', gulp.parallel('min-css'));
-  gulp.watch('src/js/*.js', gulp.parallel('min-js'));
-  gulp.watch('src/img/*.{ico,svg,jpeg}', gulp.parallel('cpy-noncomp-imgs'));
+  gulp.watch('src/css/common/*.css', gulp.parallel('min-css-common'));
+  gulp.watch('src/css/entry/*.css', gulp.parallel('min-css-entry'));
+  gulp.watch('src/js/common/*.js', gulp.parallel('min-js-common'));
+  gulp.watch('src/js/entry/*.js', gulp.parallel('min-js-entry'));
+  gulp.watch('src/img/*.{ico,svg,jpeg}', gulp.parallel('copy-noncomp-imgs'));
   // gulp.watch('src/img/*.{png,jpg}', gulp.parallel('comp-imgs'));
 });
 
-gulp.task('default', gulp.parallel('min-css', 'min-js', 'cpy-noncomp-imgs', 'comp-imgs', 'watch'));
+gulp.task('default', gulp.parallel('min-css-common', 'min-css-entry', 'min-js-common', 'min-js-entry', 'copy-noncomp-imgs', /*'comp-imgs',*/ 'watch'));

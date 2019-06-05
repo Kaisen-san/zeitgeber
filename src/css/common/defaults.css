@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,400i,700');
+
+:root {
+  --ff-lato: 'Lato', sans-serif;
+  --white: #fff;
+  --white-smoke: #f4f4f4;
+  --night-rider: #333;
+  --charcoal: #444;
+  --silver: #bbb;
+  --sandy-brown: #f09865;
+  --casablanca: #f0ac60;
+  --regal-blue: #1c3c50;
+  --astronaut-blue: #1c5060;
+
+  --base-font: var(--ff-lato);
+  --icon-clr: var(--regal-blue);
+  --icon-clr-light: var(--white);
+  --title-clr: var(--night-rider);
+  --title-clr-light: var(--white);
+  --subtitle-clr: var(--charcoal);
+  --subtitle-clr-light: var(--white-smoke);
+  --content-clr: var(--night-rider);
+  --content-clr-light: var(--white);
+  --bg-clr: var(--white-smoke);
+  --bg-clr-dark: var(--regal-blue);
+  --bg-img-gradient: linear-gradient(rgba(244, 244, 244, .5), rgba(153, 214, 255, .25), rgba(244, 244, 244, .5));
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--base-font);
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include( '../partials/head', {
+    pageTitle: 'Zeitgeber Store',
+    stylesFilename: 'entry'
+  }) %>
+</head>
+<body>
+  <header class="header">
+    <%- include( '../partials/logo', {
+      ref: '#',
+      src: '/img/t4p-light.svg',
+      alt: 'Tech4People'
+    }) %>
+
+    <%- include( '../partials/menu', {
+      elements: [
+        { ref: '#products', content: 'Products' },
+        { ref: '#cloud', content: 'Cloud' },
+        { ref: '#zeitgeber', content: 'Zeitgeber' },
+        { ref: '#contact', content: 'Contact' },
+        { ref: 'https://t4p.com.br/tech4people', content: 'About Us' }
+      ]
+    }) %>
+  </header>
+
+  <main class="main">
+    <%- include( 'hero', { title: 'Lorem ipsum dolor sit amet.' } ) %>
+
+    <%- include( 'products', {
+      products: [
+        { title: 'Bioimpedância', code: 'Code', description: 'Breve descrição e link para compra' },
+        { title: 'EEG', code: 'Eletroencefalôgrafo', description: 'Breve descrição e link para compra' },
+        { title: 'Hórus', code: 'Actígrafo', description: 'Breve descrição e link para compra' },
+        { title: 'NIRS', code: 'Code', description: 'Breve descrição e link para compra' },
+        { title: 'Oxígrafo', code: 'Code', description: 'Breve descrição e link para compra' },
+        { title: 'Plataforma de Força', code: 'Code', description: 'Breve descrição e link para compra' },
+        { title: 'Bioimpedância', code: 'Code', description: 'Breve descrição e link para compra' },
+        { title: 'EEG', code: 'Eletroencefalôgrafo', description: 'Breve descrição e link para compra' }
+      ]
+    }) %>
+  </main>
+
+  <%- include( '../partials/ad', {
+    id: 'cloud',
+    imageSide: 'right',
+    imageSrc: '/img/ad-cloud.png',
+    imageAlt: 'Cloud',
+    title: 'Cloud: Lorem ipsum dolor sit amet.',
+    content: [
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores vel quisquam officia porro sed excepturi laudantium laborum dolorem, aliquid delectus!',
+      'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem voluptatem molestias cupiditate repudiandae officiis error earum ipsam qui dicta voluptates dolorem aut cumque officia consectetur repellendus, sequi suscipit, eaque maiores?',
+      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime quidem aspernatur velit tempore recusandae! Eius ut sed ipsum dicta neque commodi beatae, aut aliquam quas velit voluptate vitae ab necessitatibus ullam ratione! Quod nostrum illum magnam dolorum, corporis quisquam odit.'
+    ],
+    buttonRef: 'http://app.t4p.com.br',
+    buttonTitle: 'Saiba Mais'
+  }) %>
+
+  <%- include( '../partials/slideshow', {
+    images: [
+      { src: '/img/ss-01.jpg', alt: '', position: 'hide' },
+      { src: '/img/ss-02.jpg', alt: '', position: 'hide' },
+      { src: '/img/ss-03.jpg', alt: '', position: 'hide' },
+      { src: '/img/ss-04.jpg', alt: '', position: 'hide' },
+      { src: '/img/ss-05.jpg', alt: '', position: 'hide' },
+      { src: '/img/ss-06.jpg', alt: '', position: 'hide' },
+      { src: '/img/ss-07.jpg', alt: '', position: 'hide' },
+      { src: '/img/ss-08.jpg', alt: '', position: 'hide' },
+      { src: '/img/ss-09.jpg', alt: '', position: 'left' },
+      { src: '/img/ss-10.jpg', alt: '', position: 'middle' },
+      { src: '/img/ss-11.jpg', alt: '', position: 'right' },
+      { src: '/img/ss-12.jpg', alt: '', position: 'hide' },
+      { src: '/img/ss-13.jpg', alt: '', position: 'hide' },
+      { src: '/img/ss-14.jpg', alt: '', position: 'hide' },
+      { src: '/img/ss-15.jpg', alt: '', position: 'hide' },
+      { src: '/img/ss-16.jpg', alt: '', position: 'hide' },
+      { src: '/img/ss-17.jpg', alt: '', position: 'hide' },
+      { src: '/img/ss-18.jpg', alt: '', position: 'hide' },
+      { src: '/img/ss-19.jpg', alt: '', position: 'hide' },
+      { src: '/img/ss-20.jpg', alt: '', position: 'hide' },
+    ]
+  }) %>
+
+  <%- include( '../partials/ad', {
+    id: 'zeitgeber',
+    imageSide: 'left',
+    imageSrc: '/img/ad-zeitgeber.png',
+    imageAlt: 'Zeitgeber',
+    title: 'Zeitgeber: Lorem ipsum dolor sit amet.',
+    content: [
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores vel quisquam officia porro sed excepturi laudantium laborum dolorem, aliquid delectus!',
+      'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem voluptatem molestias cupiditate repudiandae officiis error earum ipsam qui dicta voluptates dolorem aut cumque officia consectetur repellendus, sequi suscipit, eaque maiores?',
+      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime quidem aspernatur velit tempore recusandae! Eius ut sed ipsum dicta neque commodi beatae, aut aliquam quas velit voluptate vitae ab necessitatibus ullam ratione! Quod nostrum illum magnam dolorum, corporis quisquam odit.'
+    ],
+    buttonRef: 'http://dev.zeitgeber.com.br',
+    buttonTitle: 'Saiba Mais'
+  }) %>
+
+  <footer class="footer">
+    <%- include('../partials/contact') %>
+
+    <%- include('../partials/copyright') %>
+  </footer>
+
+    <%- include('../partials/scripts', { scriptFilename: 'entry' } ) %>
+</body>
+</html>
