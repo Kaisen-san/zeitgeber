@@ -51,8 +51,28 @@
 </div>
 <div class="purchase-zoom"><img src="/img/ca-01.jpg" alt="" class="purchase-zoom-image"></div>
 <div class="purchase-buy">
-    <div class="purchase-contact">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex quis molestias placeat, atque, corrupti molestiae totam illo delectus pariatur minima, labore veritatis quo veniam doloremque magnam. Repellat, voluptatum eaque veniam facere delectus aut consequuntur aliquid temporibus odit vitae quasi. Iure ad expedita est beatae veritatis corporis sunt dolores cum. Esse?</p>
+    <div id="contact" class="contact">
+        <div class="contact__title">
+            <h1>Fale Conosco</h1>
+        </div>
+        <div class="purchase-cancel"><i class="fas fa-times"></i></div>
+        <form action="/contact" method="POST" class="contact__form">
+            <div class="contact__form__item">
+            <input type="text" class="contact__form__input" placeholder="Nome">
+            <i class="fas fa-user"></i>
+            </div>
+            <div class="contact__form__item">
+            <input type="email" class="contact__form__input" placeholder="Email">
+            <i class="fas fa-envelope"></i>
+            </div>
+            <div class="contact__form__item">
+            <textarea class="contact__form__msg" cols="30" rows="10" placeholder="Mensagem..."></textarea>
+            </div>
+            <div class="contact__form__item">
+            <button type="submit" class="contact__form__btn">
+                <span>Enviar<i class="fas fa-arrow-right"></i></span>
+            </button>
+            </div>
+        </form>
     </div>
-    <div class="purchase-cancel">X</div>
 </div>

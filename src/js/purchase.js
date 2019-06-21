@@ -2,16 +2,18 @@
 const allImages = Array.from( document.getElementsByClassName("purchase-image-unselected") );
 const selectedImage = document.querySelector(".purchase-image-display");
 
-let isSliding = false;
+let isSliding = 0;
 
 const changeImage = (imageList, imageDisplay, imageIcon) => {
-    imageList.forEach(e => e.classList.remove('purchase-image-selected'));
-    imageIcon.classList.add("purchase-image-selected");
-    imageDisplay.src = imageIcon.src;
+    if (isSliding <= 2) {
+        imageList.forEach(e => e.classList.remove('purchase-image-selected'));
+        imageIcon.classList.add("purchase-image-selected");
+        imageDisplay.src = imageIcon.src;
+    }
 }
 
 allImages.forEach(e => e.addEventListener( 'click', evt => {
-    if (!isSliding) changeImage(allImages, selectedImage, e);
+    changeImage(allImages, selectedImage, e);
 }));
 
 // Zoom when clicking selected image
@@ -62,8 +64,7 @@ const slideStart = (evt) => {
 // this requires a bit clearer code
 const slideEnd = () => {
     isDown = false;
-    // how to do this without jQuery?
-    let imageWidth = $(allImages[0]).outerWidth(true);
+    let imageWidth = allImages[0].offsetWidth;
     // current X position of first image
     let currFirstPos = allImages[0].getBoundingClientRect().left;
     // which image to snap to
@@ -80,20 +81,19 @@ const slideEnd = () => {
         currentPosition = snapPosition * imageWidth;
     }
     imageSlider.style.transform = "translateX(" + currentPosition + "px)";
-    setTimeout(() => { isSliding = false; } , 100);
+    setTimeout(() => { isSliding = 0; } , 100);
 }
 
 const slideMove = (evt) => {
     if (isDown) {
+        isSliding++;
         imageSlider.style.transform = "translateX(" + (evt.clientX - offsetX) + "px)";
         currentPosition = evt.clientX - offsetX;
     }
 }
 
 imagesElement.addEventListener( 'mousedown', evt => {
-    isDown = true;
-    // determines an offset comparing current position and where the user clicked
-    offsetX = evt.clientX - currentPosition;
+    slideStart(evt);
 });
 
 document.body.addEventListener( 'mouseup', evt => {
@@ -102,19 +102,13 @@ document.body.addEventListener( 'mouseup', evt => {
 });
 
 document.body.addEventListener( 'mousemove', evt => {
-    if (isDown) {
-        isSliding = true;
-        imageSlider.style.transform = "translateX(" + (evt.clientX - offsetX) + "px)";
-        currentPosition = evt.clientX - offsetX;
-    }
+    slideMove(evt);
 });
 
 imagesElement.addEventListener( 'touchstart', evt => {
     let style = imageSlider.getAttribute('style');
     imageSlider.setAttribute('style', style + "transition: transform 0s ease-in-out;");
-    isDown = true;
-    // determines an offset comparing current position and where the user clicked
-    offsetX = evt.touches[0].clientX - currentPosition;
+    slideStart(evt.touches[0]);
 });
 
 document.body.addEventListener( 'touchend', evt => {
@@ -127,9 +121,12 @@ document.body.addEventListener( 'touchend', evt => {
 });
 
 document.body.addEventListener( 'touchmove', evt => {
-    if (isDown) {
-        isSliding = true;
-        imageSlider.style.transform = "translateX(" + (evt.changedTouches[0].clientX - offsetX) + "px)";
-        currentPosition = evt.touches[0].clientX - offsetX;
-    }
+    slideMove(evt.touches[0]);
 });
+
+// handling the change of window sizes
+function on_resize(c,t){onresize=function(){clearTimeout(t);t=setTimeout(c,100)};return c};
+on_resize(function() {
+    initialPosition = imagesElement.getBoundingClientRect().left + 3; // this +3 depends on the border CSS setting on purchase-image-list (3px)
+    slideEnd(); // running slideEnd() makes it so the image list snaps to a proper position after window resizing
+})();
