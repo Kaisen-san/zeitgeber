@@ -53,20 +53,43 @@
 <div class="purchase-buy">
     <div id="contact" class="contact">
         <div class="contact__title">
-            <h1>Fale Conosco</h1>
+            <h1>Purchase Order</h1>
         </div>
         <div class="purchase-cancel"><i class="fas fa-times"></i></div>
         <form action="/contact" method="POST" class="contact__form">
-            <div class="contact__form__item">
-            <input type="text" class="contact__form__input" placeholder="Nome">
-            <i class="fas fa-user"></i>
+            <div class="purchase-contact">
+                <div class="contact__form__item purchase-contact-item">
+                <input type="text" class="contact__form__input" placeholder="First Name">
+                <i class="fas fa-user"></i>
+                </div>
+                <div class="contact__form__item">
+                <input type="text" class="contact__form__input" placeholder="Last Name">
+                <i class="fas fa-user"></i>
+                </div>
             </div>
             <div class="contact__form__item">
             <input type="email" class="contact__form__input" placeholder="Email">
             <i class="fas fa-envelope"></i>
             </div>
             <div class="contact__form__item">
-            <textarea class="contact__form__msg" cols="30" rows="10" placeholder="Mensagem..."></textarea>
+            <input type="text" class="contact__form__input" placeholder="Address">
+            <i class="fas fa-location-arrow"></i>
+            </div>
+            <div class="contact__form__item purchase-contact-dropdown">
+                <div class="contact__form__input">
+                    <select class="">
+                        <option value="0">Payment Option</option>
+                        <option value="card">Credit Card</option>
+                        <option value="paypal">Paypal</option>
+                        <option value="whatever">Option 3</option>
+                        <option value="yeah">Option 4</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <i class="fas fa-dollar-sign"></i>
+            </div>
+            <div class="contact__form__item">
+            <textarea class="contact__form__msg" cols="30" rows="10" placeholder="Message"></textarea>
             </div>
             <div class="contact__form__item">
             <button type="submit" class="contact__form__btn">

@@ -174,8 +174,45 @@
 }
 
 .purchase-contact {
-    color: white;
-    font-size: 2em;
+    display: flex;
+}
+
+.purchase-contact-item {
+    margin-right: 2%;
+    width: 90%;
+}
+
+.purchase-contact-dropdown .contact__form__input {
+    padding-right: 15px;
+}
+
+.purchase-contact-dropdown select {
+    border: 0;
+    margin: 0;
+    width: 100%;
+    text-indent: 0.01px;
+    text-overflow: '';
+    -webkit-appearance: button;
+}
+
+.purchase-contact-dropdown::before,
+.purchase-contact-dropdown::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.purchase-contact-dropdown::after {
+    content: "\25BC";
+    height: 1em;
+    font-size: .625em;
+    line-height: 1;
+    right: 2.5%;
+    top: 40%;
+  }
+
+.purchase-contact-hide {
+    display: none;
 }
 
 .purchase-zoom, .purchase-buy {
