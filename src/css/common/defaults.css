@@ -24,6 +24,7 @@
   --bg-clr: var(--white-smoke);
   --bg-clr-dark: var(--regal-blue);
   --bg-img-gradient: linear-gradient(rgba(244, 244, 244, .5), rgba(153, 214, 255, .25), rgba(244, 244, 244, .5));
+  --shadow-clr: rgba(0, 0, 0, 0.15);
 }
 
 html {

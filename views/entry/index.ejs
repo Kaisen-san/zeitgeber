@@ -26,18 +26,19 @@
   </header>
 
   <main class="main">
-    <%- include( 'hero', { title: 'Lorem ipsum dolor sit amet.' } ) %>
+    <%- include( 'hero', { title: 'Zeitgeber: Your open source biosensing tools store', imgUrl: '/img/hero.jpg' } ) %>
 
     <%- include( 'products', {
       products: [
-        { title: 'Bioimpedância', code: 'Code', description: 'Breve descrição e link para compra' },
-        { title: 'EEG', code: 'Eletroencefalôgrafo', description: 'Breve descrição e link para compra' },
-        { title: 'Hórus', code: 'Actígrafo', description: 'Breve descrição e link para compra' },
-        { title: 'NIRS', code: 'Code', description: 'Breve descrição e link para compra' },
-        { title: 'Oxígrafo', code: 'Code', description: 'Breve descrição e link para compra' },
-        { title: 'Plataforma de Força', code: 'Code', description: 'Breve descrição e link para compra' },
-        { title: 'Bioimpedância', code: 'Code', description: 'Breve descrição e link para compra' },
-        { title: 'EEG', code: 'Eletroencefalôgrafo', description: 'Breve descrição e link para compra' }
+        { title: 'Bioimpedância', code: 'BIO 55', description: 'Equipamento portátil que mede 50mm x 50mm', imgUrl: '/img/pd-bioimp.jpg', productId: "1" },
+        { title: 'Actígrafo', code: 'HORUS', description: 'Equipamento portátil que mede 50mm de diâmetro', imgUrl: '/img/pd-horus.jpg', productId: "2" },
+        { title: 'EEG', code: 'EEG 57', description: 'Equipamento portátil que mede 50mm x 70mm', imgUrl: '/img/pd-eeg.jpg', productId: "3" },
+        { title: 'Plataforma de Força', code: 'PLT 20', description: 'Estrutura mecânica em alumínio com formato triangular', imgUrl: '/img/pd-plataforma.jpg', productId: "4" },
+        { title: 'Oxígrafo', code: 'OXI 70', description: 'Equipamento portátil que mede 70mm de diâmetro', imgUrl: '/img/pd-oxigrafo.jpg', productId: "5" },
+        { title: 'NIRS', code: 'NIRS 77', description: 'Equipamento portátil que mede 70mm x 70mm', imgUrl: '/img/pd-nirs.jpg', productId: "6" },
+        { title: 'Actígrafo Mini', code: 'HORUSm', description: 'Equipamento portátil que mede 25mm x 36mm', imgUrl: '/img/pd-horus.jpg', productId: "7" },
+        { title: 'EEG mini', code: 'EEG 47', description: 'Equipamento portátil que mede 41mm x 70mm', imgUrl: '/img/pd-eeg.jpg', productId: "8" },
+        { title: 'Actígrafo Wear', code: 'HORUSw', description: 'Equipamento portátil que mede 35mm x 40mm', imgUrl: '/img/pd-horus.jpg', productId: "9" }
       ]
     }) %>
   </main>
@@ -45,13 +46,12 @@
   <%- include( '../partials/ad', {
     id: 'cloud',
     imageSide: 'right',
-    imageSrc: '/img/ad-cloud.png',
+    imageSrc: '/img/cloud.png',
     imageAlt: 'Cloud',
-    title: 'Cloud: Lorem ipsum dolor sit amet.',
+    title: 'Dados disponíveis na nuvem',
     content: [
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores vel quisquam officia porro sed excepturi laudantium laborum dolorem, aliquid delectus!',
-      'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem voluptatem molestias cupiditate repudiandae officiis error earum ipsam qui dicta voluptates dolorem aut cumque officia consectetur repellendus, sequi suscipit, eaque maiores?',
-      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime quidem aspernatur velit tempore recusandae! Eius ut sed ipsum dicta neque commodi beatae, aut aliquam quas velit voluptate vitae ab necessitatibus ullam ratione! Quod nostrum illum magnam dolorum, corporis quisquam odit.'
+      'Os dispositivos podem ser integrados com outros sistemas como computadores, smartphones e tablets, permitindo que os dados coletados sejam armazenados e processados posteriormente e até mesmo em tempo real. A conexão por bluetooth possibilita a transferência de dados a sistemas inteligentes dotados de algoritmos que processam e interagem com o usuário.',
+      'Todos os equipamentos utilizam métodos de medição de sinais fisiológicos não-invasivos, ou seja, não envolvem instrumentos que rompem a pele ou que penetram fisicamente no corpo, portanto, não oferecem risco e desconforto no seu uso.'
     ],
     buttonRef: 'http://app.t4p.com.br',
     buttonTitle: 'Saiba Mais'
@@ -59,39 +59,26 @@
 
   <%- include( '../partials/slideshow', {
     images: [
-      { src: '/img/ss-01.jpg', alt: '', position: 'hide' },
-      { src: '/img/ss-02.jpg', alt: '', position: 'hide' },
-      { src: '/img/ss-03.jpg', alt: '', position: 'hide' },
-      { src: '/img/ss-04.jpg', alt: '', position: 'hide' },
-      { src: '/img/ss-05.jpg', alt: '', position: 'hide' },
-      { src: '/img/ss-06.jpg', alt: '', position: 'hide' },
-      { src: '/img/ss-07.jpg', alt: '', position: 'hide' },
-      { src: '/img/ss-08.jpg', alt: '', position: 'hide' },
-      { src: '/img/ss-09.jpg', alt: '', position: 'left' },
-      { src: '/img/ss-10.jpg', alt: '', position: 'middle' },
-      { src: '/img/ss-11.jpg', alt: '', position: 'right' },
-      { src: '/img/ss-12.jpg', alt: '', position: 'hide' },
-      { src: '/img/ss-13.jpg', alt: '', position: 'hide' },
-      { src: '/img/ss-14.jpg', alt: '', position: 'hide' },
-      { src: '/img/ss-15.jpg', alt: '', position: 'hide' },
-      { src: '/img/ss-16.jpg', alt: '', position: 'hide' },
-      { src: '/img/ss-17.jpg', alt: '', position: 'hide' },
-      { src: '/img/ss-18.jpg', alt: '', position: 'hide' },
-      { src: '/img/ss-19.jpg', alt: '', position: 'hide' },
-      { src: '/img/ss-20.jpg', alt: '', position: 'hide' },
+      // { src: '/img/sss-01.jpg', alt: '', position: 'hide' },
+      { src: '/img/sss-08.jpg', alt: '', position: 'hide' },
+      { src: '/img/sss-02.jpg', alt: '', position: 'hide' },
+      { src: '/img/sss-03.jpg', alt: '', position: 'left' },
+      { src: '/img/sss-04.jpg', alt: '', position: 'middle' },
+      { src: '/img/sss-05.jpg', alt: '', position: 'right' },
+      { src: '/img/sss-06.jpg', alt: '', position: 'hide' },
+      { src: '/img/sss-07.jpg', alt: '', position: 'hide'},
     ]
   }) %>
 
   <%- include( '../partials/ad', {
     id: 'zeitgeber',
     imageSide: 'left',
-    imageSrc: '/img/ad-zeitgeber.png',
+    imageSrc: '/img/zeitgeber.png',
     imageAlt: 'Zeitgeber',
-    title: 'Zeitgeber: Lorem ipsum dolor sit amet.',
+    title: 'Quer conhecer seu modelo biomatemático?',
     content: [
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores vel quisquam officia porro sed excepturi laudantium laborum dolorem, aliquid delectus!',
-      'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem voluptatem molestias cupiditate repudiandae officiis error earum ipsam qui dicta voluptates dolorem aut cumque officia consectetur repellendus, sequi suscipit, eaque maiores?',
-      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime quidem aspernatur velit tempore recusandae! Eius ut sed ipsum dicta neque commodi beatae, aut aliquam quas velit voluptate vitae ab necessitatibus ullam ratione! Quod nostrum illum magnam dolorum, corporis quisquam odit.'
+      'Todo indivíduo possui uma espécie de relógio interno que ativa funções básicas de seu organismo. Se este relógio não estiver sincronizado com o relógio social, pode resultar em perda de qualidade de vida, desenvolvimento de doenças crônicas, má qualidade de sono e baixo desempenho em tarefas cotidianas.',
+      'O atendimento ao relógio social sem a observância do relógio interno pode resultar em níveis de alerta incompatíveis com as atividades cotidianas. Sua manifestação na condução de um veículo de transporte de cargas ou trabalhadores por turno que atuam em diversas áreas (hospitais, industrias e empresas de segurança, por exemplo) aumenta o risco de acidentes.'
     ],
     buttonRef: 'http://dev.zeitgeber.com.br',
     buttonTitle: 'Saiba Mais'

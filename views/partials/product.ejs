@@ -1,4 +1,5 @@
-<article class="product">
+<article class="product" style="background-image: url('<%= imgUrl %>');">
+  <a href="/product/<%= productId %>">
   <div class="product__title-wrapper">
     <h3 class="product__title"><%= title %></h3>
     <%- include( 'divisor' ) %>
@@ -9,4 +10,5 @@
   <div class="product__description-overlay"></div>
 
   <div class="product__card-overlay"></div>
+  </a>
 </article>

@@ -1,11 +1,12 @@
 .button {
   display: block;
   width: max-content;
-  padding: 1em 2em;
+  padding: 1em 1.5em;
   border-radius: .125em;
+  font-size: 1.1rem;
   color: var(--white-smoke);
   background-color: var(--astronaut-blue);
-  box-shadow: .125em .125em .2em var(--silver);
+  box-shadow: .125em .125em .2em var(--shadow-clr);
   text-align: center;
   cursor: pointer;
   user-select: none;
