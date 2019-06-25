@@ -36,6 +36,7 @@
 .ad__content {
   margin-bottom: 1.5em;
   position: relative;
+  font-size: 1.25rem;
   color: var(--content-clr);
   text-align: justify;
   line-height: 1.2em;
@@ -43,12 +44,6 @@
 }
 
 @media (max-width: 1023.98px) {
-  .ad__title {
-    font-size: 2rem;
-  }
-}
-
-@media (max-width: 768px) {
   .ad {
     flex-direction: column;
   }
@@ -63,5 +58,11 @@
 
   .ad__image--right {
     margin-top: 2em;
+  }
+}
+
+@media (max-width: 768px) {
+  .ad__title {
+    font-size: 2rem;
   }
 }

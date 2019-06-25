@@ -12,20 +12,12 @@
   cursor: pointer;
 }
 
-.social__item--facebook {
-  background-color: #4267b2;
-}
-
-.social__item--facebook:hover {
-  background-color: #365899;
-}
-
-.social__item--twitter {
-  background-color: #1da1f2;
-}
-
-.social__item--twitter:hover {
-  background-color: #006dbf;
+.social__icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: #fff;
+  transform: translate(-50%, -50%);
 }
 
 .social__item--linkedin {
@@ -34,12 +26,4 @@
 
 .social__item--linkedin:hover {
   background-color: #006097;
-}
-
-.social__icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  color: #fff;
-  transform: translate(-50%, -50%);
 }

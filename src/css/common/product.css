@@ -2,7 +2,7 @@
   width: 300px;
   height: 400px;
   border-radius: 10px;
-  box-shadow: 3px 3px 10px var(--silver);
+  box-shadow: 3px 3px 10px var(--shadow-clr);
   position: relative;
   text-align: center;
   overflow: hidden;
@@ -10,38 +10,6 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-}
-
-.product:nth-of-type(1) {
-  background-image: url('/img/pd-bioimp.jpg');
-}
-
-.product:nth-of-type(2) {
-  background-image: url('/img/pd-eeg.jpg');
-}
-
-.product:nth-of-type(3) {
-  background-image: url('/img/pd-horus.jpg');
-}
-
-.product:nth-of-type(4) {
-  background-image: url('/img/pd-nirs.jpg');
-}
-
-.product:nth-of-type(5) {
-  background-image: url('/img/pd-oxigrafo.jpg');
-}
-
-.product:nth-of-type(6) {
-  background-image: url('/img/pd-plataforma.jpg');
-}
-
-.product:nth-of-type(7) {
-  background-image: url('/img/pd-bioimp.jpg');
-}
-
-.product:nth-of-type(8) {
-  background-image: url('/img/pd-eeg.jpg');
 }
 
 .product__title-wrapper {
@@ -84,7 +52,9 @@
   bottom: 0;
   opacity: 0;
   color: var(--content-clr-light);
+  font-size: 1.1rem;
   line-height: 1.5em;
+  letter-spacing: .05em;
   transition: bottom 300ms ease-out, opacity 300ms cubic-bezier(0.33, 0.66, 0.66, 1);
 }
 

@@ -41,6 +41,10 @@
     justify-content: center;
   }
 
+  .header .menu__items-wrapper {
+    transition: background-color 500ms ease-out;
+  }
+
   .header--dark .menu__items-wrapper {
     background-color: var(--bg-clr-dark);
   }

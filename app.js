@@ -14,6 +14,11 @@ app.get( '/', ( req, res, next ) => {
   res.render('entry');
 });
 
+app.get( '/product/:id', ( req, res, next ) => {
+  const productId = req.params.id;
+  res.render('product' + productId);
+});
+
 app.post( '/contact', ( req, res, next ) => {
   res.redirect('/');
 });

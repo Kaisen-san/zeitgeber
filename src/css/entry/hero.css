@@ -10,8 +10,36 @@
 
 .hero__title {
   width: 100%;
-  padding: 0 3em 0 1.5em;
+  padding: 0 5em 0 1.5em;
   color: var(--title-clr-light);
-  font-size: 4em;
+  font-size: 6rem;
   font-weight: 300;
+}
+
+@media (max-width: 1200px) {
+  .hero__title {
+    padding: 0 4em 0 1.25em;
+    font-size: 5.5rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .hero__title {
+    padding: 0 3em 0 1em;
+    font-size: 5.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero__title {
+    padding: 0 2em 0 .75em;
+    font-size: 5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero__title {
+    padding: 0 .5em 0 .5em;
+    font-size: 3.5rem;
+  }
 }
