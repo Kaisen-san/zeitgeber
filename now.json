@@ -2,10 +2,12 @@
   "version": 2,
   "builds": [
     { "src": "public/js/index.js", "use": "@now/static" },
+    { "src": "public/js/jquery.js", "use": "@now/static" },
     { "src": "app.js", "use": "@now/node-server" }
   ],
   "routes": [
     { "src": "/js/index.js", "dest": "public/js/index.js" },
+    { "src": "/js/jquery.js", "dest": "public/js/jquery.js" },
     { "src": "/.*", "dest": "app.js" }
   ]
 }
