@@ -11,12 +11,12 @@ app.set( 'view engine', 'ejs' );
 app.use( express.static( path.join( __dirname, 'public' ) ) );
 
 app.get( '/', ( req, res, next ) => {
-  res.render('entry');
+  res.render('entry/index');
 });
 
 app.get( '/product/:id', ( req, res, next ) => {
   const productId = req.params.id;
-  res.render('product' + productId);
+  res.render('product/product' + productId);
 });
 
 app.post( '/contact', ( req, res, next ) => {
