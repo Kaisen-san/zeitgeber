@@ -1,0 +1,29 @@
+.social {
+  display: flex;
+  justify-content: space-around;
+  width: 12.5em;
+}
+
+.social__item {
+  width: 3em;
+  height: 3em;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+}
+
+.social__icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: #fff;
+  transform: translate(-50%, -50%);
+}
+
+.social__item--linkedin {
+  background-color: #2977c9;
+}
+
+.social__item--linkedin:hover {
+  background-color: #006097;
+}

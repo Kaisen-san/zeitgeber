@@ -1,0 +1,25 @@
+main {
+  display: grid;
+  grid-template:
+    "hero hero hero" 80vh
+    ". products ." max-content
+    / 1fr minmax(320px, 5fr) 1fr;
+}
+
+.hero {
+  grid-area: hero;
+}
+
+.products {
+  grid-area: products;
+}
+
+@media (max-width: 992px) {
+  main {
+    display: grid;
+    grid-template:
+      "hero hero hero" 80vmax
+      ". products ." max-content
+      / 1fr minmax(320px, 5fr) 1fr;
+  }
+}

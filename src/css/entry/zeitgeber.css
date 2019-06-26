@@ -1,0 +1,14 @@
+.zeitgeber__fade-in {
+  filter: opacity(0);
+  transform: translateX(400px);
+}
+
+#zeitgeber .ad__image {
+  object-position: -110px;
+}
+
+@media (max-width: 1023.98px) {
+  #zeitgeber .ad__image {
+    object-position: unset;
+  }
+}
