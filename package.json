@@ -1,0 +1,37 @@
+{
+  "name": "zeitgeber",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "watch": "gulp",
+    "comp-imgs": "gulp comp-imgs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kaisen-san/zeitgeber.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kaisen-san/zeitgeber/issues"
+  },
+  "homepage": "https://github.com/Kaisen-san/zeitgeber#readme",
+  "devDependencies": {
+    "gulp": "^4.0.1",
+    "gulp-clean-css": "^4.1.0",
+    "gulp-cli": "^2.2.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-jsmin": "^0.1.5",
+    "gulp-tinifier": "^1.0.2",
+    "nodemon": "^1.18.11"
+  },
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "sqlite": "^3.0.3"
+  }
+}

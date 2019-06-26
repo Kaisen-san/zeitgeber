@@ -1,0 +1,22 @@
+.input__wrapper {
+  width: 100%;
+  position: relative;
+}
+
+.input__icon {
+  position: absolute;
+  top: 1em;
+  left: 1em;
+  color: var(--icon-clr);
+}
+
+.input {
+  width: 100%;
+  padding: 1em 2.5em;
+  border: 0;
+  border-radius: 1.5em;
+  font-size: 1.1rem;
+  color: var(--content-clr);
+  background-color: var(--white);
+  outline: none;
+}

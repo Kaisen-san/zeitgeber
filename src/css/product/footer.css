@@ -1,0 +1,16 @@
+footer {
+  display: grid;
+  grid-template:
+    "contact contact contact" auto
+    "copyright copyright copyright" auto
+    / 1fr minmax(320px, auto) 1fr;
+}
+
+.contact {
+  grid-area: contact;
+  margin: 5em auto;
+}
+
+.copyright {
+  grid-area: copyright;
+}

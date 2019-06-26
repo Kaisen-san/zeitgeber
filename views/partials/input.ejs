@@ -1,0 +1,8 @@
+<div class="input__wrapper">
+  <% if ( icon === 'user' ) { %>
+    <i class="fas fa-user input__icon"></i>
+  <% } else if ( icon === 'email' ) { %>
+    <i class="fas fa-envelope input__icon"></i>
+  <% } %>
+  <input type="<%= type %>" name="<%= name %>" class="input" placeholder="<%= placeholder %>">
+</div>
