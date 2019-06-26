@@ -1,0 +1,16 @@
+main {
+  grid-area: main;
+  display: grid;
+  grid-template:
+    "purchase purchase purchase" auto
+    "info info info" auto
+    / 1fr minmax(400px, 5fr) 1fr;
+}
+
+/* .purchase {
+  grid-area: purchase;
+} */
+
+.description {
+  grid-area: info;
+}
