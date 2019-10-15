@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <%- include( 'partials/head', {
+    pageTitle: 'Zeitgeber Store',
+    stylesFilename: 'product'
+  }) %>
+</head>
+<body>
+  <header class="header">
+    <%- include( '../components/logo', {
+      ref: '/',
+      src: '/img/t4p-light.svg',
+      alt: 'Tech4People'
+    }) %>
+
+    <%- include( '../components/menu', {
+      elements: [
+        { ref: '#', content: 'Purchase' },
+        { ref: '#description', content: 'Description' },
+        { ref: '#contact', content: 'Contact' },
+        { ref: 'https://t4p.com.br/tech4people', content: 'About Us' }
+      ]
+    }) %>
+  </header>
+
+  <main class="main">
+    <%- include('../components/purchase') %>
+    <%- include('../components/product_info') %>
+  </main>
+
+  <footer class="footer">
+    <%- include('../components/contact') %>
+
+    <%- include('../components/copyright') %>
+  </footer>
+
+  <%- include('partials/scripts', { scriptFilename: 'product' } ) %>
+</body>
+</html>

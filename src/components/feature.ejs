@@ -1,0 +1,23 @@
+<article id="<%= id %>" class="feature">
+  <% if ( imageSide === 'left' ) { %>
+    <div class="feature__item">
+      <img class="feature__image feature__image--left" src="<%= imageSrc %>" alt="<%= imageAlt %>">
+    </div>
+  <% } %>
+
+  <div class="feature__item">
+    <h1 class="feature__title"><%= title %></h1>
+    <%- include( 'divisor' ) %>
+    <% content.forEach( c => { %>
+      <p class="feature__content"><%= c %></p>
+    <% }) %>
+
+    <%- include( 'button', { ref: buttonRef, content: buttonTitle, extraClasses: '' } ) %>
+  </div>
+
+  <% if ( imageSide === 'right' ) { %>
+    <div class="feature__item">
+      <img class="feature__image feature__image--right" src="<%= imageSrc %>" alt="<%= imageAlt %>">
+    </div>
+  <% } %>
+</article>
