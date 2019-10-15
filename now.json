@@ -4,7 +4,7 @@
     { "src": "public/js/common.min.js", "use": "@now/static" },
     { "src": "public/js/main.min.js", "use": "@now/static" },
     { "src": "public/js/product.min.js", "use": "@now/static" },
-    { "src": "app.js", "use": "@now/node-server" }
+    { "src": "app.js", "use": "@now/node" }
   ],
   "routes": [
     { "src": "/js/common.min.js", "dest": "public/js/common.min.js" },
