@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include( 'partials/head', {
+    pageTitle: 'Zeitgeber Store',
+    stylesFilename: 'main'
+  }) %>
+</head>
+<body>
+  <header class="header">
+    <%- include( '../components/logo', {
+      ref: '#',
+      src: '/img/t4p-light.svg',
+      alt: 'Tech4People'
+    }) %>
+
+    <%- include( '../components/menu', {
+      elements: [
+        { ref: '#products', content: 'Products' },
+        { ref: '#cloud', content: 'Cloud' },
+        { ref: '#contact', content: 'Contact' },
+        { ref: 'https://t4p.com.br/tech4people', content: 'About Us' }
+      ]
+    }) %>
+  </header>
+
+  <main class="main">
+    <%- include( '../components/hero', { title: 'Zeitgeber: Your open source biosensing tools store', imgUrl: '/img/hero.jpg' } ) %>
+
+    <%- include( '../components/products', {
+      products: [
+        { title: 'Bioimpedância', code: 'BIO 55', description: 'Equipamento portátil que mede 50mm x 50mm', imgUrl: '/img/pd-bioimp.jpg', productId: "1" },
+        { title: 'Actígrafo', code: 'HORUS', description: 'Equipamento portátil que mede 50mm de diâmetro', imgUrl: '/img/pd-horus.jpg', productId: "2" },
+        { title: 'EEG', code: 'EEG 57', description: 'Equipamento portátil que mede 50mm x 70mm', imgUrl: '/img/pd-eeg.jpg', productId: "3" },
+        { title: 'Plataforma de Força', code: 'PLT 20', description: 'Estrutura mecânica em alumínio com formato triangular', imgUrl: '/img/pd-plataforma.jpg', productId: "4" },
+        { title: 'Oxígrafo', code: 'OXI 70', description: 'Equipamento portátil que mede 70mm de diâmetro', imgUrl: '/img/pd-oxigrafo.jpg', productId: "5" },
+        { title: 'NIRS', code: 'NIRS 77', description: 'Equipamento portátil que mede 70mm x 70mm', imgUrl: '/img/pd-nirs.jpg', productId: "6" },
+        { title: 'Actígrafo Mini', code: 'HORUSm', description: 'Equipamento portátil que mede 25mm x 36mm', imgUrl: '/img/pd-horus.jpg', productId: "7" },
+        { title: 'EEG mini', code: 'EEG 47', description: 'Equipamento portátil que mede 41mm x 70mm', imgUrl: '/img/pd-eeg.jpg', productId: "8" },
+        { title: 'Actígrafo Wear', code: 'HORUSw', description: 'Equipamento portátil que mede 35mm x 40mm', imgUrl: '/img/pd-horus.jpg', productId: "9" }
+      ]
+    }) %>
+  </main>
+
+  <%- include( '../components/feature', {
+    id: 'cloud',
+    imageSide: 'right',
+    imageSrc: '/img/ft-cloud.png',
+    imageAlt: 'Cloud',
+    title: 'Dados disponíveis na nuvem',
+    content: [
+      'Os dispositivos podem ser integrados com outros sistemas como computadores, smartphones e tablets, permitindo que os dados coletados sejam armazenados e processados posteriormente e até mesmo em tempo real. A conexão por bluetooth possibilita a transferência de dados a sistemas inteligentes dotados de algoritmos que processam e interagem com o usuário.',
+      'Todos os equipamentos utilizam métodos de medição de sinais fisiológicos não-invasivos, ou seja, não envolvem instrumentos que rompem a pele ou que penetram fisicamente no corpo, portanto, não oferecem risco e desconforto no seu uso.'
+    ],
+    buttonRef: 'http://app.t4p.com.br',
+    buttonTitle: 'Saiba Mais'
+  }) %>
+
+  <%- include( '../components/slideshow', {
+    images: [
+      // { src: '/img/sss-01.jpg', alt: '', position: 'hide' },
+      { src: '/img/sss-08.jpg', alt: '', position: 'hide' },
+      { src: '/img/sss-02.jpg', alt: '', position: 'hide' },
+      { src: '/img/sss-03.jpg', alt: '', position: 'left' },
+      { src: '/img/sss-04.jpg', alt: '', position: 'middle' },
+      { src: '/img/sss-05.jpg', alt: '', position: 'right' },
+      { src: '/img/sss-06.jpg', alt: '', position: 'hide' },
+      { src: '/img/sss-07.jpg', alt: '', position: 'hide'},
+    ]
+  }) %>
+
+  <footer class="footer">
+    <%- include('../components/contact') %>
+
+    <%- include('../components/copyright') %>
+  </footer>
+
+  <%- include('partials/scripts', { scriptFilename: 'main' } ) %>
+</body>
+</html>

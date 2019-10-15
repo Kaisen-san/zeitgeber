@@ -32,6 +32,6 @@
   "dependencies": {
     "ejs": "^2.6.1",
     "express": "^4.16.4",
-    "sqlite": "^3.0.3"
+    "sqlite3": "^4.1.0"
   }
 }
