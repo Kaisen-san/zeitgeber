@@ -21,17 +21,17 @@
   },
   "homepage": "https://github.com/Kaisen-san/zeitgeber#readme",
   "devDependencies": {
-    "gulp": "^4.0.1",
-    "gulp-clean-css": "^4.1.0",
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.2.0",
     "gulp-cli": "^2.2.0",
     "gulp-concat": "^2.6.1",
     "gulp-jsmin": "^0.1.5",
     "gulp-tinifier": "^1.0.2",
-    "nodemon": "^1.18.11"
+    "nodemon": "^1.19.3"
   },
   "dependencies": {
-    "ejs": "^2.6.1",
-    "express": "^4.16.4",
+    "ejs": "^2.7.1",
+    "express": "^4.17.1",
     "sqlite3": "^4.1.0"
   }
 }
