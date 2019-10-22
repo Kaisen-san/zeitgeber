@@ -1,0 +1,29 @@
+<form action="/buy" method="POST" class="buy__form">
+     
+    <div class="buy__flex">
+        <span class="buy__wrapper buy__wrapper--left">
+            <%- include( 'input', { type: 'text', name: 'user', placeholder: 'First Name', icon: 'fa-user' } ) %>
+        </span>
+        <span class="buy__wrapper buy__wrapper--right">
+            <%- include( 'input', { type: 'text', name: 'email', placeholder: 'Last name', icon: 'fa-user' } ) %>
+        </span>
+    </div>
+    <div class="buy__flex">
+        <span class="buy__wrapper buy__wrapper--left">
+            <%- include( 'input', { type: 'email', name: 'user', placeholder: 'Email', icon: 'fa-envelope' } ) %>
+        </span>
+        <span class="buy__wrapper buy__wrapper--right">
+            <%- include( 'input', { type: 'number', name: 'phone', placeholder: 'Phone Number', icon: 'fa-phone' } ) %>
+        </span>
+    </div>
+
+    <div class="buy__wrapper">
+        <%- include( 'input', { type: 'text', name: 'address', placeholder: 'Address', icon: 'fa-location-arrow' } ) %>
+    </div>
+
+    <textarea class="buy__form__msg" cols="30" rows="10" placeholder="Message"></textarea>
+
+    <button type="submit" class="buy__form__btn">
+        <%- include( 'button', { ref: '', content: 'Send Request<i class="fas fa-arrow-right form__btn-icon"></i>', extraClasses: 'button--maximized button--rounded' } ) %>
+    </button>
+</form>
