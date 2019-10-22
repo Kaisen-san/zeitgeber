@@ -1,0 +1,48 @@
+.buy__form,
+.buy__form__item {
+    width: 100%;
+}
+
+.buy__wrapper {
+    margin-bottom: 12px;
+}
+
+.buy__wrapper--left {
+    width: 100%;
+    margin-right: 1%;
+}
+
+.buy__wrapper--right {
+    width: 100%;
+    margin-left: 1%;
+}
+  
+.buy__form__msg {
+    width: 100%;
+    font-family: var(--ff-lato);
+    background: #fff;
+    border: 0;
+    outline: none;
+}
+  
+.buy__form__msg {
+    height: 125px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    padding: 15px;
+    resize: none;
+}
+  
+.buy__form__btn {
+    width: 100%;
+    background: none;
+    border: none;
+}
+
+.buy__flex {
+    display: flex;
+}
+  
+.buy__hide {
+    display: none;
+}

@@ -21,7 +21,7 @@ const zoomImage = document.querySelector(".slider__zoom");
 const zoomElement = document.querySelector(".purchase__zoom");
 
 const toggleOverlay = (overlayContainer) => {
-    overlayContainer.classList.toggle("purchase-overlay");
+    overlayContainer.classList.toggle("purchase__overlay");
     document.body.classList.toggle("purchase__lock");
 }
 
@@ -37,7 +37,7 @@ zoomElement.addEventListener( 'click', evt => {
 // Open up overlay to continue purchase (sending email)
 const buyButton = document.querySelector(".purchase-send");
 const buyElement = document.querySelector(".purchase__buy");
-const buyOverlayHide = document.querySelector(".purchase__cancel");
+const buyOverlayHide = document.querySelector(".buy__cancel");
 
 buyButton.addEventListener( 'click', evt => {
     toggleOverlay(buyElement);
