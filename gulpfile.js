@@ -25,6 +25,13 @@ gulp.task('min-css-product', async () => {
     .pipe(gulp.dest('public/css'));
 });
 
+gulp.task('min-css-admin', async () => {
+  return gulp.src('src/styles/admin/*.css')
+    .pipe(mincss())
+    .pipe(concat('admin.min.css'))
+    .pipe(gulp.dest('public/css'));
+});
+
 gulp.task('min-js-common', async () => {
   return gulp.src(['src/scripts/index.js', 'src/scripts/utils/*.js', 'src/components/*.js'])
     .pipe(minjs())
@@ -43,6 +50,20 @@ gulp.task('min-js-product', async () => {
   return gulp.src('src/scripts/product.js')
     .pipe(minjs())
     .pipe(concat('product.min.js'))
+    .pipe(gulp.dest('public/js'));
+});
+
+gulp.task('min-js-admin-main', async () => {
+  return gulp.src('src/scripts/admin-main.js')
+    .pipe(minjs())
+    .pipe(concat('admin-main.min.js'))
+    .pipe(gulp.dest('public/js'));
+});
+
+gulp.task('min-js-admin-product', async () => {
+  return gulp.src('src/scripts/admin-product.js')
+    .pipe(minjs())
+    .pipe(concat('admin-product.min.js'))
     .pipe(gulp.dest('public/js'));
 });
 
@@ -66,9 +87,12 @@ gulp.task('watch', async () => {
   gulp.watch(['src/styles/*.css', 'src/components/*.css'], gulp.parallel('min-css-common'));
   gulp.watch('src/styles/main/*.css', gulp.parallel('min-css-main'));
   gulp.watch('src/styles/product/*.css', gulp.parallel('min-css-product'));
+  gulp.watch('src/styles/admin/*.css', gulp.parallel('min-css-admin'));
   gulp.watch(['src/scripts/utils/*.js', 'src/components/*.js'], gulp.parallel('min-js-common'));
   gulp.watch('src/scripts/main.js', gulp.parallel('min-js-main'));
   gulp.watch('src/scripts/product.js', gulp.parallel('min-js-product'));
+  gulp.watch('src/scripts/admin-main.js', gulp.parallel('min-js-admin-main'));
+  gulp.watch('src/scripts/admin-product.js', gulp.parallel('min-js-admin-product'));
   gulp.watch('src/images/*.{ico,svg,jpeg}', gulp.parallel('copy-noncomp-imgs'));
   // gulp.watch('src/images/*.{png,jpg}', gulp.parallel('comp-imgs'));
 });
@@ -79,9 +103,12 @@ gulp.task(
     'min-css-common',
     'min-css-main',
     'min-css-product',
+    'min-css-admin',
     'min-js-common',
     'min-js-main',
     'min-js-product',
+    'min-js-admin-main',
+    'min-js-admin-product',
     'copy-noncomp-imgs',
     'watch'
   )
