@@ -35,7 +35,7 @@ zoomElement.addEventListener( 'click', evt => {
 });
 
 // Open up overlay to continue purchase (sending email)
-const buyButton = document.querySelector(".purchase-send");
+const buyButton = document.querySelector(".options__send");
 const buyElement = document.querySelector(".purchase__buy");
 const buyOverlayHide = document.querySelector(".buy__cancel");
 

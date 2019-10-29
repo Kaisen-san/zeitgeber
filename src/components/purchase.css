@@ -21,7 +21,7 @@
   font-size: 1.2em;
 }
 
-.purchase-send {
+/* .purchase-send {
   display: block;
   margin: 2.5em 0;
   width: 100%;
@@ -43,7 +43,7 @@
 
 .purchase-send:active {
   background-color: var(--secondary-clr);
-}
+} */
 
 .purchase__zoom, .purchase__buy {
   display: none;
