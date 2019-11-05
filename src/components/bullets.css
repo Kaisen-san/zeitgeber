@@ -1,0 +1,27 @@
+.bullet__content {
+  text-align: justify;
+  list-style: disc;
+  margin-inline-start: 1.5em;
+  margin-inline-end: 3em;
+  margin: 1em 0;
+  padding-left: 40px;
+}
+
+.bullet__content--paragraph {
+  margin-inline-start: 4em;
+  margin-inline-end: 4em; 
+  padding-left: 40px;
+  list-style: disc;
+}
+
+@media ( max-width: 767.98px ) {
+  .bullet__content--paragraph {
+    margin-inline-start: 1em;
+    margin-inline-end: 1em;
+  }
+
+  .bullet__content {
+    margin-inline-start: -0.5em;
+    margin-inline-end: 1em;
+  }
+}

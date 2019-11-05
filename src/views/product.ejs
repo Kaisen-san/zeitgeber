@@ -26,7 +26,19 @@
 
   <main class="main">
     <%- include('../components/purchase') %>
-    <%- include('../components/product_info') %>
+
+    <%- include('../components/product_info', {
+      id: 'description',
+      title: 'Description',
+      content: [
+        `Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia modi velit unde molestias totam est at iure commodi corrupti
+        animi ipsum nostrum voluptatibus debitis nulla, nobis soluta labore pariatur quod, ad molestiae. Quas assumenda qui optio quo 
+        itaque voluptatum, sed enim, illum quis perferendis deserunt cupiditate voluptates fuga velit. Aspernatur officiis esse nemo 
+        optio adipisci doloribus nam et ex harum voluptatem amet, excepturi modi sed ipsum exercitationem doloremque necessitatibus 
+        aliquam dicta itaque ab. Sed voluptates ducimus facere nihil nulla excepturi.`
+      ]        
+      }) %>
+    
   </main>
 
   <footer class="footer">

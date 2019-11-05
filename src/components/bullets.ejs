@@ -1,0 +1,15 @@
+<% if ( inParagraph === 'false' ) { %>
+  <ul id="<%= id %>" class="bullet__content" >
+      <% content.forEach( (c) => { %>
+        <li><%= c %></li>
+      <% }); %>
+  </ul>
+<% } %>
+
+<% if ( inParagraph === 'true' ) { %>
+  <ul id="<%= id %>" class="bullet__content--paragraph">
+      <% content.forEach( ( c ) => { %>
+        <li><%= c %></li>
+      <% }); %>
+  </ul>
+<% } %>
