@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <%- include( 'partials/head', {
     pageTitle: 'Zeitgeber Store',
     stylesFilename: 'main'
   }) %>
 </head>
+
 <body>
   <header class="header">
     <%- include( '../components/logo', {
@@ -27,17 +29,17 @@
   <main class="main">
     <%- include( '../components/hero', { title: 'Zeitgeber: Your open source biosensing tools store', imgUrl: '/img/hero.jpg' } ) %>
 
-    <%- include( '../components/products', {
+    <%- include( '../components/cards', {
       products: [
-        { title: 'Bioimpedância', code: 'BIO 55', description: 'Equipamento portátil que mede 50mm x 50mm', imgUrl: '/img/pd-bioimp.jpg', productId: "1" },
-        { title: 'Actígrafo', code: 'HORUS', description: 'Equipamento portátil que mede 50mm de diâmetro', imgUrl: '/img/pd-horus.jpg', productId: "2" },
-        { title: 'EEG', code: 'EEG 57', description: 'Equipamento portátil que mede 50mm x 70mm', imgUrl: '/img/pd-eeg.jpg', productId: "3" },
-        { title: 'Plataforma de Força', code: 'PLT 20', description: 'Estrutura mecânica em alumínio com formato triangular', imgUrl: '/img/pd-plataforma.jpg', productId: "4" },
-        { title: 'Oxígrafo', code: 'OXI 70', description: 'Equipamento portátil que mede 70mm de diâmetro', imgUrl: '/img/pd-oxigrafo.jpg', productId: "5" },
-        { title: 'NIRS', code: 'NIRS 77', description: 'Equipamento portátil que mede 70mm x 70mm', imgUrl: '/img/pd-nirs.jpg', productId: "6" },
-        { title: 'Actígrafo Mini', code: 'HORUSm', description: 'Equipamento portátil que mede 25mm x 36mm', imgUrl: '/img/pd-horus.jpg', productId: "7" },
-        { title: 'EEG mini', code: 'EEG 47', description: 'Equipamento portátil que mede 41mm x 70mm', imgUrl: '/img/pd-eeg.jpg', productId: "8" },
-        { title: 'Actígrafo Wear', code: 'HORUSw', description: 'Equipamento portátil que mede 35mm x 40mm', imgUrl: '/img/pd-horus.jpg', productId: "9" }
+        { id: "1", title: 'Bioimpedância', code: 'BIO 55', description: 'Equipamento portátil que mede 50mm x 50mm', imgUrl: '/img/pd-bioimp.jpg' },
+        { id: "2", title: 'Actígrafo', code: 'HORUS', description: 'Equipamento portátil que mede 50mm de diâmetro', imgUrl: '/img/pd-horus.jpg' },
+        { id: "3", title: 'EEG', code: 'EEG 57', description: 'Equipamento portátil que mede 50mm x 70mm', imgUrl: '/img/pd-eeg.jpg' },
+        { id: "4", title: 'Plataforma de Força', code: 'PLT 20', description: 'Estrutura mecânica em alumínio com formato triangular', imgUrl: '/img/pd-plataforma.jpg' },
+        { id: "5", title: 'Oxígrafo', code: 'OXI 70', description: 'Equipamento portátil que mede 70mm de diâmetro', imgUrl: '/img/pd-oxigrafo.jpg' },
+        { id: "6", title: 'NIRS', code: 'NIRS 77', description: 'Equipamento portátil que mede 70mm x 70mm', imgUrl: '/img/pd-nirs.jpg' },
+        { id: "7", title: 'Actígrafo Mini', code: 'HORUSm', description: 'Equipamento portátil que mede 25mm x 36mm', imgUrl: '/img/pd-horus.jpg' },
+        { id: "8", title: 'EEG mini', code: 'EEG 47', description: 'Equipamento portátil que mede 41mm x 70mm', imgUrl: '/img/pd-eeg.jpg' },
+        { id: "9", title: 'Actígrafo Wear', code: 'HORUSw', description: 'Equipamento portátil que mede 35mm x 40mm', imgUrl: '/img/pd-horus.jpg' }
       ]
     }) %>
   </main>
@@ -78,4 +80,5 @@
 
   <%- include('partials/scripts', { scriptFilename: 'main' } ) %>
 </body>
+
 </html>

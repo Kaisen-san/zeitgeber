@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang='en'>
+
 <head>
   <%- include( 'partials/head', {
     pageTitle: 'Zeitgeber Store - Admin View',
     stylesFilename: 'admin'
   }) %>
 </head>
+
 <body>
-  <header class="header">
+  <header class='header'>
     <%- include( '../components/logo', {
-      ref: '/admin/main',
+      ref: '/admin',
       src: '/img/t4p-dark.svg',
       alt: 'Tech4People'
     }) %>
@@ -20,46 +22,52 @@
       ]
     }) %>
   </header>
+
   <article>
-    <h1 class='admin__title'>Card</h1>
-    <form id='card' method="post">
+    <h1 class='admin__title'>Product</h1>
+    <form id='product'>
       <div class='admin__item admin__item--maximized'>
-        <h3 class='admin__label'>Intro</h3>
-        <%- include( '../components/input', { type: 'text', name: 'card_title', placeholder: '', iconClass: 'far fa-file-alt', value: 'Something' } ) %>
+        <h3 class='admin__label'>Name</h3>
+        <%- include( '../components/input', { type: 'text', name: 'name', placeholder: '', iconClass: 'far fa-file-alt', value: product.name } ) %>
       </div>
       <div class='admin__item admin__item--maximized'>
-        <h3 class='admin__label'>Image</h3>
-        <%- include( '../components/link', { id: '', ref: '', extraClasses: 'link--nofill', content: '<img class="image__button" src="/img/hero.jpg">' } ) %>
+        <h3 class='admin__label'>Category</h3>
+        <%- include( '../components/input', { type: 'text', name: 'category', placeholder: '', iconClass: 'far fa-file-alt', value: product.category } ) %>
       </div>
       <%- include( '../components/button', { id: '', type: 'submit', content: 'Save<i class="fas fa-save icon"></i>', extraClasses: '', extraLinkClasses: '' } ) %>
     </form>
   </article>
+
   <article>
-    <h1 class='admin__title'>Purchase</h1>
-    <form id='purchase' method="post">
+    <h1 class='admin__title'>Card</h1>
+    <form id='card'>
       <div class='admin__item admin__item--maximized'>
-        <h3 class='admin__label'>Title</h3>
-        <%- include( '../components/input', { type: 'text', name: 'purchase_title', placeholder: '', iconClass: 'far fa-file-alt', value: 'Something' } ) %>
+        <h3 class='admin__label'>Brief</h3>
+        <%- include( '../components/input', { type: 'text', name: 'brief', placeholder: '', iconClass: 'far fa-file-alt', value: card.brief } ) %>
       </div>
       <div class='admin__item admin__item--maximized'>
+        <h3 class='admin__label'>Image</h3>
+        <%- include( '../components/link', { id: '', ref: '', extraClasses: 'link--nofill', content: `<img name='image' class='image__button' src='${card.imgSrc}'>` } ) %>
+      </div>
+      <%- include( '../components/button', { id: '', type: 'submit', content: 'Save<i class="fas fa-save icon"></i>', extraClasses: '', extraLinkClasses: '' } ) %>
+    </form>
+  </article>
+
+  <article>
+    <h1 class='admin__title'>Purchase</h1>
+    <form id='purchase'>
+      <div class='admin__item admin__item--maximized'>
         <h3 class='admin__label'>Description</h3>
-        <%- include( '../components/textarea', { name: 'purchase_content', cols: '50', rows: '30', placeholder: '', value: 'Something else', extraClasses: '' } ) %>
+        <%- include( '../components/textarea', { name: 'description', cols: '50', rows: '30', placeholder: '', content: purchase.description, extraClasses: '' } ) %>
       </div>
       <div class='admin__item admin__item--maximized'>
         <h3 class='admin__label'>Images</h3>
         <div class='admin__wrapper'>
-          <div class='admin__item'>
-            <%- include( '../components/link', { id: '', ref: '', extraClasses: 'link--nofill', content: '<img class="image__button" src="/img/hero.jpg">' } ) %>
-          </div>
-          <div class='admin__item'>
-            <%- include( '../components/link', { id: '', ref: '', extraClasses: 'link--nofill', content: '<img class="image__button" src="/img/hero.jpg">' } ) %>
-          </div>
-          <div class='admin__item'>
-            <%- include( '../components/link', { id: '', ref: '', extraClasses: 'link--nofill', content: '<img class="image__button" src="/img/hero.jpg">' } ) %>
-          </div>
-          <div class='admin__item'>
-            <%- include( '../components/link', { id: '', ref: '', extraClasses: 'link--nofill', content: '<img class="image__button" src="/img/hero.jpg">' } ) %>
-          </div>
+          <% purchase.images.forEach(({ imgSrc }) => { %>
+            <div class='admin__item'>
+              <%- include( '../components/link', { id: '', ref: '', extraClasses: 'link--nofill', content: `<img name='image' class='image__button' src='${imgSrc}'>` } ) %>
+            </div>
+          <% }) %>
           <div class='admin__item admin__item--dark'>
             <%- include( '../components/link', { id: 'purchase_add', ref: '', extraClasses: 'link--nofill link--maximized link--centered', content: '<i class="far fa-plus-square admin__add"></i>' } ) %>
           </div>
@@ -68,36 +76,34 @@
       <%- include( '../components/button', { id: '', type: 'submit', content: 'Save<i class="fas fa-save icon"></i>', extraClasses: '', extraLinkClasses: '' } ) %>
     </form>
   </article>
+
   <article>
-    <h1 class='admin__title'>Product</h1>
-    <form id='product' method="post">
+    <h1 class='admin__title'>Product Info</h1>
+    <form id='product_info'>
       <div class='admin__item admin__item--maximized'>
         <h3 class='admin__label'>Description</h3>
-        <%- include( '../components/textarea', { name: 'product_content', cols: '50', rows: '30', placeholder: '', value: 'Something else', extraClasses: 'textarea--tall' } ) %>
+        <%- include( '../components/textarea', { name: 'content', cols: '50', rows: '30', placeholder: '', content: productInfo.content, extraClasses: 'textarea--tall' } ) %>
       </div>
       <%- include( '../components/button', { id: '', type: 'submit', content: 'Save<i class="fas fa-save icon"></i>', extraClasses: '', extraLinkClasses: '' } ) %>
     </form>
   </article>
-  <div id='images_popup' class="images__wrapper">
-    <div class="images">
-      <div class="images__cancel"><i class="fas fa-times"></i></div>
-      <%- include( '../components/link', { id: '', ref: '', extraClasses: 'link--nofill images__item', content: '<img class="image__button" src="/img/ss-01.jpg">' } ) %>
-      <%- include( '../components/link', { id: '', ref: '', extraClasses: 'link--nofill images__item', content: '<img class="image__button" src="/img/ss-02.jpg">' } ) %>
-      <%- include( '../components/link', { id: '', ref: '', extraClasses: 'link--nofill images__item', content: '<img class="image__button" src="/img/ss-03.jpg">' } ) %>
-      <%- include( '../components/link', { id: '', ref: '', extraClasses: 'link--nofill images__item', content: '<img class="image__button" src="/img/ss-04.jpg">' } ) %>
-      <%- include( '../components/link', { id: '', ref: '', extraClasses: 'link--nofill images__item', content: '<img class="image__button" src="/img/ss-05.jpg">' } ) %>
-      <%- include( '../components/link', { id: '', ref: '', extraClasses: 'link--nofill images__item', content: '<img class="image__button" src="/img/hero.jpg">' } ) %>
-      <%- include( '../components/link', { id: '', ref: '', extraClasses: 'link--nofill images__item', content: '<img class="image__button" src="/img/maua.png">' } ) %>
-      <%- include( '../components/link', { id: '', ref: '', extraClasses: 'link--nofill images__item', content: '<img class="image__button" src="/img/ss-06.jpg">' } ) %>
-      <%- include( '../components/link', { id: '', ref: '', extraClasses: 'link--nofill images__item', content: '<img class="image__button" src="/img/ss-07.jpg">' } ) %>
+
+  <div id='images_popup' class='images__wrapper'>
+    <div class='images'>
+      <div class='images__cancel'><i class='fas fa-times'></i></div>
+      <% images.forEach(({ imgSrc }) => { %>
+        <%- include( '../components/link', { id: '', ref: '', extraClasses: 'link--nofill images__item', content: `<img class='image__button' src='${imgSrc}'>` } ) %>
+      <% }) %>
     </div>
   </div>
+
   <template>
     <div class='admin__item'>
-      <%- include( '../components/link', { id: '', ref: '', extraClasses: 'link--nofill', content: '<img class="image__button">' } ) %>
+      <%- include( '../components/link', { id: '', ref: '', extraClasses: 'link--nofill', content: '<img name="image" class="image__button">' } ) %>
     </div>
   </template>
 
   <%- include('partials/scripts', { scriptFilename: 'admin-product' } ) %>
 </body>
+
 </html>
