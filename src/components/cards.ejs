@@ -2,12 +2,12 @@
   <h1 class="products__title">Featured Products</h1>
   <div class="products__wrapper">
     <% products.forEach( p => { %>
-      <%- include( 'product', {
+      <%- include( 'card', {
+        id: p.id,
         title: p.title,
         code: p.code,
         description: p.description,
-        imgUrl: p.imgUrl,
-        productId: p.productId
+        imgUrl: p.imgUrl
       }) %>
     <% }); %>
   </div>

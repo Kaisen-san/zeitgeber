@@ -1,1 +1,3 @@
-<a <%= ref ? 'href=' + ref : '' %> class="button <%= extraClasses %>"><%- content %></a>
+<button <%= id ? `id=${id}` : '' %> type="<%= type %>" class="button <%= extraClasses %>">
+  <%- include( 'link', { id: '', ref: '', content, extraClasses: extraLinkClasses } ) %>
+</button>
