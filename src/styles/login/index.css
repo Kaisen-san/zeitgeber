@@ -1,0 +1,30 @@
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-clr);
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4rem;
+  width: 100%;
+  height: calc(100vh - 4rem);
+}
+
+.header .menu .menu__items-wrapper {
+  justify-content: flex-end;
+}
+
+.login {
+  width: 350px;
+}
+
+.login .input {
+  margin-bottom: 10px;
+}
+
+.login .button {
+  margin-top: 5px;
+}

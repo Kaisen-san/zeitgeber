@@ -5,7 +5,7 @@ body {
 }
 
 article {
-  padding: 80px 10%;
+  padding: 5rem 10%;
 }
 
 article:nth-of-type(even) {
@@ -18,12 +18,12 @@ article:nth-of-type(even) {
 
 .admin__title {
   color: var(--title-clr);
-  margin-bottom: 20px;
+  margin: 1rem 0;
 }
 
 .admin__label {
   color: var(--subtitle-clr);
-  margin: 0 0 10px 10px;
+  margin: 0 0 0.5rem 0.5rem;
 }
 
 .admin__wrapper {
@@ -34,11 +34,11 @@ article:nth-of-type(even) {
 
 .admin__item {
   width: 400px;
-  margin-bottom: 20px;
+  margin-bottom: 1rem;
 }
 
 .admin__add {
-  font-size: 7em;
+  font-size: 7rem;
 }
 
 .admin__item--dark {
@@ -92,9 +92,14 @@ article:nth-of-type(even) {
   cursor: pointer;
   top: 1%;
   right: 1%;
-  font-size: 2em;
+  font-size: 2rem;
+  color: white;
 }
 
-.textarea__wrapper + .button {
-  margin-top: 10px;
+#project_info .textarea {
+  border-radius: 0;
+}
+
+#project_info .textarea__wrapper {
+  margin-bottom: 0.5rem;
 }
