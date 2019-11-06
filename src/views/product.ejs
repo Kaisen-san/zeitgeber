@@ -36,8 +36,33 @@
         itaque voluptatum, sed enim, illum quis perferendis deserunt cupiditate voluptates fuga velit. Aspernatur officiis esse nemo 
         optio adipisci doloribus nam et ex harum voluptatem amet, excepturi modi sed ipsum exercitationem doloremque necessitatibus 
         aliquam dicta itaque ab. Sed voluptates ducimus facere nihil nulla excepturi.`
-      ]        
-      }) %>
+      ],
+      bullets: {
+        id: 'list',
+				inParagraph: 'true',
+				content: ['item 1', 'item 2', 'item 3', 'item4']
+      },
+      table: {
+        headers: [ 'Dimension', 'Quantity', 'Price' ],
+				rows: [
+				{
+					dimension: 20,
+					quantity: 50,
+					price: 10
+				},
+				{
+					dimension : 20,
+					quantity: 100,
+					price: 20
+				},
+				{
+					dimension : 23,
+					quantity: 200,
+					price: 30
+				} 
+			]
+    }        
+    }) %>
     
   </main>
 

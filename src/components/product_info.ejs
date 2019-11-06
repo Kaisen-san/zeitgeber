@@ -1,5 +1,5 @@
 <section id="<%= id %>" class="description">
-		<div class="description--descript">
+		 <div class="description--descript">
 			<h3 class="description__title"><%= title %></h3>
 			<%- include( 'divisor' ) %>
 			<% content.forEach( c => { %>
@@ -7,30 +7,14 @@
 			<% }) %>
 	 
 			<%- include('../components/bullets',{
-				id: 'list',
-				parentClass: 'description__content',
-				inParagraph: 'true',
-				content: ['item 1', 'item 2', 'item 3']
+				id: bullets.id,
+				inParagraph: bullets.inParagraph,
+				content: bullets.content
 			}) %>
 	
 			<%- include('../components/table', {
-				headers: [ 'Dimension', 'Quantity', 'Price' ],
-				rows: [
-				{
-					dimension: 20,
-					quantity: 50,
-					price: 10
-				},
-				{
-					dimension : 20,
-					quantity: 100,
-					price: 20
-				},
-				{
-					dimension : 23,
-					quantity: 200,
-					price: 30
-				},  
-			]
-	}) %>
+				headers: table.headers,
+				rows: table.rows
+			}) %>
+		 </div>
 	</section>
