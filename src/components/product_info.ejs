@@ -1,90 +1,36 @@
-<section id="description" class="description">
-	<div class="descript">
-		<h3 class="sub_title">Description:</h3>
-		<span class="divisor"></span>   
-
-		<p class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia modi velit unde molestias totam est at iure commodi corrupti animi ipsum nostrum voluptatibus debitis nulla, nobis soluta labore pariatur quod, ad molestiae. Quas assumenda qui optio quo itaque voluptatum, sed enim, illum quis perferendis deserunt cupiditate voluptates fuga velit. Aspernatur officiis esse nemo optio adipisci doloribus nam et ex harum voluptatem amet, excepturi modi sed ipsum exercitationem doloremque necessitatibus aliquam dicta itaque ab. Sed voluptates ducimus facere nihil nulla excepturi.
-		</p>
-
-		<p class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias inventore hic, quod saepe voluptatem voluptatum impedit pariatur quidem possimus in porro unde, autem distinctio illo. Libero praesentium quas numquam sed non voluptas, eligendi veniam nisi iure minus facere suscipit fuga qui aliquam, quos officiis explicabo expedita nulla delectus adipisci? Magni soluta possimus reprehenderit architecto quos cum tempore illum nam, modi praesentium nisi recusandae quia ipsum iste dignissimos pariatur porro dolorem quisquam cumque expedita voluptatum voluptatem placeat itaque? Perspiciatis, tenetur veritatis!
-		</p>  
-
-		<h3 class="sub_title">Product Features:</h3>
-		<span class="divisor"></span>
-
-		<p class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus provident 
-			illo vero corporis perferendis, facere vitae excepturi soluta repellat temporibus consequuntur 
-			consectetur harum quaerat sunt nisi distinctio. Consequatur repellat laborum perspiciatis quisquam 
-			distinctio facilis quidem saepe iste itaque dolores praesentium, corrupti et commodi, repudiandae 
-			consectetur ratione maxime, consequuntur pariatur. Dolorum, eaque? Obcaecati voluptatum vero similique
-			dolore fugit temporibus, hic tenetur recusandae cumque mollitia enim aliquid perferendis quasi, ut, ad
-			harum dolorem. Delectus, nesciunt dolores quia vel cum natus magnam. Mollitia suscipit dolorum facilis
-			sit impedit soluta molestias cum aut accusantium voluptas quod incidunt natus blanditiis exercitationem,
-			ratione temporibus aperiam esse? 
-		</p>
-
-		<p class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio esse rerum repudiandae 
-			rem labore unde quos tenetur maxime illo officia ex asperiores, voluptate, accusamus officiis eos
-			obcaecati reprehenderit fuga commodi porro facere explicabo dolorem. Beatae laborum ut delectus nam mollitia?
-		</p>
-
-		<ul class="list_on_paragraph">
-			<li>Easy set-up for high quality EEG data acquisition</li>
-			<li>Compatibility with OpenBCI software</li>
-			<li>Everything you need to get started except for the gel! Purchase electrode gel</li>
-		</ul>
-
-
-		<h3 class="sub_title">What's included:</h3>
-		<span class="divisor"></span>       
-
-		<table class="table">
-			<tr>
-				<th class="left">Product</th>
-				<th>Quantity</th> 
-			</tr>
-			<tr>
-				<td>lorem</td>
-				<td>1</td>   
-			</tr>
-			<tr>
-				<td>lorem</td>
-				<td>1</td>
-			</tr>
-			<tr>
-				<td>lorem</td>
-				<td>1</td>
-			</tr>
-			<tr>
-				<td>lorem</td>
-				<td>1</td>
-			</tr>
-			<tr>
-				<td>lorem</td>
-				<td>1</td>
-			</tr>
-		</table>
-
-		<ul class="list"> 
-			<li>This kit includes one OpenBCI.</li>
-			<li>Is required and can be purchased separately from our store.</li>
-			<li>Option of Coated or Sintered Ag/AgCl electrode. Please choose one from the dropdown menu.</li>
-			<li>Be sure to choose your size from the dropdown menu!</li>
-		</ul>
-
-			<h3 class="sub_title">Size Guide:</h3>
-			<span class="divisor"></span>
-
-			<ul class="list">
-				<li>This kit includes one OpenBCI.</li>
-				<li> Electrode cap gel is required and can be purchased separately from our store.</li>
-				<li>Option of Coated or Sintered Ag/AgCl electrode. </li>
-			</ul>
-
-			<ul class="list">
-				<li>Small = 50-54cm</li>
-				<li>Medium = 54-58cm</li>
-				<li>Large = 58-62cm</li>
-			</ul>
-	</div>
-</section>
+<section id="<%= id %>" class="description">
+		<div class="description--descript">
+			<h3 class="description__title"><%= title %></h3>
+			<%- include( 'divisor' ) %>
+			<% content.forEach( c => { %>
+				<p class="description__content"><%= c %></p>
+			<% }) %>
+	 
+			<%- include('../components/bullets',{
+				id: 'list',
+				parentClass: 'description__content',
+				inParagraph: 'true',
+				content: ['item 1', 'item 2', 'item 3']
+			}) %>
+	
+			<%- include('../components/table', {
+				headers: [ 'Dimension', 'Quantity', 'Price' ],
+				rows: [
+				{
+					dimension: 20,
+					quantity: 50,
+					price: 10
+				},
+				{
+					dimension : 20,
+					quantity: 100,
+					price: 20
+				},
+				{
+					dimension : 23,
+					quantity: 200,
+					price: 30
+				},  
+			]
+	}) %>
+	</section>
