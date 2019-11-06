@@ -1,0 +1,14 @@
+<article class="product" style="background-image: url('<%= imgUrl %>');">
+  <a href="/product/<%= id %>">
+    <div class="product__title-wrapper">
+      <h3 class="product__title"><%= title %></h3>
+      <%- include( 'divisor' ) %>
+      <p class="product__code"><%= code %></p>
+    </div>
+
+    <p class="product__description"><%= description %></p>
+    <div class="product__description-overlay"></div>
+
+    <div class="product__card-overlay"></div>
+  </a>
+</article>

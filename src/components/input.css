@@ -5,8 +5,8 @@
 
 .input__icon {
   position: absolute;
-  top: 1em;
-  left: 1em;
+  top: 1.2em;
+  left: 1.2em;
   color: var(--icon-clr);
 }
 

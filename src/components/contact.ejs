@@ -3,7 +3,15 @@
     <h1>Contact Us</h1>
   </div>
 
-  <%- include( 'form', { action: 'contact', method: 'POST' } ) %>
+  <form action="/contact" method="POST" class="contact__form">
+    <%- include( 'input', { type: 'text', name: 'user', placeholder: 'Name', iconClass: 'fas fa-user', value: '' } ) %>
+
+    <%- include( 'input', { type: 'email', name: 'email', placeholder: 'Email', iconClass: 'fas fa-envelope', value: '' } ) %>
+
+    <%- include( 'textarea', { name: 'message', cols: '30', rows: '10', placeholder: 'Message...', content: '', extraClasses: '' }) %>
+
+    <%- include( 'button', { id: '', type: 'submit', content: 'Send<i class="fas fa-arrow-right icon"></i>', extraClasses: 'button--maximized', extraLinkClasses: 'link--maximized link--rounded' } ) %>
+  </form>
 
   <%- include('social') %>
 </div>
