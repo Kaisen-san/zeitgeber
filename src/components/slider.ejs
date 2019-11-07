@@ -1,0 +1,15 @@
+<div class="slider__wrapper">
+    <img class="slider__display" src="<%= displayUrl %>" alt="">
+    <!-- to optimize: make it impossible to drag images, make it smoother -->
+    <div class="slider__list">
+        <div class="slider">
+            <% images.forEach( i => { %>
+                <img class="slider__unselected" src="<%= i %>" alt="">
+            <% }); %>
+        </div>
+    </div>
+</div>
+
+<div class="purchase__zoom">
+    <img class="slider__zoom" src="/img/ss-01.jpg" alt="">
+</div>

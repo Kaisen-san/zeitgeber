@@ -6,147 +6,22 @@
   margin: 20px 5%;
 }
 
-.purchase-images {
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  margin-right: 5%;
-  cursor: grab;
-}
-
-.purchase-slider {
-  width: 100%;
-  display: flex;
-  align-items: flex-start;
-  transition: transform 0.2s ease-in-out;
-}
-
-.purchase-slider:active {
-  transition: transform 0s ease-in-out;
-}
-
-.purchase-image-list {
-  overflow-x: hidden;
-  margin-top: 10px;
-  border: 3px solid var(--light-theme);
-  background-color: var(--light-theme);
-}
-
-.purchase-image-display {
-  width: 100%;
-  cursor: zoom-in;
-  user-select: none;
-  -webkit-user-drag: none;
-}
-
-.purchase-image-unselected {
-  width: 20%;
-  /* padding-right: 2.5%; */
-  border: 2px solid rgb(180, 180, 180);
-  user-select: none;
-  -webkit-user-drag: none;
-  cursor: pointer;
-}
-
-.purchase-image-selected {
-  border-color: rgb(56, 56, 56);
-}
-
-.purchase-zoom-image {
-  max-height: 85%;
-}
-
-.purchase-lock {
+.purchase__lock {
   overflow: hidden;
 }
 
-.purchase-options {
-  width: 45%;
-}
-
-.purchase-form {
+.purchase__form {
   display: flex;
   flex-direction: column;
   margin-top: 20px;
 }
 
-.purchase-title {
-  font-size: 2em;
-  /* margin-bottom: 5px; */
-}
-
-.purchase-description {
+.purchase__description {
   margin-top: 25px;
   font-size: 1.2em;
 }
 
-.purchase-hr {
-  border: 0;
-  display: block;
-  margin: 2px;
-  height: 4px;
-  background-image: linear-gradient(270deg, rgba(0, 0, 0, 0), var(--primary-clr-light), rgba(0, 0, 0, 0));
-}
-
-.purchase-option {
-  display: block;
-  position: relative;
-  padding-left: 28px;
-  margin-top: 10px;
-}
-
-.purchase-subtext {
-  color: rgb(180, 180, 180);
-  font-size: 0.75em;
-}
-
-.purchase-input {
-  display: none;
-}
-
-.purchase-checkbox {
-  position: absolute;
-  top: 5px;
-  left: 0;
-  height: 20px;
-  width: 20px;
-  background-color: #eee;
-  border-radius: 2px;
-  transition: background-color 0.2s ease-in-out;
-}
-
-.purchase-checkbox:hover {
-  background-color: #ccc;
-}
-
-.purchase-input:checked ~ .purchase-checkbox {
-  background-color: var(--primary-clr-light);
-}
-
-.purchase-input:checked + .purchase-checkbox:hover {
-  background-color: var(--primary-clr);
-}
-
-.purchase-checkbox:after {
-  content: "";
-  position: absolute;
-  display: none;
-  width: 7px;
-  height: 12px;
-  left: 7px;
-  top: 3px;
-  border: solid white;
-  border-width: 0 2px 2px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-
-.purchase-input:checked ~ .purchase-checkbox:after {
-  display: block;
-}
-
-.purchase-send {
+/* .purchase-send {
   display: block;
   margin: 2.5em 0;
   width: 100%;
@@ -168,92 +43,39 @@
 
 .purchase-send:active {
   background-color: var(--secondary-clr);
-}
+} */
 
-.purchase-contact {
-  display: flex;
-}
-
-.purchase-contact-item {
-  margin-right: 2%;
-  width: 90%;
-}
-
-.purchase-contact-dropdown .contact__form__input {
-  padding-right: 15px;
-}
-
-.purchase-contact-dropdown select {
-  border: 0;
-  margin: 0;
-  width: 100%;
-  text-indent: 0.01px;
-  text-overflow: '';
-  -webkit-appearance: button;
-}
-
-.purchase-contact-dropdown::before,
-.purchase-contact-dropdown::after {
-  content: "";
-  position: absolute;
-  pointer-events: none;
-}
-
-.purchase-contact-dropdown::after {
-  content: "\25BC";
-  height: 1em;
-  font-size: .625em;
-  line-height: 1;
-  right: 2.5%;
-  top: 40%;
-}
-
-.purchase-contact-hide {
+.purchase__zoom, .purchase__buy {
   display: none;
 }
 
-.purchase-zoom, .purchase-buy {
-  display: none;
-}
-
-.purchase-zoom {
+.purchase__zoom {
   cursor: zoom-out;
 }
 
-.purchase-overlay {
+.purchase__overlay {
   display: flex;
   justify-content: center;
   align-items: center;
   position: fixed;
   top: 0;
+  left: 0;
   z-index: 10000;
   width: 100%;
   height: 100%;
   background-color: rgba(56, 56, 56, 0.7);
 }
 
-.purchase-cancel {
-  position: absolute;
-  cursor: pointer;
-  top: 3%;
-  right: 3%;
-  font-size: 2em;
-}
-
 @media screen and (max-width: 1024px) {
   .purchase {
     flex-direction: column;
   }
-
-  .purchase-images, .purchase-options {
+  
+  .options__wrapper {
     width: 100%;
   }
 
-  .purchase-options {
+  .options__wrapper {
     margin-top: 15px;
-  }
-
-  .purchase-zoom-image {
-    max-width: 90%;
   }
 }

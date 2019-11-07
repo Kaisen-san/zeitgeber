@@ -1,13 +1,13 @@
 // Change currently selected image
-const allImages = Array.from( document.getElementsByClassName("purchase-image-unselected") );
-const selectedImage = document.querySelector(".purchase-image-display");
+const allImages = Array.from( document.getElementsByClassName("slider__unselected") );
+const selectedImage = document.querySelector(".slider__display");
 
 let isSliding = 0;
 
 const changeImage = (imageList, imageDisplay, imageIcon) => {
     if (isSliding <= 2) {
-        imageList.forEach(e => e.classList.remove('purchase-image-selected'));
-        imageIcon.classList.add("purchase-image-selected");
+        imageList.forEach(e => e.classList.remove('slider__selected'));
+        imageIcon.classList.add("slider__selected");
         imageDisplay.src = imageIcon.src;
     }
 }
@@ -17,12 +17,12 @@ allImages.forEach(e => e.addEventListener( 'click', evt => {
 }));
 
 // Zoom when clicking selected image
-const zoomImage = document.querySelector(".purchase-zoom-image");
-const zoomElement = document.querySelector(".purchase-zoom");
+const zoomImage = document.querySelector(".slider__zoom");
+const zoomElement = document.querySelector(".purchase__zoom");
 
 const toggleOverlay = (overlayContainer) => {
-    overlayContainer.classList.toggle("purchase-overlay");
-    document.body.classList.toggle("purchase-lock");
+    overlayContainer.classList.toggle("purchase__overlay");
+    document.body.classList.toggle("purchase__lock");
 }
 
 selectedImage.addEventListener( 'click', evt => {
@@ -35,9 +35,9 @@ zoomElement.addEventListener( 'click', evt => {
 });
 
 // Open up overlay to continue purchase (sending email)
-const buyButton = document.querySelector(".purchase-send");
-const buyElement = document.querySelector(".purchase-buy");
-const buyOverlayHide = document.querySelector(".purchase-cancel");
+const buyButton = document.getElementById("options_send");
+const buyElement = document.querySelector(".purchase__buy");
+const buyOverlayHide = document.querySelector(".buy__cancel");
 
 buyButton.addEventListener( 'click', evt => {
     toggleOverlay(buyElement);
@@ -48,8 +48,8 @@ buyOverlayHide.addEventListener( 'click', evt => {
 });
 
 // Dragging the image slider
-const imagesElement = document.querySelector(".purchase-image-list");
-const imageSlider = document.querySelector(".purchase-slider");
+const imagesElement = document.querySelector(".slider__list");
+const imageSlider = document.querySelector(".slider");
 let isDown = false;
 let offsetX = 0;
 let currentPosition = 0;
