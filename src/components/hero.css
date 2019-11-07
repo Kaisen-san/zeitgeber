@@ -11,7 +11,7 @@
 .hero__title {
   width: 100%;
   padding: 0 5em 0 1.5em;
-  color: var(--title-clr-light);
+  color: var(--title-clr-lighter);
   font-size: 5.5rem;
   font-weight: 300;
 }

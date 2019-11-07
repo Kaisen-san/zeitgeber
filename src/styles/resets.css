@@ -7,7 +7,7 @@
 }
 
 a {
-    color: var(--content-clr);
+    color: var(--content-clr-dark);
     text-decoration: none;
 }
 

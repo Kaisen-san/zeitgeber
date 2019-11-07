@@ -24,7 +24,7 @@
 
 .feature__title {
   margin: 0;
-  color: var(--title-clr);
+  color: var(--title-clr-darker);
   font-size: 3rem;
   letter-spacing: .02em;
 }
@@ -35,9 +35,8 @@
 
 .feature__content {
   margin-bottom: 1.5em;
-  position: relative;
   font-size: 1.25rem;
-  color: var(--content-clr);
+  color: var(--content-clr-dark);
   text-align: justify;
   line-height: 1.2em;
   letter-spacing: .04em;

@@ -2,28 +2,26 @@
      
     <div class="buy__flex">
         <span class="buy__wrapper buy__wrapper--left">
-            <%- include( 'input', { type: 'text', name: 'user', placeholder: 'First Name', icon: 'fa-user' } ) %>
+            <%- include( 'input', { type: 'text', name: 'user', placeholder: 'First Name', iconClass: 'fa-user', value: '' } ) %>
         </span>
         <span class="buy__wrapper buy__wrapper--right">
-            <%- include( 'input', { type: 'text', name: 'email', placeholder: 'Last name', icon: 'fa-user' } ) %>
+            <%- include( 'input', { type: 'text', name: 'email', placeholder: 'Last name', iconClass: 'fa-user', value: '' } ) %>
         </span>
     </div>
     <div class="buy__flex">
         <span class="buy__wrapper buy__wrapper--left">
-            <%- include( 'input', { type: 'email', name: 'user', placeholder: 'Email', icon: 'fa-envelope' } ) %>
+            <%- include( 'input', { type: 'email', name: 'user', placeholder: 'Email', iconClass: 'fa-envelope', value: '' } ) %>
         </span>
         <span class="buy__wrapper buy__wrapper--right">
-            <%- include( 'input', { type: 'number', name: 'phone', placeholder: 'Phone Number', icon: 'fa-phone' } ) %>
+            <%- include( 'input', { type: 'number', name: 'phone', placeholder: 'Phone Number', iconClass: 'fa-phone', value: '' } ) %>
         </span>
     </div>
 
     <div class="buy__wrapper">
-        <%- include( 'input', { type: 'text', name: 'address', placeholder: 'Address', icon: 'fa-location-arrow' } ) %>
+        <%- include( 'input', { type: 'text', name: 'address', placeholder: 'Address', iconClass: 'fa-location-arrow', value: '' } ) %>
     </div>
 
     <textarea class="buy__form__msg" cols="30" rows="10" placeholder="Message"></textarea>
 
-    <button type="submit" class="buy__form__btn">
-        <%- include( 'button', { ref: '', content: 'Send Request<i class="fas fa-arrow-right form__btn-icon"></i>', extraClasses: 'button--maximized button--rounded' } ) %>
-    </button>
+    <%- include( 'button', { id: '', type: 'submit', content: 'Send Request<i class="fas fa-arrow-right icon"></i>', extraClasses: 'button--maximized', extraLinkClasses: 'link--maximized link--rounded' } ) %>
 </form>

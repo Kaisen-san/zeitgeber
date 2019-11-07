@@ -1,0 +1,25 @@
+.table {
+  border-collapse: collapse;
+}
+
+.table__header,
+.table__cell {
+  text-align: center;
+  padding: 1em 3em;
+  border: 1px solid var(--border-clr-light);
+  color: var(--content-clr-dark);
+  font-size: 1.05rem;
+  line-height: 1.2em;
+  letter-spacing: .04em;
+}
+
+.table__header {
+  text-transform: uppercase;
+}
+
+@media ( max-width: 1023.98px ) {
+  .table__header,
+  .table__cell {
+    padding: .75em 1.5em;
+  }
+}
