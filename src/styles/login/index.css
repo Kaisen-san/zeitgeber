@@ -1,16 +1,16 @@
 body {
   display: flex;
   flex-direction: column;
-  background-color: var(--bg-clr);
+  background-color: var(--bg-clr-light);
 }
 
 main {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 4rem;
+  margin-top: 4em;
   width: 100%;
-  height: calc(100vh - 4rem);
+  height: calc(100vh - 4em);
 }
 
 .header .menu .menu__items-wrapper {

@@ -1,15 +1,15 @@
-<table class="table"> 
+<table class='table'>
     <tr>
-      <% headers.forEach( h  => { %>
-        <th><%= h %></th>
+      <% headers.forEach( header  => { %>
+        <th class='table__header'><%= header %></th>
       <% }); %>
     </tr>
 
     <% rows.forEach( row => { %>
-     <tr>
-       <td><%= row.dimension %></td>
-       <td><%= row.quantity %></td>
-       <td><%= row.price %></td>
-     </tr>    
+      <tr>
+        <% row.forEach( value => { %>
+          <td class='table__cell'><%= value %></td>
+        <% } ) %>
+      </tr>
     <% }) %>
  </table>

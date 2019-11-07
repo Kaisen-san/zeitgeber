@@ -1,36 +1,19 @@
-<section id="<%= id %>" class="description">
-		<div class="description--descript">
-			<h3 class="description__title"><%= title %></h3>
-			<%- include( 'divisor' ) %>
-			<% content.forEach( c => { %>
-				<p class="description__content"><%= c %></p>
-			<% }) %>
-	 
-			<%- include('../components/bullets',{
-				id: 'list',
-				parentClass: 'description__content',
-				inParagraph: 'true',
-				content: ['item 1', 'item 2', 'item 3']
-			}) %>
-	
-			<%- include('../components/table', {
-				headers: [ 'Dimension', 'Quantity', 'Price' ],
-				rows: [
-				{
-					dimension: 20,
-					quantity: 50,
-					price: 10
-				},
-				{
-					dimension : 20,
-					quantity: 100,
-					price: 20
-				},
-				{
-					dimension : 23,
-					quantity: 200,
-					price: 30
-				},  
-			]
+<section id='description' class='description'>
+	<h1 class='description__title'><%= title %></h1>
+
+	<%- include( 'divisor' ) %>
+
+	<% content.forEach( paragraph => { %>
+		<p class='description__content'><%= paragraph %></p>
+	<% }) %>
+
+	<%- include('../components/bullets',{
+		inParagraph: 'true',
+		bullets: bullets
 	}) %>
-	</section>
+
+	<%- include('../components/table', {
+		headers: tableHeaders,
+		rows: tableRows
+	}) %>
+</section>

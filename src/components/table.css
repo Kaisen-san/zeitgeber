@@ -1,20 +1,25 @@
 .table {
-  margin-top: 16px;
-  margin-bottom: 16px;
   border-collapse: collapse;
-  /* ajustar cor para padrao */
-  border-color: black;
-  margin-left: auto;
-  margin-right: auto;
-}
- 
-.table th, td {
-  text-align: center;
-  padding: 10px;
-  /* ajustar cor para padrao */
-  border: 1px solid #ccc;
 }
 
-.table__column--left {
-  width: 410px;
+.table__header,
+.table__cell {
+  text-align: center;
+  padding: 1em 3em;
+  border: 1px solid var(--border-clr-light);
+  color: var(--content-clr-dark);
+  font-size: 1.05rem;
+  line-height: 1.2em;
+  letter-spacing: .04em;
+}
+
+.table__header {
+  text-transform: uppercase;
+}
+
+@media ( max-width: 1023.98px ) {
+  .table__header,
+  .table__cell {
+    padding: .75em 1.5em;
+  }
 }

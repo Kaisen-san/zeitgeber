@@ -30,17 +30,40 @@
     <%- include('../components/purchase') %>
 
     <%- include('../components/product_info', {
-      id: 'description',
       title: 'Description',
       content: [
-        `Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia modi velit unde molestias totam est at iure commodi corrupti
-        animi ipsum nostrum voluptatibus debitis nulla, nobis soluta labore pariatur quod, ad molestiae. Quas assumenda qui optio quo 
-        itaque voluptatum, sed enim, illum quis perferendis deserunt cupiditate voluptates fuga velit. Aspernatur officiis esse nemo 
-        optio adipisci doloribus nam et ex harum voluptatem amet, excepturi modi sed ipsum exercitationem doloremque necessitatibus 
-        aliquam dicta itaque ab. Sed voluptates ducimus facere nihil nulla excepturi.`
-      ]        
-      }) %>
-    
+        `A bioimpedância ou bioimpedanciometria é um método de avaliação da composição corporal, através deste teste é possível estimar 
+        a quantidade de tecido muscular, tecido adiposo e ósseo de uma determinada parte do corpo. Possibilita também estimar a quantidade 
+        de água presente no corpo. O equipamento funciona por meio da passagem de uma corrente elétrica imperceptível pelo corpo, esta 
+        corrente circula livremente entre o líquido do tecido muscular, mas depara-se com a resistência do tecido adiposo (gordura).`,
+        `O resultado de impedância obtido possibilita o cálculo do volume que há de água no organismo, sendo assim computados com boa 
+        precisão a quantidade de massa magra (músculos) e tecido adiposo (gordura) contida no corpo.`,
+        `Utiliza o conceito de “Wearable Device” (dispositivo vestível) para ser utilizado pelo usuário de forma contínua sem interferir 
+        em suas atividades diárias, tornando-se parte de sua vestimenta. A leitura é feita por meio de 2 eletrodos adesivos fixados a pele.`,
+        `Este equipamento foi projetado para ser carregado pelo usuário em um bolso, ou preso em alguma parte da vestimenta através de um 
+        clip, por exemplo.`
+      ],
+      bullets: [
+				'Equipamento portátil que mede 50mm x 50mm',
+				'Bioimpedanciometria de tecidos',
+				'Cartão de memória externo micro SD Card',
+				'Bateria recarregável via porta Micro USB',
+				'Comunicação bluetooth v4.2 ou USB para transferência dos dados armazenados no cartão'
+			],
+      tableHeaders: [ 'Especificação', 'Bioimpedância' ],
+      tableRows: [
+				[ 'Classe', 'Classe II' ],
+        [ 'Proteção de Entrada', 'IPX0' ],
+        [ 'Invasividade', 'Não invasivo' ],
+        [ 'Modo de Operação', 'Contínua' ],
+        [ 'Classificação por Parte Aplicada', 'Tipo CF' ],
+        [ 'Tipo de Alimentação', 'Bateria 3,7V 900mAh' ],
+        [ 'Consumo', '19mW' ],
+        [ 'Autonomia de Bateria', '7 dias' ],
+        [ 'RF Radiada (Bluetooth)', '2,4GHz +4dBm RF Power v4.2' ],
+				[ 'Faixa de Temperatura Ambiente', '-40°C a 85°C' ]
+			]
+    }) %>
   </main>
 
   <footer class="footer">

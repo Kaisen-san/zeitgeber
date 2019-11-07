@@ -1,11 +1,11 @@
 body {
   display: flex;
   flex-direction: column;
-  background-color: var(--bg-clr);
+  background-color: var(--bg-clr-light);
 }
 
 article {
-  padding: 5rem 10%;
+  padding: 5em 10%;
 }
 
 article:nth-of-type(even) {
@@ -17,13 +17,13 @@ article:nth-of-type(even) {
 }
 
 .admin__title {
-  color: var(--title-clr);
-  margin: 1rem 0;
+  color: var(--title-clr-darker);
+  margin: 1em 0;
 }
 
 .admin__label {
-  color: var(--subtitle-clr);
-  margin: 0 0 0.5rem 0.5rem;
+  color: var(--subtitle-clr-dark);
+  margin: 0 0 0.5em 0.5em;
 }
 
 .admin__wrapper {
@@ -34,7 +34,7 @@ article:nth-of-type(even) {
 
 .admin__item {
   width: 400px;
-  margin-bottom: 1rem;
+  margin-bottom: 1em;
 }
 
 .admin__add {
@@ -42,7 +42,7 @@ article:nth-of-type(even) {
 }
 
 .admin__item--dark {
-  background-color: var(--bg-clr-dark);
+  background-color: var(--bg-clr-darker);
 }
 
 .admin__item--maximized {
@@ -101,5 +101,5 @@ article:nth-of-type(even) {
 }
 
 #project_info .textarea__wrapper {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.5em;
 }

@@ -4,7 +4,7 @@
 
 .products__title {
   text-align: center;
-  color: var(--title-clr);
+  color: var(--title-clr-darker);
   font-size: 3rem;
   letter-spacing: .02em;
 }
