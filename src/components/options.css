@@ -73,7 +73,7 @@
     display: block;
   }
 
-  .options__send {
+  .options__wrapper .link {
     margin: 1.5em 0;
   }
 

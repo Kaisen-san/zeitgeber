@@ -9,7 +9,6 @@
             <%= o.name %>
             <p class="options__subtext"><%= o.subtext %></p></label>
         <% }); %>
-        <!-- <a class="purchase-send">Enviar</a> -->
-        <%- include( 'button', { ref: false, content: 'Purchase<i class="fas fa-arrow-right form__btn-icon"></i>', extraClasses: 'button--maximized options__send' } ) %>
+        <%- include( 'link', { id: 'options_send', ref: '', content: 'Purchase<i class="fas fa-arrow-right icon"></i>', extraClasses: 'link--maximized' } ) %>
     </form>
 </div>

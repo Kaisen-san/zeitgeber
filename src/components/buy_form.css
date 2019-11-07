@@ -32,12 +32,6 @@
     padding: 15px;
     resize: none;
 }
-  
-.buy__form__btn {
-    width: 100%;
-    background: none;
-    border: none;
-}
 
 .buy__flex {
     display: flex;

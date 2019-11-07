@@ -5,9 +5,9 @@
 
 .input__icon {
   position: absolute;
-  top: 1em;
-  left: 1em;
-  color: var(--icon-clr);
+  top: 1.2em;
+  left: 1.2em;
+  color: var(--icon-clr-dark);
 }
 
 .input {
@@ -16,7 +16,7 @@
   border: 0;
   border-radius: 1.5em;
   font-size: 1.1rem;
-  color: var(--content-clr);
-  background-color: var(--white);
+  color: var(--content-clr-dark);
+  background-color: var(--bg-clr-lighter);
   outline: none;
 }

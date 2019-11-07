@@ -1,0 +1,7 @@
+<div class='bullets__wrapper'>
+  <ul class='bullets <%= inParagraph ? "bullets--paragraph" : "" %>'>
+    <% bullets.forEach( bullet => { %>
+      <li class='bullets__item'><%= bullet %></li>
+    <% }); %>
+  </ul>
+</div>

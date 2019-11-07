@@ -1,0 +1,34 @@
+.bullets__wrapper {
+  width: 100%;
+}
+
+.bullets {
+  margin-inline-start: 2em;
+  margin-inline-end: 3em;
+  padding-left: 2em;
+  list-style: disc;
+  color: var(--content-clr-dark);
+  font-size: 1.2rem;
+  line-height: 1.2em;
+  letter-spacing: .04em;
+}
+
+.bullets--paragraph {
+  margin-inline-start: 4em;
+  margin-inline-end: 5em; 
+}
+
+.bullets__item {
+  margin: .5em 0;
+}
+
+@media ( max-width: 1023.98px ) {
+  .bullets {
+    margin-inline-start: 0em;
+    margin-inline-end: 1em;
+  }
+
+  .bullets--paragraph {
+    margin-inline-start: 1em;
+  }
+}

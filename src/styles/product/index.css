@@ -15,6 +15,7 @@ body {
     "main main main" max-content
     "footer footer footer" auto
     / 1fr minmax(400px, 5fr) 1fr;
+  background: var(--bg-clr-light);
 }
 
 .header {
