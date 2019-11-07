@@ -12,7 +12,7 @@
 
 .menu__item {
   position: relative;
-  color: var(--regal-blue);
+  color: var(--title-clr-dark);
   font-size: 1.2rem;
   font-weight: 300;
   letter-spacing: .1em;
@@ -21,7 +21,7 @@
 }
 
 .menu__item:hover {
-  color: var(--sandy-brown);
+  color: var(--decoration-clr-dark);
 }
 
 .menu__item::before {
@@ -32,7 +32,7 @@
   top: -.75em;
   left: 0;
   right: 0;
-  background-color: var(--sandy-brown);
+  background-color: var(--decoration-clr-dark);
   transform: scale(0, 1);
   transition: transform 250ms ease-in-out;
 }
@@ -56,7 +56,7 @@
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: var(--bg-clr);
+    background-color: var(--bg-clr-light);
     text-align: left;
     transform: scale(1, 0);
     transform-origin: top;
@@ -103,7 +103,7 @@
     height: .125em;
     border-radius: .0625em;
     position: relative;
-    background-color: var(--icon-clr);
+    background-color: var(--icon-clr-dark);
   }
 
   .menu__switcher-icon::before,

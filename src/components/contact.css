@@ -3,12 +3,12 @@
   padding: 3em;
   border-radius: 2em;
   position: relative;
-  background-color: var(--white-smoke);
+  background-color: var(--bg-clr-light);
 }
 
 .contact__title {
   margin-bottom: 1.5em;
-  color: var(--title-clr);
+  color: var(--title-clr-darker);
   letter-spacing: .2em;
   text-align: center;
 }
@@ -38,7 +38,7 @@
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767.98px) {
   .contact {
     width: auto;
   }

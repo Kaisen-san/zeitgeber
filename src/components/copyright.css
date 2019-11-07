@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: space-around;
   padding: 1em 0;
-  background-color: var(--bg-clr-dark);
+  background-color: var(--bg-clr-darker);
 }
 
 .copyright__owner-wrapper {
@@ -28,7 +28,7 @@
 
 .copyright__members-title {
   padding-bottom: .5em;
-  color: var(--title-clr-light);
+  color: var(--title-clr-lighter);
 }
 
 .copyright__member {

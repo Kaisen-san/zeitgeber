@@ -3,14 +3,21 @@ main {
   display: grid;
   grid-template:
     "purchase purchase purchase" auto
-    "info info info" auto
+    "info info info" max-content
     / 1fr minmax(400px, 5fr) 1fr;
 }
 
-/* .purchase {
+.purchase {
   grid-area: purchase;
-} */
+}
 
 .description {
   grid-area: info;
+  margin: 0 10%;
+}
+
+@media ( max-width: 1023.98px ) {
+  .description {
+    margin: 0;
+  }
 }

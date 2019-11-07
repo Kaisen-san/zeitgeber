@@ -5,7 +5,7 @@
   height: 4em;
   z-index: 999;
   position: fixed;
-  background-color: var(--bg-clr);
+  background-color: var(--bg-clr-light);
   text-align: center;
   transition: background-color 500ms ease-out;
 }
@@ -23,15 +23,15 @@
 }
 
 .header--dark {
-  background-color: var(--bg-clr-dark);
+  background-color: var(--bg-clr-darker);
 }
 
 .header--dark .menu__item {
-  color: var(--white);
+  color: var(--title-clr-lighter);
 }
 
 .header--dark .menu__item:hover {
-  color: var(--sandy-brown);
+  color: var(--decoration-clr-dark);
 }
 
 @media screen and (max-width: 1023.98px) {
@@ -46,7 +46,7 @@
   }
 
   .header--dark .menu__items-wrapper {
-    background-color: var(--bg-clr-dark);
+    background-color: var(--bg-clr-darker);
   }
 
   .header--dark .menu__switcher-icon,

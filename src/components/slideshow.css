@@ -8,7 +8,7 @@
 
 .slideshow__title {
   text-align: center;
-  color: var(--title-clr);
+  color: var(--title-clr-darker);
   font-size: 3rem;
   letter-spacing: .02em;
 }
@@ -63,15 +63,15 @@
   cursor: pointer;
   user-select: none;
   padding: 4px;
-  border: 1px solid var(--silver);
+  border: 1px solid var(--border-clr-light);
   border-radius: 5px;
-  background-color: var(--white-smoke);
+  background-color: var(--bg-clr-light);
   transition: background-color 0.2s ease-in-out;
 }
 
 .slideshow__btn--active {
-  border-color: var(--regal-blue);
-  background-color: var(--regal-blue);
+  border-color: var(--border-clr-dark);
+  background-color: var(--bg-clr-darker);
 }
 
 @media (max-width: 1023.98px) {

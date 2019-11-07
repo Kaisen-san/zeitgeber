@@ -10,8 +10,8 @@
   border: 0;
   border-radius: 1em;
   font-size: 1.1rem;
-  color: var(--content-clr);
-  background-color: var(--white);
+  color: var(--content-clr-dark);
+  background-color: var(--bg-clr-lighter);
   resize: none;
   outline: none;
 }

@@ -5,7 +5,7 @@
   height: 4em;
   z-index: 999;
   position: fixed;
-  background-color: var(--bg-clr-dark);
+  background-color: var(--bg-clr-darker);
   text-align: center;
   transition: background-color 500ms ease-out;
 }
@@ -19,11 +19,11 @@
 }
 
 .header .menu__item {
-  color: var(--white);
+  color: var(--title-clr-lighter);
 }
 
 .header .menu__item:hover {
-  color: var(--sandy-brown);
+  color: var(--decoration-clr-dark);
 }
 
 @media screen and (max-width: 1023.98px) {

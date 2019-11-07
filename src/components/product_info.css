@@ -1,99 +1,44 @@
-body {
-  background-color:#f9f9f9;
-}
-
 .description {
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
-  width: 100%;
-}
-
-.description--descript {
-  border-radius: 15px;
-  margin: 10px 120px;
-  padding: 5em 130px;
-  background-color: white;
+  border-radius: 1em;
+  padding: 5em 8%;
+  background-color: var(--bg-clr-lighter);
 }
 
 .description__title {
-  /* ajustar a cor para padrao */
-  color: #1f456e; 
-  font-size: 21px;
-  margin-bottom: 0.6em;
-  margin-top: 1.5em;
+  width: 100%;
+  margin: 0;
+  color: var(--title-clr-darker);
+  font-size: 2rem;
+}
+
+.description .divisor {
+  margin: 1.25em 0;
 }
 
 .description__content {
-  position: relative;
   text-align: justify;
-  margin: 0.4em 5em 1.0em 3em;
-  padding: 0.2em 0em 0.2em 0em;
+  margin-bottom: 1em;
+  padding: 0 3em;
+  color: var(--content-clr-dark);
+  font-size: 1.2rem;
   line-height: 1.2em;
   letter-spacing: .04em;
 }
 
-.description__list {
-  text-align: justify;
-  list-style: disc;
-  margin-inline-start: 1.5em;
-  margin-inline-end: 3em;
-  margin: 1em 0;
-  padding-left: 40px;
+.description .bullets {
+  margin-bottom: 2em;
 }
 
-.description__list--paragraph {
-  margin-inline-start: 4em;
-  margin-inline-end: 4em; 
-  padding-left: 40px;
-  list-style: disc;
-}
-
-.description__table {
-  margin-top: 16px;
-  margin-bottom: 16px;
-  border-collapse: collapse;
-  /* ajustar cor para padrao */
-  border-color: black;
-  margin-left: auto;
-  margin-right: auto;
-}
- 
-.description__table th, td {
-  text-align: left;
-  padding: 10px;
-  /* ajustar cor para padrao */
-  border: 1px solid #ccc;
-}
-
-.description__table--left {
-  width: 410px;
-}
-
-@media ( max-width: 1112px ) {
-  .description--descript {
-    margin: 10px 175px 10px 175px;
-    padding: 2px 25px 2px 25px;
-  }
-}
-
-@media ( max-width: 767.98px ) {
-  .description--descript {
-    margin: 5px 2px 5px 2px;
-    padding: 5px 2px 5px 2x;
+@media ( max-width: 1023.98px ) {
+  .description {
+    border-radius: 0;
   }
 
   .description__content {
-    margin: 0.4em 1em 1.0em 1em;
-    padding: 0.2em 0em 0.2em 0em;
-  }
-
-  .description__list--paragraph {
-    margin-inline-start: 1em;
-    margin-inline-end: 1em;
-  }
-
-  .description__list {
-    margin-inline-start: -0.5em;
-    margin-inline-end: 1em;
+    padding: 0;
   }
 }
