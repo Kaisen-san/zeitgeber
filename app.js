@@ -1,9 +1,12 @@
 const express = require('express');
 const path = require('path');
+const request2 = require('request');
 
 const request = require('./src/middlewares/request');
 const upload = require('./src/middlewares/upload');
 const resizeAndSaveImage = require('./src/helpers/image');
+
+const secretKey = '6LfQhsEUAAAAAADDJGIwylPYzhqMBawwvO0y50ht';
 
 const app = express();
 const port = process.env.PORT || 4000;
@@ -143,6 +146,31 @@ app.post( '/admin/upload/image', request.validateToken, upload.single('image'), 
 
   return res.status(200).json({ name: filename });
 });
+
+app.post( '/verify', ( req, res ) => {
+  
+  if( !req.body.captcha )
+    res.json( { 'msg':'captcha token is undefined' } )
+
+  const verifyUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${req.body.captcha}`;
+
+  request2( verifyUrl, ( err, response, body ) => {
+
+    if ( err )
+      console.log( err );
+
+    body = JSON.parse( body );
+
+    // Here is the threshold 
+    if ( !body.success || body.score < 0.4 ){
+      return res.json( { 'msg':'You might be a robot, sorry', 'score': body.score } );
+    }
+
+    return res.json( { 'msg':'You have been verified', 'score': body.score } )
+  });
+
+});
+
 
 app.listen( port, ( err ) => {
   if ( err ) {
