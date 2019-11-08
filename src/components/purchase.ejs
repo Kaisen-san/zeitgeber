@@ -58,23 +58,23 @@
             <h1>Purchase Order</h1>
         </div>
         <div class="purchase-cancel"><i class="fas fa-times"></i></div>
-        <form action="/contact" method="POST" class="contact__form">
+        <form action="/contact" method="POST" id="purchase-form" class="contact__form">
             <div class="purchase-contact">
                 <div class="contact__form__item purchase-contact-item">
-                    <input type="text" class="contact__form__input" placeholder="First Name">
+                    <input type="text" class="contact__form__input" name="first-name" id="first-name" placeholder="First Name">
                     <i class="fas fa-user"></i>
                 </div>
                 <div class="contact__form__item">
-                    <input type="text" class="contact__form__input" placeholder="Last Name">
+                    <input type="text" class="contact__form__input" name="last-name" id="last-name" placeholder="Last Name">
                     <i class="fas fa-user"></i>
                 </div>
             </div>
             <div class="contact__form__item">
-                <input type="email" class="contact__form__input" placeholder="Email">
+                <input type="email" class="contact__form__input"  name="purchase-email" id="purchase-email" placeholder="Email">
                 <i class="fas fa-envelope"></i>
             </div>
             <div class="contact__form__item">
-                <input type="text" class="contact__form__input" placeholder="Address">
+                <input type="text" class="contact__form__input" name="address" id="address" placeholder="Address">
                 <i class="fas fa-location-arrow"></i>
             </div>
             <div class="contact__form__item purchase-contact-dropdown">
@@ -89,7 +89,7 @@
                 <i class="fas fa-dollar-sign"></i>
             </div>
             <div class="contact__form__item">
-                <textarea class="contact__form__msg" cols="30" rows="10" placeholder="Message"></textarea>
+                <textarea class="contact__form__msg" name="purchase-message" id="purchase-message" cols="30" rows="10" placeholder="Message"></textarea>
             </div>
             <div class="contact__form__item">
                 <button type="submit" class="contact__form__btn">
