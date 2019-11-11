@@ -1,5 +1,9 @@
 const express = require('express');
 const path = require('path');
+const knex = require('knex')({
+  client: "pg",
+  connection: process.env.DATABASE_URL
+});
 
 const request = require('./src/middlewares/request');
 const upload = require('./src/middlewares/upload');
