@@ -4,10 +4,10 @@
     <% products.forEach( p => { %>
       <%- include( 'card', {
         id: p.id,
-        title: p.title,
-        code: p.code,
-        description: p.description,
-        imgUrl: p.imgUrl
+        title: p.name,
+        code: p.category,
+        description: p.brief,
+        imgUrl: p.image
       }) %>
     <% }); %>
   </div>

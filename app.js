@@ -26,21 +26,52 @@ app.options( '/*', ( req, res, next ) => {
 });
 
 app.get( '/', async ( req, res, next ) => {
-  let test = {};
-
   try {
-    test = await db.select({
-      name: 'product.name',
-      category: 'product.category'
+    const hero = db.select({
+      message: 'hero.message',
+      image: 'image.image_url'
     })
-    .from('product');
-  } catch (error) {
-    test.error = error;
-  }
+    .from('hero')
+    .innerJoin('image', 'image.image_id', 'hero.image_id')
+    .first();
 
-  res.status(200).render('main', {
-    test
-  });
+    const products = db.select({
+      id: 'product.product_id',
+      name: 'product.name',
+      category: 'product.category',
+      brief: 'product_card.brief',
+      image: 'image.image_url'
+    })
+    .from('product')
+    .innerJoin('product_card', 'product_card.product_id', 'product.product_id')
+    .innerJoin('image', 'image.image_id', 'product_card.image_id');
+
+    const cloud = db.select({
+      title: 'feature.title',
+      content: 'feature.content',
+      buttonText: 'feature.button',
+      image: 'image.image_url'
+    })
+    .from('feature')
+    .innerJoin('image', 'image.image_id', 'feature.image_id')
+    .first();
+
+    const projectInfo = db.select({
+      content: 'project_info.content',
+      image: 'image.image_url'
+    })
+    .from('product_info')
+    .innerJoin('image', 'image.image_id', 'project_info.image_id');
+
+    res.status(200).render('main', {
+      hero: await hero,
+      products: await products,
+      cloud: await cloud,
+      projectInfo: await projectInfo
+    });
+  } catch (error) {
+    res.status(500).send(error.toString());
+  }
 });
 
 app.get( '/product/:id', ( req, res, next ) => {

@@ -28,45 +28,28 @@
 
   <main class="main">
     <%- include( '../components/hero', {
-      title: 'Zeitgeber: Your open source biosensing tools store',
-      imgUrl: '/img/hero.jpg'
+      title: hero.message,
+      imgUrl: hero.image
     }) %>
 
     <%- include( '../components/cards', {
-      products: [
-        { id: "1", title: 'Bioimpedância', code: 'BIO 55', description: 'Equipamento portátil que mede 50mm x 50mm', imgUrl: '/img/pd-bioimp.jpg' },
-        { id: "2", title: 'Actígrafo', code: 'HORUS', description: 'Equipamento portátil que mede 50mm de diâmetro', imgUrl: '/img/pd-horus.jpg' },
-        { id: "3", title: 'EEG', code: 'EEG 57', description: 'Equipamento portátil que mede 50mm x 70mm', imgUrl: '/img/pd-eeg.jpg' },
-        { id: "4", title: 'Plataforma de Força', code: 'PLT 20', description: 'Estrutura mecânica em alumínio com formato triangular', imgUrl: '/img/pd-plataforma.jpg' },
-        { id: "5", title: 'Oxígrafo', code: 'OXI 70', description: 'Equipamento portátil que mede 70mm de diâmetro', imgUrl: '/img/pd-oxigrafo.jpg' },
-        { id: "6", title: 'NIRS', code: 'NIRS 77', description: 'Equipamento portátil que mede 70mm x 70mm', imgUrl: '/img/pd-nirs.jpg' },
-        { id: "7", title: 'Actígrafo Mini', code: 'HORUSm', description: 'Equipamento portátil que mede 25mm x 36mm', imgUrl: '/img/pd-horus.jpg' },
-        { id: "8", title: 'EEG mini', code: 'EEG 47', description: 'Equipamento portátil que mede 41mm x 70mm', imgUrl: '/img/pd-eeg.jpg' },
-        { id: "9", title: 'Actígrafo Wear', code: 'HORUSw', description: 'Equipamento portátil que mede 35mm x 40mm', imgUrl: '/img/pd-horus.jpg' }
-      ]
+      products: products
     }) %>
   </main>
-
-  <pre><%= JSON.stringify(test) %></pre>
 
   <%- include( '../components/feature', {
     id: 'cloud',
     imageSide: 'right',
-    imageSrc: '/img/ft-cloud.png',
+    imageSrc: cloud.image,
     imageAlt: 'Cloud',
-    title: 'Dados disponíveis na nuvem',
-    content: [
-      'Os dispositivos podem ser integrados com outros sistemas como computadores, smartphones e tablets, permitindo que os dados coletados sejam armazenados e processados posteriormente e até mesmo em tempo real. A conexão por bluetooth possibilita a transferência de dados a sistemas inteligentes dotados de algoritmos que processam e interagem com o usuário.',
-      'Todos os equipamentos utilizam métodos de medição de sinais fisiológicos não-invasivos, ou seja, não envolvem instrumentos que rompem a pele ou que penetram fisicamente no corpo, portanto, não oferecem risco e desconforto no seu uso.'
-    ],
-    linkId: '',
+    title: cloud.title,
+    content: cloud.content.split('\n').map(c => c.trim()),
     linkRef: 'http://app.t4p.com.br',
-    linkTitle: 'Saiba Mais'
+    linkTitle: cloud.buttonText
   }) %>
 
   <%- include( '../components/slideshow', {
     images: [
-      // { src: '/img/sss-01.jpg', alt: '', position: 'hide' },
       { src: '/img/sss-03.jpg', alt: '', position: 'hide' },
       { src: '/img/sss-04.jpg', alt: '', position: 'left' },
       { src: '/img/sss-05.jpg', alt: '', position: 'middle' },
