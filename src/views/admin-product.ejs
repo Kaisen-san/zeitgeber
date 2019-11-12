@@ -44,11 +44,11 @@
     <form id='card'>
       <div class='admin__item admin__item--maximized'>
         <h3 class='admin__label'>Brief</h3>
-        <%- include( '../components/input', { type: 'text', name: 'brief', placeholder: '', iconClass: 'far fa-file-alt', value: card.brief } ) %>
+        <%- include( '../components/input', { type: 'text', name: 'brief', placeholder: '', iconClass: 'far fa-file-alt', value: productCard.brief } ) %>
       </div>
       <div class='admin__item admin__item--maximized'>
         <h3 class='admin__label'>Image</h3>
-        <%- include( '../components/link', { id: '', ref: '', extraClasses: 'link--nofill', content: `<img name='image' class='image__button' src='${card.imgSrc}'>` } ) %>
+        <%- include( '../components/link', { id: '', ref: '', extraClasses: 'link--nofill', content: `<img name='image' class='image__button' src='${productCard.image}'>` } ) %>
       </div>
       <%- include( '../components/button', { id: '', type: 'submit', content: 'Save<i class="fas fa-save icon"></i>', extraClasses: '', extraLinkClasses: '' } ) %>
     </form>
@@ -59,14 +59,14 @@
     <form id='purchase'>
       <div class='admin__item admin__item--maximized'>
         <h3 class='admin__label'>Description</h3>
-        <%- include( '../components/textarea', { name: 'description', cols: '50', rows: '30', placeholder: '', content: purchase.description, extraClasses: '' } ) %>
+        <%- include( '../components/textarea', { name: 'description', cols: '50', rows: '30', placeholder: '', content: productInfo.shortDescription, extraClasses: '' } ) %>
       </div>
       <div class='admin__item admin__item--maximized'>
         <h3 class='admin__label'>Images</h3>
         <div class='admin__wrapper'>
-          <% purchase.images.forEach(({ imgSrc }) => { %>
+          <% productImages.forEach(({ image }) => { %>
             <div class='admin__item'>
-              <%- include( '../components/link', { id: '', ref: '', extraClasses: 'link--nofill', content: `<img name='image' class='image__button' src='${imgSrc}'>` } ) %>
+              <%- include( '../components/link', { id: '', ref: '', extraClasses: 'link--nofill', content: `<img name='image' class='image__button' src='${image}'>` } ) %>
             </div>
           <% }) %>
           <div class='admin__item admin__item--dark'>
@@ -83,7 +83,7 @@
     <form id='product_info'>
       <div class='admin__item admin__item--maximized'>
         <h3 class='admin__label'>Description</h3>
-        <%- include( '../components/textarea', { name: 'content', cols: '50', rows: '30', placeholder: '', content: productInfo.content, extraClasses: 'textarea--tall' } ) %>
+        <%- include( '../components/textarea', { name: 'content', cols: '50', rows: '30', placeholder: '', content: productInfo.longDescription, extraClasses: 'textarea--tall' } ) %>
       </div>
       <%- include( '../components/button', { id: '', type: 'submit', content: 'Save<i class="fas fa-save icon"></i>', extraClasses: '', extraLinkClasses: '' } ) %>
     </form>
@@ -92,8 +92,8 @@
   <div id='images_popup' class='images__wrapper'>
     <div class='images'>
       <div class='images__cancel'><i class='fas fa-times'></i></div>
-      <% images.forEach(({ imgSrc }) => { %>
-        <%- include( '../components/link', { id: '', ref: '', extraClasses: 'link--nofill images__item', content: `<img class='image__button' src='${imgSrc}'>` } ) %>
+      <% images.forEach(({ image }) => { %>
+        <%- include( '../components/link', { id: '', ref: '', extraClasses: 'link--nofill images__item', content: `<img class='image__button' src='${image}'>` } ) %>
       <% }) %>
     </div>
   </div>

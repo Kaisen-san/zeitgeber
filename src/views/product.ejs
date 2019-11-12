@@ -29,17 +29,17 @@
   <main class='main'>
     <%- include( '../components/purchase', {
       images: productImages.map(({ image }) => image),
-      title: `${productInfo.name} - ${productInfo.category}`,
-      description: productInfo.optionsDescription,
+      title: `${product.name} - ${product.category}`,
+      description: productInfo.shortDescription,
       options: productOptions
     }) %>
 
     <%- include( '../components/product_info', {
       title: 'Description',
-      content: productInfo.productDescription.split('\n').map(c => c.trim()),
-      bullets: productInfo.productBullets.split('\n').map(c => c.trim()),
-      tableHeaders: productInfo.productTable.split('\n')[0].trim().split(';'),
-      tableRows: productInfo.productTable.split('\n').filter((c, i) => i > 0).map(c => c.trim().split(';'))
+      content: productInfo.longDescription.split('\n').map(c => c.trim()),
+      bullets: productInfo.bullets.split('\n').map(c => c.trim()),
+      tableHeaders: productInfo.table.split('\n')[0].trim().split(';'),
+      tableRows: productInfo.table.split('\n').filter((c, i) => i > 0).map(c => c.trim().split(';'))
     }) %>
   </main>
 

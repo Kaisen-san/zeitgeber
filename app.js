@@ -32,7 +32,7 @@ app.get( '/', async ( req, res, next ) => {
       image: 'image.image_url'
     })
     .from('hero')
-    .innerJoin('image', 'image.image_id', 'hero.image_id')
+    .leftJoin('image', 'image.image_id', 'hero.image_id')
     .first();
 
     const products = db.select({
@@ -43,8 +43,8 @@ app.get( '/', async ( req, res, next ) => {
       image: 'image.image_url'
     })
     .from('product')
-    .innerJoin('product_card', 'product_card.product_id', 'product.product_id')
-    .innerJoin('image', 'image.image_id', 'product_card.image_id');
+    .leftJoin('product_card', 'product_card.product_id', 'product.product_id')
+    .leftJoin('image', 'image.image_id', 'product_card.image_id');
 
     const cloud = db.select({
       title: 'feature.title',
@@ -53,7 +53,7 @@ app.get( '/', async ( req, res, next ) => {
       image: 'image.image_url'
     })
     .from('feature')
-    .innerJoin('image', 'image.image_id', 'feature.image_id')
+    .leftJoin('image', 'image.image_id', 'feature.image_id')
     .first();
 
     const projectInfo = db.select({
@@ -61,7 +61,7 @@ app.get( '/', async ( req, res, next ) => {
       image: 'image.image_url'
     })
     .from('project_info')
-    .innerJoin('image', 'image.image_id', 'project_info.image_id');
+    .leftJoin('image', 'image.image_id', 'project_info.image_id');
 
     res.status(200).render('main', {
       hero: await hero,
@@ -78,24 +78,29 @@ app.get( '/product/:id', async ( req, res, next ) => {
   const { id } = req.params;
 
   try {
-    const productInfo = db.select({
+    const product = db.select({
       name: 'product.name',
       category: 'product.category',
-      optionsDescription: 'product.description',
-      productDescription: 'product_info.description',
-      productBullets: 'product_info.bullets',
-      productTable: 'product_info.characteristics_table'
     })
     .from('product')
-    .innerJoin('product_info', 'product_info.product_id', 'product.product_id')
     .where('product.product_id', id)
+    .first();
+
+    const productInfo = db.select({
+      shortDescription: 'product_info.short_description',
+      longDescription: 'product_info.long_description',
+      bullets: 'product_info.bullets',
+      table: 'product_info.characteristics_table'
+    })
+    .from('product_info')
+    .where('product_info.product_id', id)
     .first();
 
     const productImages = db.select({
       image: 'image.image_url'
     })
     .from('product_images')
-    .innerJoin('image', 'image.image_id', 'product_images.image_id')
+    .leftJoin('image', 'image.image_id', 'product_images.image_id')
     .where('product_images.product_id', id);
 
     const productOptions = db.select({
@@ -103,10 +108,11 @@ app.get( '/product/:id', async ( req, res, next ) => {
       subtext: 'option.subtext'
     })
     .from('product_options')
-    .innerJoin('option', 'option.option_id', 'product_options.option_id')
+    .leftJoin('option', 'option.option_id', 'product_options.option_id')
     .where('product_options.product_id', id);
 
     res.status(200).render('product', {
+      product: await product,
       productInfo: await productInfo,
       productImages: await productImages,
       productOptions: await productOptions
@@ -171,36 +177,59 @@ app.get( '/admin/logout', request.validateToken, ( req, res, next ) => {
   res.status(200).redirect('/admin/login');
 });
 
-app.get( '/admin', request.validateToken, ( req, res, next ) => {
-  res.status(200).render('admin', {
-    hero: {
-      message: 'Something',
-      imgSrc: '/img/hero.jpg' 
-    },
-    cloud: {
-      title: 'Something',
-      content: 'Something else',
-      imgSrc: '/img/hero.jpg'
-    },
-    products: [
-      { id: 1, name: 'Name 1', imgSrc: '/img/hero.jpg' },
-      { id: 2, name: 'Name 2', imgSrc: '/img/hero.jpg' },
-      { id: 3, name: 'Name 3', imgSrc: '/img/hero.jpg' },
-      { id: 4, name: 'Name 4', imgSrc: '/img/hero.jpg' }
-    ],
-    projectInfos: [
-      { id: 1, message: 'Something', imgSrc: '/img/hero.jpg' },
-      { id: 2, message: 'Something', imgSrc: '/img/hero.jpg' }
-    ],
-    images: [
-      { imgSrc: '/img/ss-01.jpg' },
-      { imgSrc: '/img/ss-02.jpg' },
-      { imgSrc: '/img/ss-03.jpg' },
-      { imgSrc: '/img/ss-04.jpg' },
-      { imgSrc: '/img/ss-05.jpg' },
-      { imgSrc: '/img/hero.jpg' }
-    ]
-  });
+app.get( '/admin', request.validateToken, async ( req, res, next ) => {
+  try {
+    const hero = db.select({
+      message: 'hero.message',
+      image: 'image.image_url'
+    })
+    .from('hero')
+    .leftJoin('image', 'image.image_id', 'hero.image_id')
+    .first();
+
+    const products = db.select({
+      id: 'product.product_id',
+      name: 'product.name',
+      category: 'product.category',
+      image: 'image.image_url'
+    })
+    .from('product')
+    .leftJoin('product_card', 'product_card.product_id', 'product.product_id')
+    .leftJoin('image', 'image.image_id', 'product_card.image_id');
+
+    const cloud = db.select({
+      title: 'feature.title',
+      content: 'feature.content',
+      image: 'image.image_url'
+    })
+    .from('feature')
+    .leftJoin('image', 'image.image_id', 'feature.image_id')
+    .first();
+
+    const projectInfo = db.select({
+      id: 'project_info.info_id',
+      content: 'project_info.content',
+      image: 'image.image_url'
+    })
+    .from('project_info')
+    .leftJoin('image', 'image.image_id', 'project_info.image_id');
+
+    const images = db.select({
+      id: 'image.image_id',
+      image: 'image.image_url'
+    })
+    .from('image');
+
+    res.status(200).render('admin', {
+      hero: await hero,
+      cloud: await cloud,
+      products: await products,
+      projectInfo: await projectInfo,
+      images: await images
+    });
+  } catch (error) {
+    res.status(500).send(error.toString());
+  }
 });
 
 app.post( '/admin', request.validateToken, ( req, res, next ) => {
@@ -213,8 +242,69 @@ app.put( '/admin', request.validateToken, ( req, res, next ) => {
   res.status(200).json({ ok: true });
 });
 
-app.get( '/admin/product/:id', request.validateToken, ( req, res, next ) => {
+app.get( '/admin/product/:id', request.validateToken, async ( req, res, next ) => {
   const { id } = req.params;
+
+  try {
+    const product = db.select({
+      name: 'product.name',
+      category: 'product.category',
+    })
+    .from('product')
+    .where('product.product_id', id)
+    .first();
+
+    const productCard = db.select({
+      brief: 'product_card.brief',
+      image: 'image.image_url'
+    })
+    .from('product_card')
+    .leftJoin('image', 'image.image_id', 'product_card.image_id')
+    .where('product_card.product_id', id)
+    .first();
+
+    const productInfo = db.select({
+      shortDescription: 'product_info.short_description',
+      longDescription: 'product_info.long_description',
+      bullets: 'product_info.bullets',
+      table: 'product_info.characteristics_table'
+    })
+    .from('product_info')
+    .where('product_info.product_id', id)
+    .first();
+
+    const productImages = db.select({
+      image: 'image.image_url'
+    })
+    .from('product_images')
+    .leftJoin('image', 'image.image_id', 'product_images.image_id')
+    .where('product_images.product_id', id);
+
+    const productOptions = db.select({
+      text: 'option.option',
+      subtext: 'option.subtext'
+    })
+    .from('product_options')
+    .leftJoin('option', 'option.option_id', 'product_options.option_id')
+    .where('product_options.product_id', id);
+
+    const images = db.select({
+      id: 'image.image_id',
+      image: 'image.image_url'
+    })
+    .from('image');
+
+    res.status(200).render('admin-product', {
+      product: await product,
+      productCard: await productCard,
+      productInfo: await productInfo,
+      productImages: await productImages,
+      productOptions: await productOptions,
+      images: await images
+    });
+  } catch (error) {
+    res.status(500).send(error.toString());
+  }
 
   res.render('admin-product', {
     product: {
