@@ -34,7 +34,9 @@ app.get( '/', async ( req, res, next ) => {
 
   console.log(test)
 
-  res.status(200).render('main');
+  res.status(200).render('main', {
+    test
+  });
 });
 
 app.get( '/product/:id', ( req, res, next ) => {
