@@ -27,16 +27,21 @@
     "gulp-concat": "^2.6.1",
     "gulp-jsmin": "^0.1.5",
     "gulp-tinifier": "^1.0.2",
-    "nodemon": "^1.19.3"
+    "nodemon": "^1.19.3",
+    "pg": "^7.12.1"
   },
   "dependencies": {
     "dotenv": "^8.2.0",
     "ejs": "^2.7.1",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
+    "knex": "^0.20.1",
     "multer": "^1.4.2",
     "nodemailer": "^6.3.1",
     "sharp": "^0.23.1",
     "uuid": "^3.3.3"
+  },
+  "engines": {
+    "node": "12.x"
   }
 }

@@ -2,6 +2,7 @@ require('dotenv/config');
 const express = require('express');
 const path = require('path');
 
+const db = require('./src/settings/database');
 const request = require('./src/middlewares/request');
 const upload = require('./src/middlewares/upload');
 const resizeAndSaveImage = require('./src/helpers/image');
@@ -24,7 +25,15 @@ app.options( '/*', ( req, res, next ) => {
   res.sendStatus(204);
 });
 
-app.get( '/', ( req, res, next ) => {
+app.get( '/', async ( req, res, next ) => {
+  const test = await db.select({
+    name: '.product.name',
+    category: 'product.category'
+  })
+  .from('product');
+
+  console.log(test)
+
   res.status(200).render('main');
 });
 
