@@ -30,7 +30,7 @@ app.get( '/', async ( req, res, next ) => {
 
   try {
     test = await db.select({
-      name: '.product.name',
+      name: 'product.name',
       category: 'product.category'
     })
     .from('product');
