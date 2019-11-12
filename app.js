@@ -88,7 +88,8 @@ app.get( '/product/:id', async ( req, res, next ) => {
     })
     .from('product')
     .innerJoin('product_info', 'product_info.product_id', 'product.product_id')
-    .where('product.product_id', id);
+    .where('product.product_id', id)
+    .first();
 
     const productImages = db.select({
       image: 'image.image_url'
