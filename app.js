@@ -60,7 +60,7 @@ app.get( '/', async ( req, res, next ) => {
       content: 'project_info.content',
       image: 'image.image_url'
     })
-    .from('product_info')
+    .from('project_info')
     .innerJoin('image', 'image.image_id', 'project_info.image_id');
 
     res.status(200).render('main', {
