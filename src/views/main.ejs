@@ -43,7 +43,7 @@
     imageSrc: cloud.image,
     imageAlt: 'Cloud',
     title: cloud.title,
-    content: cloud.content.split('\n').map(c => c.trim()),
+    content: cloud.content.split('\n').map(c => c.replace(/\n/g, '').trim()),
     linkRef: 'http://app.t4p.com.br',
     linkTitle: cloud.buttonText
   }) %>

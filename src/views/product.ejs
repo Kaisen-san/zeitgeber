@@ -28,34 +28,18 @@
 
   <main class='main'>
     <%- include( '../components/purchase', {
-      images: [
-        '/img/ss-01.jpg',
-        '/img/ss-02.jpg',
-        '/img/ss-03.jpg',
-        '/img/ss-04.jpg',
-        '/img/ss-05.jpg',
-        '/img/ss-06.jpg',
-        '/img/ss-07.jpg',
-        '/img/ss-08.jpg',
-        '/img/ss-09.jpg',
-        '/img/ss-10.jpg',
-        '/img/ss-11.jpg',
-        '/img/ss-12.jpg',
-        '/img/ss-13.jpg',
-      ],
-      title: 'Bioimpedância - BIO 55',
-      description: 'Equipamento portátil com suporte a cartão micro SD. Bateria recarregável. Permite transferência de dados por Bluetooth v4.2 e cabo USB.',
-      options: [
-        { text: 'Opção 1: Lorem, ipsum dolor.', subtext: 'Lorem ipsum dolor sit amet consectetur.', name: 'o1', value: true },
-        { text: 'Opção 2: Lorem, ipsum dolor.', subtext: 'Lorem ipsum dolor sit amet consectetur.', name: 'o2', value: true },
-        { text: 'Opção 3: Lorem, ipsum dolor.', subtext: 'Lorem ipsum dolor sit amet consectetur.', name: 'o3', value: true },
-        { text: 'Opção 4: Lorem, ipsum dolor.', subtext: 'Lorem ipsum dolor sit amet consectetur.', name: 'o4', value: true },
-        { text: 'Opção 5: Lorem, ipsum dolor.', subtext: 'Lorem ipsum dolor sit amet consectetur.', name: 'o5', value: true }
-      ]
+      images: productImages.map(({ image }) => image),
+      title: `${productInfo.name} - ${productInfo.category}`,
+      description: productInfo.optionsDescription,
+      options: productOptions
     }) %>
 
     <%- include( '../components/product_info', {
       title: 'Description',
+      // content: productInfo.productDescription.split('\n').map(c => c.replace(/\n/g, '').trim()),
+      // bullets: productInfo.productBullets.split('\n').map(c => c.replace(/\n/g, '').trim()),
+      // tableHeaders: productInfo.productTable.split('\n')[0].replace(/\n/g, '').trim().split(';'),
+      // tableRows: productInfo.productTable.split('\n').map(c => c.replace(/\n/g, '').trim()),
       content: [
         `A bioimpedância ou bioimpedanciometria é um método de avaliação da composição corporal, através deste teste é possível estimar 
         a quantidade de tecido muscular, tecido adiposo e ósseo de uma determinada parte do corpo. Possibilita também estimar a quantidade 

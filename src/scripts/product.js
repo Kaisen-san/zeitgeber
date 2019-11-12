@@ -63,7 +63,7 @@ orderForm.addEventListener('submit', (evt) => {
   const textareas = zeitgeber.formatElementsPayload(orderForm, 'textarea', 'value');  
   const checkedOptions = Array.from(options)
                               .filter(option => option.querySelector('.options__input').checked)
-                              .map(option => option.querySelector('.options__input').name);
+                              .map(option => option.innerText);
   const productName = document.querySelector('.options__title').innerText;
 
   zeitgeber.sendHttpRequest('POST', '/order', {

@@ -74,9 +74,45 @@ app.get( '/', async ( req, res, next ) => {
   }
 });
 
-app.get( '/product/:id', ( req, res, next ) => {
+app.get( '/product/:id', async ( req, res, next ) => {
   const { id } = req.params;
-  res.status(200).render('product');
+
+  try {
+    const productInfo = db.select({
+      name: 'product.name',
+      category: 'product.category',
+      optionsDescription: 'product.description',
+      productDescription: 'product_info.description',
+      productBullets: 'product_info.bullets',
+      productTable: 'product_info.characteristics_table'
+    })
+    .from('product')
+    .innerJoin('product_info', 'product_info.product_id', 'product.product_id')
+    .where('product.product_id', id);
+
+    const productImages = db.select({
+      image: 'image.image_url'
+    })
+    .from('product_images')
+    .innerJoin('image', 'image.image_id', 'product_images.image_id')
+    .where('product_images.product_id', id);
+
+    const productOptions = db.select({
+      text: 'option.option',
+      subtext: 'option.subtext'
+    })
+    .from('product_options')
+    .innerJoin('option', 'option.option_id', 'product_options.option_id')
+    .where('product_options.product_id', id);
+
+    res.status(200).render('product', {
+      productInfo: await productInfo,
+      productImages: await productImages,
+      productOptions: await productOptions
+    });
+  } catch (error) {
+    res.status(500).send(error.toString());
+  }
 });
 
 app.post( '/contact', ( req, res, next ) => {
