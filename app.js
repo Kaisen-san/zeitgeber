@@ -26,11 +26,17 @@ app.options( '/*', ( req, res, next ) => {
 });
 
 app.get( '/', async ( req, res, next ) => {
-  const test = await db.select({
-    name: '.product.name',
-    category: 'product.category'
-  })
-  .from('product');
+  let test = {};
+
+  try {
+    test = await db.select({
+      name: '.product.name',
+      category: 'product.category'
+    })
+    .from('product');
+  } catch (error) {
+    test.error = error;
+  }
 
   console.log(test)
 
