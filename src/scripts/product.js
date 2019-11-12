@@ -56,23 +56,24 @@ const options = document.querySelectorAll('.options__form .options__option');
 const summaryOptions = document.querySelector('.order__summary .bullets');
 const orderForm = document.getElementById('order_form');
 
-orderForm.addEventListener('submit', (evt) => {
+orderForm.addEventListener('submit', async (evt) => {
   evt.preventDefault();
 
   const inputs = zeitgeber.formatElementsPayload(orderForm, 'input', 'value');  
   const textareas = zeitgeber.formatElementsPayload(orderForm, 'textarea', 'value');  
   const checkedOptions = Array.from(options)
                               .filter(option => option.querySelector('.options__input').checked)
-                              .map(option => option.innerText);
+                              .map(option => option.innerText.split('\n')[0]);
   const productName = document.querySelector('.options__title').innerText;
 
-  zeitgeber.sendHttpRequest('POST', '/order', {
+  await zeitgeber.sendHttpRequest('POST', '/order', {
     ...inputs,
     ...textareas,
     productName: productName,
     options: checkedOptions
-  })
-  // .then(console.log).catch(console.error);
+  });
+
+  window.location.href = '/';
 });
 
 btnCheckOut.addEventListener('click', evt => {

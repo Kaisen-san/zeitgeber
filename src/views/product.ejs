@@ -36,10 +36,10 @@
 
     <%- include( '../components/product_info', {
       title: 'Description',
-      content: productInfo.productDescription.split('\n').map(c => c.replace(/\n/g, '').trim()),
-      bullets: productInfo.productBullets.split('\n').map(c => c.replace(/\n/g, '').trim()),
-      tableHeaders: productInfo.productTable.split('\n')[0].replace(/\n/g, '').trim().split(';'),
-      tableRows: productInfo.productTable.split('\n').filter((c, i) => i > 0).map(c => c.replace(/\n/g, '').trim().split(';'))
+      content: productInfo.productDescription.split('\n').map(c => c.trim()),
+      bullets: productInfo.productBullets.split('\n').map(c => c.trim()),
+      tableHeaders: productInfo.productTable.split('\n')[0].trim().split(';'),
+      tableRows: productInfo.productTable.split('\n').filter((c, i) => i > 0).map(c => c.trim().split(';'))
     }) %>
   </main>
 

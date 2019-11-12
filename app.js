@@ -155,7 +155,7 @@ app.post( '/order', ( req, res, next ) => {
     `
   });
 
-  res.status(200).redirect('/');
+  res.status(200).json({});
 });
 
 app.get( '/admin/login', ( req, res, next ) => {
