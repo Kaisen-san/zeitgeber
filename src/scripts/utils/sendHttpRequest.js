@@ -1,6 +1,8 @@
 (() => {
 
   zeitgeber.sendHttpRequest = (method, url, data) => {
+    console.log(data, JSON.stringify(data))
+    console.log(data instanceof FormData);
     return fetch(url, {
       method: method,
       body: (data instanceof FormData) ? data : JSON.stringify(data),

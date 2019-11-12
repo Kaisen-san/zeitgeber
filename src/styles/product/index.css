@@ -1,12 +1,3 @@
-:root {
-  --primary-clr: #f09865;
-  --primary-clr-light: #f0ac65;
-  --secondary-clr: #1c3c50;
-  --secondary-clr-light: #1c5060;
-  --light-theme: #f0f0f0;
-  --ff-lato: 'Lato', sans-serif;
-}
-
 body {
   font-family: var(--ff-lato);
   display: grid;
@@ -15,7 +6,7 @@ body {
     "main main main" max-content
     "footer footer footer" auto
     / 1fr minmax(400px, 5fr) 1fr;
-  background: var(--bg-clr-light);
+  background: var(--bg-clr-darker);
 }
 
 .header {

@@ -5,12 +5,16 @@ const _generateTokenCookie = (signPayload) => {
     name: 'tokenKey',
     value: jwt.sign(signPayload),
     options: {
-      'maxAge': 604800000
+      'maxAge': 2592000000 // 30 days timestamp
     }
   }
 }
 
 const _parseCookie = (cookie) => {
+  if (cookie == null) {
+    return {};
+  }
+
   return cookie.split(' ').reduce((acc, cur) => {
     const keyValue = cur.split('=');
 
@@ -18,26 +22,26 @@ const _parseCookie = (cookie) => {
       ...acc,
       [keyValue[0]]: keyValue[1]
     }
-  });
+  }, {});
 }
 
-const _renewTokenCookie = (token) => {
-  // Renew cookie's token if it's going to expire in less than 2 days
-  if (new Date(token.exp * 1000) - Date.now() < 172800000) {
-    const cookie = _generateTokenCookie({ admin: true });
-
-    res.cookie(cookie.name, cookie.value, cookie.options);
-  }
+const _isTokenAboutToExpire = (token) => {
+  const { payload } = jwt.decode(token);
+  
+  // Renew cookie's token if it's going to expire in 2 days
+  return new Date(payload.exp * 1000) - Date.now() < 172800000;
 }
 
 const validateUser = (req, res, next) => {
-  const token = _parseCookie(req.headers.cookie).tokenKey;
+  const { tokenKey: token } = _parseCookie(req.headers.cookie);
 
   if (token) {
-    const legit = jwt.verify(token);
+    if (jwt.verify(token)) {
+      if (_isTokenAboutToExpire(token)) {
+        const cookie = _generateTokenCookie({ admin: true });
 
-    if (legit) {
-      _renewTokenCookie(legit);
+        res.cookie(cookie.name, cookie.value, cookie.options);
+      }
 
       return next();
     }
@@ -51,26 +55,27 @@ const validateUser = (req, res, next) => {
   }
 
   const cookie = _generateTokenCookie({ admin: true });
-
   res.cookie(cookie.name, cookie.value, cookie.options);
 
   next();
 }
 
 const validateToken = (req, res, next) => {
-  const token = _parseCookie(req.headers.cookie).tokenKey;
+  const { tokenKey: token } = _parseCookie(req.headers.cookie);
 
   if (!token) {
     return res.status(401).redirect('/admin/login');
   }
 
-  const legit = jwt.verify(token);
-
-  if (!legit) {
+  if (!jwt.verify(token)) {
     return res.status(401).redirect('/admin/login');
   }
 
-  _renewTokenCookie(legit);
+  if (_isTokenAboutToExpire(token)) {
+    const cookie = _generateTokenCookie({ admin: true });
+
+    res.cookie(cookie.name, cookie.value, cookie.options);
+  }
 
   next();
 }

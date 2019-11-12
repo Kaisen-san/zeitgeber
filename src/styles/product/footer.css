@@ -9,8 +9,15 @@ footer {
 .contact {
   grid-area: contact;
   margin: 5em auto;
+  background-color: var(--bg-clr-light);
 }
 
 .copyright {
   grid-area: copyright;
+  background-color: var(--bg-clr-light);
+}
+
+.copyright .copyright__owner-wrapper,
+.copyright .copyright__members-wrapper {
+  color: var(--content-dark)
 }

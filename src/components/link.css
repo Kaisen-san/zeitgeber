@@ -4,6 +4,7 @@
   padding: 1em 1.5em;
   border-radius: .125em;
   font-size: 1.1rem;
+  letter-spacing: .04em;
   color: var(--title-clr-light);
   background-color: var(--bg-clr-dark);
   box-shadow: .125em .125em .2em var(--shadow-clr);

@@ -38,7 +38,7 @@
 
 .product__code {
   width: 100%;
-  color: var(--subtitle-clr-light); 
+  color: var(--subtitle-clr-lighter); 
   font-style: italic;
   line-height: 1.125em;
 }

@@ -7,7 +7,7 @@
 }
 
 .contact__title {
-  margin-bottom: 1.5em;
+  margin: .75em 0;
   color: var(--title-clr-darker);
   letter-spacing: .2em;
   text-align: center;

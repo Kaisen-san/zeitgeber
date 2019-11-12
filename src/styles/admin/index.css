@@ -12,10 +12,6 @@ article:nth-of-type(even) {
   background-image: var(--bg-img-gradient);
 }
 
-.header .menu .menu__items-wrapper {
-  justify-content: flex-end;
-}
-
 .admin__title {
   color: var(--title-clr-darker);
   margin: 1em 0;
@@ -64,10 +60,11 @@ article:nth-of-type(even) {
   position: fixed;
   z-index: 10000;
   top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(56, 56, 56, .7);
-  overflow: scroll;
+  background-color: var(--bg-transparent);
+  overflow-y: scroll;
   padding: 5%;
 }
 

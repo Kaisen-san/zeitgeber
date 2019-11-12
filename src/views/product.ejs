@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang='pt-BR'>
 
 <head>
   <%- include( 'partials/head', {
@@ -9,10 +9,10 @@
 </head>
 
 <body>
-  <header class="header">
+  <header class='header'>
     <%- include( '../components/logo', {
       ref: '/',
-      src: '/img/t4p-light.svg',
+      src: '/img/t4p-dark.svg',
       alt: 'Tech4People'
     }) %>
 
@@ -26,10 +26,35 @@
     }) %>
   </header>
 
-  <main class="main">
-    <%- include('../components/purchase') %>
+  <main class='main'>
+    <%- include( '../components/purchase', {
+      images: [
+        '/img/ss-01.jpg',
+        '/img/ss-02.jpg',
+        '/img/ss-03.jpg',
+        '/img/ss-04.jpg',
+        '/img/ss-05.jpg',
+        '/img/ss-06.jpg',
+        '/img/ss-07.jpg',
+        '/img/ss-08.jpg',
+        '/img/ss-09.jpg',
+        '/img/ss-10.jpg',
+        '/img/ss-11.jpg',
+        '/img/ss-12.jpg',
+        '/img/ss-13.jpg',
+      ],
+      title: 'Bioimpedância - BIO 55',
+      description: 'Equipamento portátil com suporte a cartão micro SD. Bateria recarregável. Permite transferência de dados por Bluetooth v4.2 e cabo USB.',
+      options: [
+        { text: 'Opção 1: Lorem, ipsum dolor.', subtext: 'Lorem ipsum dolor sit amet consectetur.', name: 'o1', value: true },
+        { text: 'Opção 2: Lorem, ipsum dolor.', subtext: 'Lorem ipsum dolor sit amet consectetur.', name: 'o2', value: true },
+        { text: 'Opção 3: Lorem, ipsum dolor.', subtext: 'Lorem ipsum dolor sit amet consectetur.', name: 'o3', value: true },
+        { text: 'Opção 4: Lorem, ipsum dolor.', subtext: 'Lorem ipsum dolor sit amet consectetur.', name: 'o4', value: true },
+        { text: 'Opção 5: Lorem, ipsum dolor.', subtext: 'Lorem ipsum dolor sit amet consectetur.', name: 'o5', value: true }
+      ]
+    }) %>
 
-    <%- include('../components/product_info', {
+    <%- include( '../components/product_info', {
       title: 'Description',
       content: [
         `A bioimpedância ou bioimpedanciometria é um método de avaliação da composição corporal, através deste teste é possível estimar 
@@ -66,11 +91,17 @@
     }) %>
   </main>
 
-  <footer class="footer">
+  <footer class='footer'>
     <%- include('../components/contact') %>
 
-    <%- include('../components/copyright') %>
+    <%- include('../components/copyright', {
+      logoSrc: '/img/maua-dark.png'
+    }) %>
   </footer>
+
+  <template>
+
+  </template>
 
   <%- include('partials/scripts', { scriptFilename: 'product' } ) %>
 </body>

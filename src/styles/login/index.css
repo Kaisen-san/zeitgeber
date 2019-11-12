@@ -13,10 +13,6 @@ main {
   height: calc(100vh - 4em);
 }
 
-.header .menu .menu__items-wrapper {
-  justify-content: flex-end;
-}
-
 .login {
   width: 350px;
 }

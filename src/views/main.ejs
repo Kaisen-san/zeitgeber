@@ -27,7 +27,10 @@
   </header>
 
   <main class="main">
-    <%- include( '../components/hero', { title: 'Zeitgeber: Your open source biosensing tools store', imgUrl: '/img/hero.jpg' } ) %>
+    <%- include( '../components/hero', {
+      title: 'Zeitgeber: Your open source biosensing tools store',
+      imgUrl: '/img/hero.jpg'
+    }) %>
 
     <%- include( '../components/cards', {
       products: [
@@ -62,23 +65,25 @@
   <%- include( '../components/slideshow', {
     images: [
       // { src: '/img/sss-01.jpg', alt: '', position: 'hide' },
-      { src: '/img/sss-08.jpg', alt: '', position: 'hide' },
-      { src: '/img/sss-02.jpg', alt: '', position: 'hide' },
-      { src: '/img/sss-03.jpg', alt: '', position: 'left' },
-      { src: '/img/sss-04.jpg', alt: '', position: 'middle' },
-      { src: '/img/sss-05.jpg', alt: '', position: 'right' },
-      { src: '/img/sss-06.jpg', alt: '', position: 'hide' },
+      { src: '/img/sss-03.jpg', alt: '', position: 'hide' },
+      { src: '/img/sss-04.jpg', alt: '', position: 'left' },
+      { src: '/img/sss-05.jpg', alt: '', position: 'middle' },
+      { src: '/img/sss-06.jpg', alt: '', position: 'right' },
       { src: '/img/sss-07.jpg', alt: '', position: 'hide'},
     ]
   }) %>
 
   <footer class="footer">
-    <%- include('../components/contact') %>
+    <%- include( '../components/contact' ) %>
 
-    <%- include('../components/copyright') %>
+    <%- include( '../components/copyright', {
+      logoSrc: '/img/maua-light.png'
+    }) %>
   </footer>
 
-  <%- include('partials/scripts', { scriptFilename: 'main' } ) %>
+  <%- include( 'partials/scripts', {
+    scriptFilename: 'main'
+  }) %>
 </body>
 
 </html>

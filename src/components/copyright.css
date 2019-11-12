@@ -24,21 +24,19 @@
   flex-direction: column;
   font-size: .75rem;
   padding-left: 1em;
+  color: var(--content-clr-light);
 }
 
 .copyright__members-title {
   padding-bottom: .5em;
-  color: var(--title-clr-lighter);
 }
 
 .copyright__member {
   padding-bottom: .25em;
-  color: var(--content-clr-light);
 }
 
 .copyright__member-icon {
   padding-right: .25em;
-  color: var(--icon-clr-light)
 }
 
 @media screen and (max-width: 768px) {

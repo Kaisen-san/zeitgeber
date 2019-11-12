@@ -18,7 +18,12 @@
   grid-column: nav-start / nav-end;
 }
 
+.header .menu__items-wrapper {
+  justify-content: flex-end;
+}
+
 .header .menu__item {
+  margin-left: 2em;
   color: var(--title-clr-lighter);
 }
 

@@ -1,14 +1,16 @@
-<div class="options__wrapper">
-    <h2 class="options__title"><%= title %></h2>
-    <hr class="options__hr">
-    <p class="purchase__description"><%= description %></p>
-    <form action="/blabla" class="purchase__form">
-        <% options.forEach( o => { %>
-            <label class="options__option"><input type="checkbox" name="<%= o.checkboxName %>" value="<%= o.checkboxValue %>" class="options__input">
-            <span class="options__checkbox"></span>
-            <%= o.name %>
-            <p class="options__subtext"><%= o.subtext %></p></label>
-        <% }); %>
-        <%- include( 'link', { id: 'options_send', ref: '', content: 'Purchase<i class="fas fa-arrow-right icon"></i>', extraClasses: 'link--maximized' } ) %>
-    </form>
+<div class='options__wrapper'>
+  <h1 class='options__title'><%= title %></h1>
+  <%- include( 'divisor' ) %>
+  <p class='options__description'><%= description %></p>
+  <form class='options__form'>
+    <% options.forEach( o => { %>
+      <label class='options__option'>
+        <input type='checkbox' name='<%= o.name %>' value='<%= o.value %>' class='options__input'>
+        <span class='options__checkbox'></span>
+        <%= o.text %>
+        <p class='options__subtext'><%= o.subtext %></p>
+      </label>
+    <% }); %>
+    <%- include( 'link', { id: 'options_send', ref: '', content: 'Check Out<i class="fas fa-shopping-cart icon"></i>', extraClasses: 'link--maximized' } ) %>
+  </form>
 </div>

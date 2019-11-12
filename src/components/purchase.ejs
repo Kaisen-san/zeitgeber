@@ -1,35 +1,17 @@
-<div class="purchase">
-    <%- include( '../components/slider', {
-        displayUrl: '/img/ss-01.jpg',
-        images: [
-            '/img/ss-01.jpg',
-            '/img/ss-02.jpg',
-            '/img/ss-03.jpg',
-            '/img/ss-04.jpg',
-            '/img/ss-05.jpg',
-            '/img/ss-06.jpg',
-            '/img/ss-07.jpg',
-            '/img/ss-08.jpg',
-            '/img/ss-09.jpg',
-            '/img/ss-10.jpg',
-            '/img/ss-11.jpg',
-            '/img/ss-12.jpg',
-            '/img/ss-13.jpg',
-        ]
-    }) %>
-   
-    <%- include( '../components/options', {
-        title: 'Lorem, ipsum.',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet sunt recusandae molestiae omnis sapiente magni suscipit laboriosam molestias consequatur officia!',
-        options: [
-            { name: 'Opção 1: Lorem, ipsum dolor.', subtext: 'Lorem ipsum dolor sit amet consectetur.', checkboxName: 'e1', checkboxValue: 'yes' },
-            { name: 'Opção 2: Lorem, ipsum dolor.', subtext: 'Lorem ipsum dolor sit amet consectetur.', checkboxName: 'e2', checkboxValue: 'yes' },
-            { name: 'Opção 3: Lorem, ipsum dolor.', subtext: 'Lorem ipsum dolor sit amet consectetur.', checkboxName: 'e3', checkboxValue: 'yes' },
-            { name: 'Opção 4: Lorem, ipsum dolor.', subtext: 'Lorem ipsum dolor sit amet consectetur.', checkboxName: 'e4', checkboxValue: 'yes' },
-            { name: 'Opção 5: Lorem, ipsum dolor.', subtext: 'Lorem ipsum dolor sit amet consectetur.', checkboxName: 'e5', checkboxValue: 'yes' }
-        ]
-    }) %>
+<div class='purchase'>
+  <%- include( '../components/slider', {
+    images: images
+  }) %>
+
+  <%- include( '../components/options', {
+    title: title,
+    description: description,
+    options: options
+  }) %>
 </div>
-<div class="purchase__buy">
-    <%- include( '../components/buy') %>
+
+<div class='purchase__buy'>
+  <div class="purchase__buy__wrapper">
+    <%- include( '../components/order' ) %>
+  </div>
 </div>

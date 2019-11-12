@@ -9,11 +9,13 @@ main {
 
 .purchase {
   grid-area: purchase;
+  background-color: var(--bg-clr-lighter);
+  margin-bottom: 5em;
 }
 
 .description {
   grid-area: info;
-  margin: 0 10%;
+  margin: 5em 10%;
 }
 
 @media ( max-width: 1023.98px ) {

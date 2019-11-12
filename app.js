@@ -1,9 +1,11 @@
+require('dotenv/config');
 const express = require('express');
 const path = require('path');
 
 const request = require('./src/middlewares/request');
 const upload = require('./src/middlewares/upload');
 const resizeAndSaveImage = require('./src/helpers/image');
+const Mail = require('./src/helpers/Mail');
 
 const app = express();
 const port = process.env.PORT || 4000;
@@ -32,6 +34,44 @@ app.get( '/product/:id', ( req, res, next ) => {
 });
 
 app.post( '/contact', ( req, res, next ) => {
+  const { name, email, message } = req.body;
+
+  Mail.sendMail({
+    from: 'Zeitgeber <zeitgeber@t4p.com>',
+    to: 'Vanderlei <vparro@t4p.com>',
+    subject: `Contato - ${name}`,
+    html: `
+      <h4><strong>${name}</strong> (<a href='mailto:${email}'>${email}</a>) te enviou a seguinte mensagem:</h4>
+      <pre>${message}</pre>
+    `
+  });
+
+  res.status(200).redirect('/');
+});
+
+app.post( '/order', ( req, res, next ) => {
+  const { name, phone, email, address, message, productName, options } = req.body;
+
+  Mail.sendMail({
+    from: 'Zeitgeber <zeitgeber@t4p.com>',
+    to: 'Vanderlei <vparro@t4p.com>',
+    subject: `Pedido - ${name}`,
+    html: `
+      <h4><strong>${name}</strong> (<a href='mailto:${email}'>${email}</a>) realizou o seguinte pedido:</h4>
+      <h4><strong>Produto: ${productName}</strong></h4>
+      <ul>
+        ${options.map(option => `<li>${option}</li>`).toString().replace(/,/g, '')}
+      </ul>
+      <h4>E mandou a seguinte mensagem:</h4>
+      <pre>${message}</pre>
+      <h4>Dados Informados:</h4>
+      <p>Nome: ${name}</p>
+      <p>Telefone: ${phone}</p>
+      <p>Email: ${email}</p>
+      <p>Endereço: ${address}</p>
+    `
+  });
+
   res.status(200).redirect('/');
 });
 

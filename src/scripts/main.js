@@ -1,6 +1,6 @@
 (() => {
 
-  const trigger = document.querySelector('.products');
+  const trigger = document.getElementById('products');
   const header = document.querySelector('.header');
   const headerLogo = document.querySelector('.header .logo__content');
 
@@ -10,7 +10,8 @@
     headerLogo,
     '/img/t4p-light.svg',
     '/img/t4p-dark.svg',
-    'header--dark'
+    'header--dark',
+    65
   );
 
   const products = Array.from( document.querySelectorAll('.products .product') );

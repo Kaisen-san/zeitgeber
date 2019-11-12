@@ -18,7 +18,12 @@
   grid-column: nav-start / nav-end;
 }
 
+.header .menu__items-wrapper {
+  justify-content: flex-end;
+}
+
 .header .menu__item {
+  margin-left: 2em;
   color: var(--title-clr-lighter);
 }
 
@@ -33,7 +38,13 @@
     justify-content: center;
   }
 
-  .header .menu {
-    display: none;
+  .header .menu__items-wrapper {
+    background-color: var(--bg-clr-darker);
+  }
+
+  .header .menu__switcher-icon,
+  .header .menu__switcher-icon::before,
+  .header .menu__switcher-icon::after {
+    background-color: var(--icon-clr-light);
   }
 }

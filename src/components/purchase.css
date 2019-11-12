@@ -1,56 +1,24 @@
 .purchase {
-  grid-area: purchase;
   justify-self: center;
   display: flex;
-  width: 85%;
-  margin: 20px 5%;
-}
-
-.purchase__lock {
-  overflow: hidden;
-}
-
-.purchase__form {
-  display: flex;
-  flex-direction: column;
-  margin-top: 20px;
-}
-
-.purchase__description {
-  margin-top: 25px;
-  font-size: 1.2em;
-}
-
-/* .purchase-send {
-  display: block;
-  margin: 2.5em 0;
-  width: 100%;
-  padding: 10px 0px;
-  text-decoration: none;
-  cursor: pointer;
-  user-select: none;
-  background-color: var(--secondary-clr);
-  text-align: center;
-  color: var(--light-theme);
-  border-radius: 2px;
-  box-shadow: 2px 2px 3px rgb(175, 175, 175);
-  transition: background-color 0.1s ease-in-out;
-}
-
-.purchase-send:hover {
-  background-color: var(--secondary-clr-light);
-}
-
-.purchase-send:active {
-  background-color: var(--secondary-clr);
-} */
-
-.purchase__zoom, .purchase__buy {
-  display: none;
+  padding: 3em 5%;
 }
 
 .purchase__zoom {
+  display: none;
   cursor: zoom-out;
+}
+
+.purchase__buy {
+  display: none;
+}
+
+.purchase__buy__wrapper {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  width: 100%;
+  height: 100%;
 }
 
 .purchase__overlay {
@@ -58,24 +26,17 @@
   justify-content: center;
   align-items: center;
   position: fixed;
+  z-index: 10000;
   top: 0;
   left: 0;
-  z-index: 10000;
   width: 100%;
   height: 100%;
-  background-color: rgba(56, 56, 56, 0.7);
+  background-color: var(--bg-transparent);
+  overflow-y: auto;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1023.98px) {
   .purchase {
     flex-direction: column;
-  }
-  
-  .options__wrapper {
-    width: 100%;
-  }
-
-  .options__wrapper {
-    margin-top: 15px;
   }
 }
