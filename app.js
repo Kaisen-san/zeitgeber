@@ -38,8 +38,6 @@ app.get( '/', async ( req, res, next ) => {
     test.error = error;
   }
 
-  console.log(test)
-
   res.status(200).render('main', {
     test
   });
