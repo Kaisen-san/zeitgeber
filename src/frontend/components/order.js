@@ -2,6 +2,10 @@
 
   const orderForm = document.getElementById('order_form');
 
+  if (orderForm == null) {
+    return;
+  }
+
   orderForm.addEventListener('submit', async (evt) => {
     evt.preventDefault();
 

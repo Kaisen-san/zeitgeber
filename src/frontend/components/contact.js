@@ -2,6 +2,10 @@
 
   const contactForm = document.querySelector('.contact__form');
 
+  if (contactForm == null) {
+    return;
+  }
+
   contactForm.addEventListener('submit', async (evt) => {
     evt.preventDefault();
 
