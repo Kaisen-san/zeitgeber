@@ -64,8 +64,6 @@ gulp.task('watch', async () => {
   gulp.watch('src/frontend/scripts/login.js', gulp.parallel('min-js-login'));
   gulp.watch('src/frontend/scripts/admin.js', gulp.parallel('min-js-admin'));
   gulp.watch('src/frontend/scripts/admin-product.js', gulp.parallel('min-js-admin-product'));
-  gulp.watch('src/frontend/images/*.{ico,svg,jpeg}', gulp.parallel('copy-noncompress-imgs'));
-  // gulp.watch('src/frontend/images/*.{png,jpg}', gulp.parallel('compress-imgs'));
 });
 
 gulp.task('default', gulp.parallel(
@@ -82,7 +80,5 @@ gulp.task('default', gulp.parallel(
   'min-js-login',
   'min-js-admin',
   'min-js-admin-product',
-  'copy-noncompress-imgs',
-  // 'compress-imgs',
   'watch'
 ));
