@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <%- include( 'partials/head', {
+    pageTitle: 'Zeitgeber Store - Admin View',
+    stylesFilename: 'login'
+  }) %>
+</head>
+
+<body>
+  <header class='header'>
+    <%- include( '../components/logo', {
+      ref: '#',
+      src: '/img/t4p-dark.svg',
+      alt: 'Tech4People'
+    }) %>
+
+    <%- include( '../components/menu', {
+      elements: [
+        { ref: '/', content: 'Site' },
+      ]
+    }) %>
+  </header>
+  <main>
+    <form class='login'>
+      <%- include( '../components/input', { type: 'text', name: 'username', placeholder: 'Username', iconClass: 'fas fa-user', value: '' } ) %>
+      <%- include( '../components/input', { type: 'password', name: 'password', placeholder: 'Password', iconClass: 'fas fa-key', value: '' } ) %>
+      <%- include( '../components/button', { id: 'login', type: 'submit', content: 'Login', extraClasses: 'button--maximized', extraLinkClasses: 'link--maximized link--rounded' } ) %>
+    </form>
+  </main>
+
+  <%- include( 'partials/scripts', {
+    scriptFilename: 'login'
+  }) %>
+</body>
+
+</html>
