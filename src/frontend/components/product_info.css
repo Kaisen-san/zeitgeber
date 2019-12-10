@@ -20,6 +20,7 @@
 }
 
 .description__content {
+  width: 100%;
   text-align: justify;
   margin-bottom: 1em;
   color: var(--content-clr-dark);

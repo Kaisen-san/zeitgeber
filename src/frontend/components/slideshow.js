@@ -1,6 +1,6 @@
 (() => {
 
-  const slideshowAnimation = ( imgs, btns, idx ) => {
+  const slideshowAnimation = ( imgs, btns, titles, idx ) => {
     imgs.forEach( e =>
       e.classList.remove(
         classNames.imgMiddle,
@@ -26,8 +26,10 @@
     });
 
     btns.forEach( btn => btn.classList.remove( classNames.btnActive ) );
+    titles.forEach( title => title.classList.remove( classNames.titleActive ) );
 
     btns[ idx ].classList.add( classNames.btnActive );
+    titles[ idx ].classList.add( classNames.titleActive );
   };
 
   const classNames = {
@@ -37,7 +39,9 @@
     imgRight: 'slideshow__img--right',
     imgHide: 'slideshow__img--hide',
     btn: 'slideshow__btn',
-    btnActive: 'slideshow__btn--active'
+    btnActive: 'slideshow__btn--active',
+    title: 'slideshow__title',
+    titleActive: 'slideshow__title--active'
   }
 
   const imagesList =
@@ -46,18 +50,21 @@
   const buttonsList =
     Array.from( document.querySelectorAll( '.' + classNames.btn ) );
 
+  const titlesList =
+    Array.from( document.querySelectorAll( '.' + classNames.title ) );
+
   imagesList.forEach( ( img, idx ) => {
     img.addEventListener( 'click', evt => {
       const targetClasses = Array.from( evt.target.classList );
       const i = targetClasses.includes( classNames.imgMiddle ) ? idx + 1 : idx;
 
-      slideshowAnimation( imagesList, buttonsList, i );
+      slideshowAnimation( imagesList, buttonsList, titlesList, i );
     });
   });
 
   buttonsList.forEach( ( btn, idx ) => {
     btn.addEventListener( 'click', evt => {
-      slideshowAnimation( imagesList, buttonsList, idx );
+      slideshowAnimation( imagesList, buttonsList, titlesList, idx );
     });
   });
 

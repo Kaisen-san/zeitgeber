@@ -44,6 +44,10 @@
   letter-spacing: .04em;
 }
 
+.options__subtext--darker {
+  color: var(--subtitle-clr-dark);
+}
+
 .options__input {
   display: none;
 }
@@ -60,7 +64,11 @@
 }
 
 .options__checkbox:hover {
-  background-color: #ccc;
+  background-color: var(--silver);
+}
+
+.options__checkbox--lighter {
+  background-color: var(--bg-clr-lighter);
 }
 
 .options__input:checked~.options__checkbox {

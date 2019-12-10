@@ -59,7 +59,18 @@
     <form id='purchase'>
       <div class='admin__item admin__item--maximized'>
         <h3 class='admin__label'>Description</h3>
-        <%- include( '../components/textarea', { name: 'description', cols: '50', rows: '30', placeholder: '', content: productInfo.shortDescription, extraClasses: '' } ) %>
+        <%- include( '../components/textarea', { name: 'short_description', cols: '50', rows: '30', placeholder: '', content: productInfo.shortDescription, extraClasses: '' } ) %>
+      </div>
+      <div class='admin__item'>
+        <h3 class='admin__label'>Options</h3>
+        <% options.forEach( ({ id, text, subtext }) => { %>
+          <label class='options__option'>
+            <input id='<%= id %>' type='checkbox' class='options__input' <%= productOptions.some(opt => id === opt.id) ? 'checked' : '' %>>
+            <span class='options__checkbox options__checkbox--lighter'></span>
+            <%= text %>
+            <p class='options__subtext options__subtext--darker'><%= subtext %></p>
+          </label>
+        <% }); %>
       </div>
       <div class='admin__item admin__item--maximized'>
         <h3 class='admin__label'>Images</h3>
@@ -67,6 +78,7 @@
           <% productImages.forEach(({ image }) => { %>
             <div class='admin__item'>
               <%- include( '../components/link', { id: '', ref: '', extraClasses: 'link--nofill', content: `<img name='image' class='image__button' src='${image}'>` } ) %>
+              <%- include( '../components/button', { id: '', type: 'button', content: 'Delete<i class="fas fa-trash-alt icon"></i>', extraClasses: '', extraLinkClasses: 'link--danger' } ) %>
             </div>
           <% }) %>
           <div class='admin__item admin__item--dark'>
@@ -83,7 +95,15 @@
     <form id='product_info'>
       <div class='admin__item admin__item--maximized'>
         <h3 class='admin__label'>Description</h3>
-        <%- include( '../components/textarea', { name: 'content', cols: '50', rows: '30', placeholder: '', content: productInfo.longDescription, extraClasses: 'textarea--tall' } ) %>
+        <%- include( '../components/textarea', { name: 'long_description', cols: '50', rows: '30', placeholder: '', content: productInfo.longDescription, extraClasses: 'textarea--tall' } ) %>
+      </div>
+      <div class='admin__item admin__item--maximized'>
+        <h3 class='admin__label'>Bullets</h3>
+        <%- include( '../components/textarea', { name: 'bullets', cols: '50', rows: '30', placeholder: '', content: productInfo.bullets, extraClasses: '' } ) %>
+      </div>
+      <div class='admin__item admin__item--maximized'>
+        <h3 class='admin__label'>Characteristics</h3>
+        <%- include( '../components/textarea', { name: 'characteristics', cols: '50', rows: '30', placeholder: '', content: productInfo.characteristics, extraClasses: 'textarea--tall' } ) %>
       </div>
       <%- include( '../components/button', { id: '', type: 'submit', content: 'Save<i class="fas fa-save icon"></i>', extraClasses: '', extraLinkClasses: '' } ) %>
     </form>
@@ -101,6 +121,7 @@
   <template>
     <div class='admin__item'>
       <%- include( '../components/link', { id: '', ref: '', extraClasses: 'link--nofill', content: '<img name="image" class="image__button">' } ) %>
+      <%- include( '../components/button', { id: '', type: 'button', content: 'Delete<i class="fas fa-trash-alt icon"></i>', extraClasses: '', extraLinkClasses: 'link--danger' } ) %>
     </div>
   </template>
 

@@ -14,6 +14,7 @@ router.options( '/*', ( req, res, next ) => {
 router.get( '/', async ( req, res, next ) => {
   try {
     const hero = db.select({
+      id: 'hero.hero_id',
       message: 'hero.message',
       image: 'image.image_url'
     })
@@ -33,6 +34,7 @@ router.get( '/', async ( req, res, next ) => {
     .leftJoin('image', 'image.image_id', 'product_card.image_id');
 
     const cloud = db.select({
+      id: 'feature.feature_id',
       title: 'feature.title',
       content: 'feature.content',
       buttonText: 'feature.button',
@@ -43,6 +45,7 @@ router.get( '/', async ( req, res, next ) => {
     .first();
 
     const projectInfo = db.select({
+      id: 'project_info.info_id',
       content: 'project_info.content',
       image: 'image.image_url'
     })
@@ -76,7 +79,7 @@ router.get( '/product/:id', async ( req, res, next ) => {
       shortDescription: 'product_info.short_description',
       longDescription: 'product_info.long_description',
       bullets: 'product_info.bullets',
-      table: 'product_info.characteristics_table'
+      characteristics: 'product_info.characteristics'
     })
     .from('product_info')
     .where('product_info.product_id', id)

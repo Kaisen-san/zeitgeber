@@ -38,8 +38,8 @@
       title: 'Description',
       content: productInfo.longDescription.split('\n').map(c => c.trim()),
       bullets: productInfo.bullets.split('\n').map(c => c.trim()),
-      tableHeaders: productInfo.table.split('\n')[0].trim().split(';'),
-      tableRows: productInfo.table.split('\n').filter((c, i) => i > 0).map(c => c.trim().split(';'))
+      tableHeaders: productInfo.characteristics.split('\n')[0].trim().split(';'),
+      tableRows: productInfo.characteristics.split('\n').filter((c, i) => i > 0).map(c => c.trim().split(';'))
     }) %>
   </main>
 

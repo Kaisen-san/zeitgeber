@@ -16,9 +16,19 @@
     try {
       await zeitgeber.sendHttpRequest('POST', '/admin/upload/image', $formData);
 
-      // TODO: Avisar ao usuário que as mudanças foram feitas com sucesso
+      const alert = document.createElement('div');
+      alert.innerText = 'Successful change!';
+      alert.setAttribute('class', 'alert');
+
+      document.body.append(alert);
+      setTimeout(() => document.querySelector('.alert').remove(), 3000);
     } catch (err) {
-      // TODO: Avisar ao usuário que as mudanças falharam
+      const alert = document.createElement('div');
+      alert.innerText = 'Something went wrong!\n' + err;
+      alert.setAttribute('class', 'alert alert--bad');
+
+      document.body.append(alert);
+      setTimeout(() => document.querySelector('.alert').remove(), 6000);
       console.error(err, err.data);
     } finally {
       $imageUploadForm.querySelector('.admin__item input[type="file"]').value = '';
@@ -36,16 +46,26 @@
     const imgsPayload = zeitgeber.extractRequestPayload(evt.target, 'img', 'src');
 
     try {
-      await zeitgeber.sendHttpRequest('PUT', '/admin', {
+      await zeitgeber.sendHttpRequest('PUT', '/admin?to=hero', {
         hero: {
           ...inputsPayload,
           ...imgsPayload
         }
       });
 
-      // TODO: Avisar ao usuário que as mudanças foram feitas com sucesso
+      const alert = document.createElement('div');
+      alert.innerText = 'Successful change!';
+      alert.setAttribute('class', 'alert');
+
+      document.body.append(alert);
+      setTimeout(() => document.querySelector('.alert').remove(), 3000);
     } catch (err) {
-      // TODO: Avisar ao usuário que as mudanças falharam
+      const alert = document.createElement('div');
+      alert.innerText = 'Something went wrong!\n' + err;
+      alert.setAttribute('class', 'alert alert--bad');
+
+      document.body.append(alert);
+      setTimeout(() => document.querySelector('.alert').remove(), 6000);
       console.error(err, err.data);
     }
   });
@@ -63,6 +83,47 @@
     $context = $heroImage;
   });
 
+  // PRODUCTS
+  const $productsWrapper = document.getElementById('products');
+  const $productItems = $productsWrapper.querySelectorAll('.admin__item');
+  const $productDeleteButtons = $productsWrapper.querySelectorAll('.admin__item .link--danger');
+
+  $productDeleteButtons.forEach((button, index) => {
+    button.addEventListener('click', async (evt) => {
+      evt.preventDefault();
+
+      try {
+        await zeitgeber.sendHttpRequest('DELETE', `/admin?from=product&id=${$productItems[index].id}`);
+        $productItems[index].remove();
+
+        const alert = document.createElement('div');
+        alert.innerText = 'Successful change!';
+        alert.setAttribute('class', 'alert');
+
+        document.body.append(alert);
+        setTimeout(() => document.querySelector('.alert').remove(), 3000);
+      } catch (err) {
+        const alert = document.createElement('div');
+        alert.innerText = 'Something went wrong!\n' + err;
+        alert.setAttribute('class', 'alert alert--bad');
+
+        document.body.append(alert);
+        setTimeout(() => document.querySelector('.alert').remove(), 6000);
+        console.error(err, err.data);
+      }
+    });
+  });
+
+  const $productAdd = document.getElementById('product_add');
+
+  $productAdd.addEventListener('click', async (evt) => {
+    evt.preventDefault();
+
+    const { data } = await zeitgeber.sendHttpRequest('POST', '/admin?to=product');
+
+    window.location.href = `/admin/product/${data.id}`;
+  });
+
   // CLOUD
   const $cloudForm = document.getElementById('cloud');
   const $cloudImage = $cloudForm.querySelector('.admin__item .link img');
@@ -75,7 +136,7 @@
     const imgsPayload = zeitgeber.extractRequestPayload(evt.target, 'img', 'src');
 
     try {
-      await zeitgeber.sendHttpRequest('PUT  ', '/admin', {
+      await zeitgeber.sendHttpRequest('PUT', '/admin?to=cloud', {
         cloud: {
           ...inputsPayload,
           ...textareasPayload,
@@ -83,9 +144,19 @@
         }
       });
 
-      // TODO: Avisar ao usuário que as mudanças foram feitas com sucesso
+      const alert = document.createElement('div');
+      alert.innerText = 'Successful change!';
+      alert.setAttribute('class', 'alert');
+
+      document.body.append(alert);
+      setTimeout(() => document.querySelector('.alert').remove(), 3000);
     } catch (err) {
-      // TODO: Avisar ao usuário que as mudanças falharam
+      const alert = document.createElement('div');
+      alert.innerText = 'Something went wrong!\n' + err;
+      alert.setAttribute('class', 'alert alert--bad');
+
+      document.body.append(alert);
+      setTimeout(() => document.querySelector('.alert').remove(), 6000);
       console.error(err, err.data);
     }
   });
@@ -103,31 +174,69 @@
     $context = $cloudImage;
   });
 
-  // KNOW MORE
+  // PROJECT INFO
   const $projectInfo = document.getElementById('project_info');
   const $projectInfoForms = $projectInfo.querySelectorAll('.admin__item form');
+  const $projectInfoSaveButtons = $projectInfo.querySelectorAll('.project-info-save');
+  const $projectInfoDeleteButtons = $projectInfo.querySelectorAll('.project-info-delete');
   const $projectInfoImages = $projectInfo.querySelectorAll('.admin__item form .link img');
   const $projectInfoAdd = document.getElementById('project_info_add');
 
-  $projectInfoForms.forEach(form => {
-    form.addEventListener('submit', async (evt) => {
+  $projectInfoSaveButtons.forEach((button, index) => {
+    button.addEventListener('click', async (evt) => {
       evt.preventDefault();
 
-      const textareasPayload = zeitgeber.extractRequestPayload(evt.target, 'textarea', 'value');
-      const imgsPayload = zeitgeber.extractRequestPayload(evt.target, 'img', 'src');
+      const textareasPayload = zeitgeber.extractRequestPayload($projectInfoForms[index], 'textarea', 'value');
+      const imgsPayload = zeitgeber.extractRequestPayload($projectInfoForms[index], 'img', 'src');
 
       try {
-        await zeitgeber.sendHttpRequest('PUT', '/admin', {
+        await zeitgeber.sendHttpRequest('PUT', '/admin?to=projectInfo', {
           projectInfo: {
-            id: evt.target.id,
+            id: $projectInfoForms[index].id,
             ...textareasPayload,
             ...imgsPayload
           }
         });
 
-        // TODO: Avisar ao usuário que as mudanças foram feitas com sucesso
+        const alert = document.createElement('div');
+        alert.innerText = 'Successful change!';
+        alert.setAttribute('class', 'alert');
+
+        document.body.append(alert);
+        setTimeout(() => document.querySelector('.alert').remove(), 3000);
       } catch (err) {
-        // TODO: Avisar ao usuário que as mudanças falharam
+        const alert = document.createElement('div');
+        alert.innerText = 'Something went wrong!\n' + err;
+        alert.setAttribute('class', 'alert alert--bad');
+
+        document.body.append(alert);
+        setTimeout(() => document.querySelector('.alert').remove(), 6000);
+        console.error(err, err.data);
+      }
+    });
+  });
+
+  $projectInfoDeleteButtons.forEach((button, index) => {
+    button.addEventListener('click', async (evt) => {
+      evt.preventDefault();
+
+      try {
+        await zeitgeber.sendHttpRequest('DELETE', `/admin?from=projectInfo&id=${$projectInfoForms[index].id}`);
+        $projectInfoForms[index].parentElement.remove();
+
+        const alert = document.createElement('div');
+        alert.innerText = 'Successful change!';
+        alert.setAttribute('class', 'alert');
+
+        document.body.append(alert);
+        setTimeout(() => document.querySelector('.alert').remove(), 3000);
+      } catch (err) {
+        const alert = document.createElement('div');
+        alert.innerText = 'Something went wrong!\n' + err;
+        alert.setAttribute('class', 'alert alert--bad');
+
+        document.body.append(alert);
+        setTimeout(() => document.querySelector('.alert').remove(), 6000);
         console.error(err, err.data);
       }
     });
@@ -210,25 +319,98 @@
           });
 
           const $form = node.querySelector('.admin__item form');
+          const $save = node.querySelector('.project-info-save');
+          const $delete = node.querySelector('.project-info-delete');
 
-          $form.addEventListener('submit', async (evt) => {
+          $save.addEventListener('click', async function _listener(evt) {
             evt.preventDefault();
 
-            const textareasPayload = zeitgeber.extractRequestPayload(evt.target, 'textarea', 'value');
-            const imgsPayload = zeitgeber.extractRequestPayload(evt.target, 'img', 'src');
+            const textareasPayload = zeitgeber.extractRequestPayload($form, 'textarea', 'value');
+            const imgsPayload = zeitgeber.extractRequestPayload($form, 'img', 'src');
 
             try {
-              const { data } = await zeitgeber.sendHttpRequest('POST', '/admin', {
+              const { data } = await zeitgeber.sendHttpRequest('POST', '/admin?to=projectInfo', {
                 projectInfo: {
                   ...textareasPayload,
                   ...imgsPayload
                 }
               });
 
-                $form.setAttribute('id', data.id);
-              // TODO: Avisar ao usuário que as mudanças foram feitas com sucesso
+              $form.setAttribute('id', data.id);
+              $save.removeEventListener('click', _listener);
+              $save.addEventListener('click', async (evt) => {
+                evt.preventDefault();
+
+                const textareasPayload = zeitgeber.extractRequestPayload($form, 'textarea', 'value');
+                const imgsPayload = zeitgeber.extractRequestPayload($form, 'img', 'src');
+
+                try {
+                  await zeitgeber.sendHttpRequest('PUT', '/admin?to=projectInfo', {
+                    projectInfo: {
+                      id: $form.id,
+                      ...textareasPayload,
+                      ...imgsPayload
+                    }
+                  });
+
+                  const alert = document.createElement('div');
+                  alert.innerText = 'Successful change!';
+                  alert.setAttribute('class', 'alert');
+
+                  document.body.append(alert);
+                  setTimeout(() => document.querySelector('.alert').remove(), 3000);
+                } catch (err) {
+                  const alert = document.createElement('div');
+                  alert.innerText = 'Something went wrong!\n' + err;
+                  alert.setAttribute('class', 'alert alert--bad');
+
+                  document.body.append(alert);
+                  setTimeout(() => document.querySelector('.alert').remove(), 6000);
+                  console.error(err, err.data);
+                }
+              });
+
+              const alert = document.createElement('div');
+              alert.innerText = 'Successful change!';
+              alert.setAttribute('class', 'alert');
+
+              document.body.append(alert);
+              setTimeout(() => document.querySelector('.alert').remove(), 3000);
             } catch (err) {
-              // TODO: Avisar ao usuário que as mudanças falharam
+              const alert = document.createElement('div');
+              alert.innerText = 'Something went wrong!\n' + err;
+              alert.setAttribute('class', 'alert alert--bad');
+
+              document.body.append(alert);
+              setTimeout(() => document.querySelector('.alert').remove(), 6000);
+              console.error(err, err.data);
+            }
+          });
+
+          $delete.addEventListener('click', async (evt) => {
+            evt.preventDefault();
+
+            if ($form.id === '') {
+              node.remove();
+            }
+
+            try {
+              await zeitgeber.sendHttpRequest('DELETE', `/admin?from=projectInfo&id=${$form.id}`);
+              node.remove();
+
+              const alert = document.createElement('div');
+              alert.innerText = 'Successful change!';
+              alert.setAttribute('class', 'alert');
+
+              document.body.append(alert);
+              setTimeout(() => document.querySelector('.alert').remove(), 3000);
+            } catch (err) {
+              const alert = document.createElement('div');
+              alert.innerText = 'Something went wrong!\n' + err;
+              alert.setAttribute('class', 'alert alert--bad');
+
+              document.body.append(alert);
+              setTimeout(() => document.querySelector('.alert').remove(), 6000);
               console.error(err, err.data);
             }
           });

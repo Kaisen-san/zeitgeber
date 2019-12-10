@@ -1,15 +1,20 @@
 <aside class="slideshow">
-    <h1 class="slideshow__title">Want to know more?</h1>
+  <div class="slideshow__titles-wrapper">
+    <% items.forEach( ({ position, title }) => { %>
+      <h1 class="slideshow__title <%= position === 'middle' ? 'slideshow__title--active' : '' %>"><%= title %></h1>
+    <% }) %>
+  </div>
+
   <div class="slideshow__imgs-wrapper">
-    <% images.forEach( i => { %>
+    <% items.forEach( ({ position, src, alt }) => { %>
       <% var positions = { middle: 'middle', left: 'left', right: 'right', hide: 'hide' } %>
-      <img class="slideshow__img slideshow__img--<%= positions[i.position] %>" src="<%= i.src %>" alt="<%= i.alt %>">
+      <img class="slideshow__img slideshow__img--<%= positions[position] %>" src="<%= src %>" alt="<%= alt %>">
     <% }) %>
   </div>
 
   <div class="slideshow__btns-wrapper">
-    <% images.forEach( i => { %>
-      <a class="slideshow__btn <%= i.position === 'middle' ? 'slideshow__btn--active' : '' %>"></a>
+    <% items.forEach( ({ position }) => { %>
+      <a class="slideshow__btn <%= position === 'middle' ? 'slideshow__btn--active' : '' %>"></a>
     <% }) %>
   </div>
 </aside>

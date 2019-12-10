@@ -49,13 +49,29 @@
   }) %>
 
   <%- include( '../components/slideshow', {
-    images: [
-      { src: '/img/sss-03.jpg', alt: '', position: 'hide' },
-      { src: '/img/sss-04.jpg', alt: '', position: 'left' },
-      { src: '/img/sss-05.jpg', alt: '', position: 'middle' },
-      { src: '/img/sss-06.jpg', alt: '', position: 'right' },
-      { src: '/img/sss-07.jpg', alt: '', position: 'hide'},
-    ]
+    items: projectInfo.map(({ content, image }, idx) => {
+      let position = '';
+
+      if (idx === Math.floor(projectInfo.length / 2)) {
+        position = 'middle'
+      }
+      else if (idx === Math.floor(projectInfo.length / 2) - 1) {
+        position = 'left'
+      }
+      else if (idx === Math.floor(projectInfo.length / 2) + 1) {
+        position = 'right'
+      }
+      else {
+        position = 'hide'
+      }
+
+      return {
+        title: content,
+        src: image,
+        alt: '',
+        position: position
+      }
+    })
   }) %>
 
   <footer class="footer">

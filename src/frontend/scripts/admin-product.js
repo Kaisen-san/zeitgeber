@@ -11,15 +11,25 @@
     const inputsPayload = zeitgeber.extractRequestPayload(evt.target, 'input', 'value');
 
     try {
-      await zeitgeber.sendHttpRequest('PUT', window.location.pathname, {
+      await zeitgeber.sendHttpRequest('PUT', `${window.location.pathname}?to=product`, {
         product: {
           ...inputsPayload
         }
       });
 
-      // TODO: Avisar ao usuário que as mudanças foram feitas com sucesso
+      const alert = document.createElement('div');
+      alert.innerText = 'Successful change!';
+      alert.setAttribute('class', 'alert');
+
+      document.body.append(alert);
+      setTimeout(() => document.querySelector('.alert').remove(), 3000);
     } catch (err) {
-      // TODO: Avisar ao usuário que as mudanças falharam
+      const alert = document.createElement('div');
+      alert.innerText = 'Something went wrong!\n' + err;
+      alert.setAttribute('class', 'alert alert--bad');
+
+      document.body.append(alert);
+      setTimeout(() => document.querySelector('.alert').remove(), 6000);
       console.error(err, err.data);
     }
   });
@@ -35,16 +45,26 @@
     const imgsPayload = zeitgeber.extractRequestPayload(evt.target, 'img', 'src');
 
     try {
-      await zeitgeber.sendHttpRequest('PUT', window.location.pathname, {
+      await zeitgeber.sendHttpRequest('PUT', `${window.location.pathname}?to=productCard`, {
         card: {
           ...inputsPayload,
           ...imgsPayload
         }
       });
 
-      // TODO: Avisar ao usuário que as mudanças foram feitas com sucesso
+      const alert = document.createElement('div');
+      alert.innerText = 'Successful change!';
+      alert.setAttribute('class', 'alert');
+
+      document.body.append(alert);
+      setTimeout(() => document.querySelector('.alert').remove(), 3000);
     } catch (err) {
-      // TODO: Avisar ao usuário que as mudanças falharam
+      const alert = document.createElement('div');
+      alert.innerText = 'Something went wrong!\n' + err;
+      alert.setAttribute('class', 'alert alert--bad');
+
+      document.body.append(alert);
+      setTimeout(() => document.querySelector('.alert').remove(), 6000);
       console.error(err, err.data);
     }
   });
@@ -65,31 +85,51 @@
   // PURCHASE
   const $purchaseForm = document.getElementById('purchase');
   const $purchaseImagesWrapper = $purchaseForm.querySelector('.admin__item .admin__wrapper');
+  const $purchaseImagesItems = $purchaseImagesWrapper.querySelectorAll('.admin__item');
   const $purchaseImages = $purchaseImagesWrapper.querySelectorAll('.admin__item .link img');
+  const $purchaseImagesDeleteButton = $purchaseImagesWrapper.querySelectorAll('.admin__item .link--danger');
   const $purchaseAdd = document.getElementById('purchase_add');
 
   $purchaseForm.addEventListener('submit', async (evt) => {
     evt.preventDefault();
 
-    const inputsPayload = zeitgeber.extractRequestPayload(evt.target, 'input', 'value');
     const textareasPayload = zeitgeber.extractRequestPayload(evt.target, 'textarea', 'value');
+    const $options = evt.target.querySelectorAll('input[type="checkbox"]');
+    const optionsPayload = Array.from($options).filter(opt => opt.checked).map(opt => ({ option_id: parseInt(opt.id) }));
     const $imgs = evt.target.querySelectorAll('img');
     const imgsPayload = Array.from($imgs).map($img => $img.src);
 
+    console.log(optionsPayload)
     try {
-      await zeitgeber.sendHttpRequest('PUT', window.location.pathname, {
+      await zeitgeber.sendHttpRequest('PUT', `${window.location.pathname}?to=purchase`, {
         purchase: {
-          ...inputsPayload,
           ...textareasPayload,
+          options: optionsPayload,
           images: imgsPayload
         }
       });
 
-      // TODO: Avisar ao usuário que as mudanças foram feitas com sucesso
+      const alert = document.createElement('div');
+      alert.innerText = 'Successful change!';
+      alert.setAttribute('class', 'alert');
+
+      document.body.append(alert);
+      setTimeout(() => document.querySelector('.alert').remove(), 3000);
     } catch (err) {
-      // TODO: Avisar ao usuário que as mudanças falharam
+      const alert = document.createElement('div');
+      alert.innerText = 'Something went wrong!\n' + err;
+      alert.setAttribute('class', 'alert alert--bad');
+
+      document.body.append(alert);
+      setTimeout(() => document.querySelector('.alert').remove(), 6000);
       console.error(err, err.data);
     }
+  });
+
+  $purchaseImagesDeleteButton.forEach(($button, index) => {
+    $button.addEventListener('click', evt => {
+      $purchaseImagesItems[index].remove();
+    });
   });
 
   $purchaseImages.forEach(image => {
@@ -123,15 +163,25 @@
     const textareasPayload = zeitgeber.extractRequestPayload(evt.target, 'textarea', 'value');
 
     try {
-      await zeitgeber.sendHttpRequest('PUT', window.location.pathname, {
+      await zeitgeber.sendHttpRequest('PUT', `${window.location.pathname}?to=productInfo`, {
         productInfo: {
           ...textareasPayload
         }
       });
 
-      // TODO: Avisar ao usuário que as mudanças foram feitas com sucesso
+      const alert = document.createElement('div');
+      alert.innerText = 'Successful change!';
+      alert.setAttribute('class', 'alert');
+
+      document.body.append(alert);
+      setTimeout(() => document.querySelector('.alert').remove(), 3000);
     } catch (err) {
-      // TODO: Avisar ao usuário que as mudanças falharam
+      const alert = document.createElement('div');
+      alert.innerText = 'Something went wrong!\n' + err;
+      alert.setAttribute('class', 'alert alert--bad');
+
+      document.body.append(alert);
+      setTimeout(() => document.querySelector('.alert').remove(), 6000);
       console.error(err, err.data);
     }
   });
@@ -188,6 +238,12 @@
             });
 
             $context = $image;
+          });
+
+          const $button = node.querySelector('.admin__item .link--danger');
+
+          $button.addEventListener('click', evt => {
+            node.remove();
           });
         }
       });
