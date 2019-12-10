@@ -272,7 +272,6 @@ const updateProduct = async ( req, res, next ) => {
       const oldImagesId = await db.select({ image_id: 'image_id' }).from('product_images').where({ 'product_id': id });
       const oldOptionsId = await db.select({ option_id: 'option_id' }).from('product_options').where({ 'product_id': id });
 
-      console.log('aqui 0');
       excludeEquals(oldOptionsId, options, 'option_id');
       excludeEquals(oldImagesId, newImagesId, 'image_id');
 
@@ -280,23 +279,18 @@ const updateProduct = async ( req, res, next ) => {
         await db('product_images').where({ 'product_id': id, 'image_id': image_id }).delete();
       });
 
-      console.log('aqui 1');
-      
       newImagesId.forEach(async ({ image_id }) => {
         await db.insert({ 'product_id': id, 'image_id': image_id }).into('product_images');
       });
 
-      console.log('aqui 2');
       oldOptionsId.forEach(async ({ option_id }) => {
         await db('product_options').where({ 'product_id': id, 'option_id': option_id }).delete();
       });
 
-      console.log('aqui 3');
       options.forEach(async ({ option_id }) => {
         await db.insert({ 'product_id': id, 'option_id': option_id }).into('product_options');
       });
 
-      console.log('aqui 4');
       await db('product_info').where({ 'product_id': id }).update({ short_description });
     }
     else if (to === 'productInfo') {
@@ -307,22 +301,24 @@ const updateProduct = async ( req, res, next ) => {
 
     res.status(200).json({ ok: true });
   } catch (error) {
-    res.status(500).json({ ok: false, error: error});
+    res.status(500).json({ ok: false, error: error });
   }
 }
 
-const saveImage = async ( req, res, next ) => {
+const addImage = async ( req, res, next ) => {
   if ( !req.file ) {
     return res.status(401).json({ error: 'Please provide an image' });
   }
 
   try {
     const imagePath = path.join( __dirname, '/../../../public/img' );
-    const filename = await resizeAndSaveImage( imagePath, req.file.buffer );
+    const image_url = `/img/${await resizeAndSaveImage( imagePath, req.file.buffer )}`;
 
-    res.status(201).json({ name: filename });
+    await db.insert({ image_url }).into('image');
+
+    res.status(201).json({ ok: true });
   } catch (error) {
-    res.status(500).json({ ok: false, error: error});
+    res.status(500).json({ ok: false, error: error });
   }
 }
 
@@ -336,5 +332,5 @@ module.exports = {
   deleteFromMain,
   renderProduct,
   updateProduct,
-  saveImage
+  addImage
 }

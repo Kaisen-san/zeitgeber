@@ -16,7 +16,7 @@ const {
   deleteFromMain,
   renderProduct,
   updateProduct,
-  saveImage
+  addImage
 } = require('../controllers/admin');
 
 router.options( '/*', ( req, res, next ) => {
@@ -44,6 +44,6 @@ router.get( '/product/:id', tokenValidator, renderProduct);
 
 router.put( '/product/:id', tokenValidator, updateProduct);
 
-router.post( '/upload/image', tokenValidator, upload.single('image'), saveImage);
+router.post( '/upload/image', tokenValidator, upload.single('image'), addImage);
 
 module.exports = router;

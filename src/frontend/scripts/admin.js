@@ -16,12 +16,7 @@
     try {
       await zeitgeber.sendHttpRequest('POST', '/admin/upload/image', $formData);
 
-      const alert = document.createElement('div');
-      alert.innerText = 'Successful change!';
-      alert.setAttribute('class', 'alert');
-
-      document.body.append(alert);
-      setTimeout(() => document.querySelector('.alert').remove(), 3000);
+      window.location.reload();
     } catch (err) {
       const alert = document.createElement('div');
       alert.innerText = 'Something went wrong!\n' + err;
@@ -30,8 +25,6 @@
       document.body.append(alert);
       setTimeout(() => document.querySelector('.alert').remove(), 6000);
       console.error(err, err.data);
-    } finally {
-      $imageUploadForm.querySelector('.admin__item input[type="file"]').value = '';
     }
   });
 

@@ -114,7 +114,7 @@ const emailContact = ( req, res, next ) => {
     `
   });
 
-  res.status(200).json({});
+  res.status(200).json({ ok: true });
 }
 
 const emailOrder = ( req, res, next ) => {
@@ -140,7 +140,7 @@ const emailOrder = ( req, res, next ) => {
     `
   });
 
-  res.status(200).json({});
+  res.status(200).json({ ok: true });
 }
 
 module.exports = {
