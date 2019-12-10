@@ -82,8 +82,8 @@ const tokenValidator = (req, res, next) => {
 }
 
 const captchaValidator = captchaAction => (req, res, next) => {
-  if(!req.body.captcha) {
-    res.status(400).json( { message: 'reCAPTCHA token is undefined' } )
+  if (!req.body.captcha) {
+    return res.status(400).json({ message: 'reCAPTCHA token is undefined' });
   }
 
   const verifyUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.GRC_PRIVATE}&response=${req.body.captcha}`;
@@ -91,6 +91,7 @@ const captchaValidator = captchaAction => (req, res, next) => {
   request(verifyUrl, (err, response, body) => {
     if (err) {
       console.error(err);
+      return res.status(500).json({ message: 'An error occurred while attempting to reach out reCaptcha server. Try again.' });
     }
 
     body = JSON.parse(body);
