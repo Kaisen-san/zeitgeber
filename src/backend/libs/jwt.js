@@ -1,8 +1,7 @@
-const fs = require('fs');
 const jwt = require('jsonwebtoken');
 
-const privateKEY = fs.readFileSync('./private.key', 'utf8');
-const publicKEY = fs.readFileSync('./public.key', 'utf8');
+const privateKey = Buffer.from(process.env.JWT_PRIVATE_KEY, 'base64');
+const publicKey = Buffer.from(process.env.JWT_PUBLIC_KEY, 'base64');
 
 const sign = (payload) => {
   const signOptions = {
@@ -10,7 +9,7 @@ const sign = (payload) => {
     algorithm: 'RS256'
   };
 
-  return jwt.sign(payload, privateKEY, signOptions);
+  return jwt.sign(payload, privateKey, signOptions);
 }
 
 const verify = (token) => {
@@ -20,7 +19,7 @@ const verify = (token) => {
   };
 
   try {
-    return jwt.verify(token, publicKEY, verifyOptions);
+    return jwt.verify(token, publicKey, verifyOptions);
   } catch (err) {
     return false;
   }

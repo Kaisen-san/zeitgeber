@@ -86,7 +86,7 @@ const captchaValidator = captchaAction => (req, res, next) => {
     return res.status(400).json({ message: 'reCAPTCHA token is undefined' });
   }
 
-  const verifyUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.GRC_PRIVATE}&response=${req.body.captcha}`;
+  const verifyUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.GRC_PRIVATE_KEY}&response=${req.body.captcha}`;
 
   request(verifyUrl, (err, response, body) => {
     if (err) {
