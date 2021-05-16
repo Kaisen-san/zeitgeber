@@ -29,7 +29,7 @@
   }
 
   zeitgeber.sendCaptchaRequest = async (captchaAction, url, data) => {
-    const token = await grecaptcha.execute('6LfQhsEUAAAAAHDEZLdAba-Vv-x0VAQxBRGIlk16', {
+    const token = await grecaptcha.execute('REPLACE_WITH_YOUR_reCAPTCHA_site_key', {
       action: captchaAction
     });
 
