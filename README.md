@@ -11,8 +11,16 @@ Matheus Mandotti | 16.00177-0 | [matheusmf1](https://github.com/matheusmf1)
 Vinícius Pereira | 16.03343-4 | [VinPer](https://github.com/VinPer)
 
 ### For Devs only
+
+#### Environment Variables and Private/Public Keys
+
+- Use *`.env.example`* as a guide to what needs to be configured in your *`.env`*.
+- After generating both JWT private and public keys, using RSA or another algorithm of you choice, you must encode them in *base64* before setting up `JWT_PRIVATE_KEY` and `JWT_PUBLIC_KEY` entries in *`.env`*.
+- In *`src/frontend/utils/request.js`*, replace `'REPLACE_WITH_YOUR_reCAPTCHA_site_key'` with your reCAPTCHA site key. [Click here](https://developers.google.com/recaptcha/docs/v3) for more information.
+
+#### Heroku - PostgreSQL database
 When running the solution locally, you may need to get the latest heroku `DATABASE_URL` variable value, since it gets outdated every now and then. In order to do that, open command line and run the following command:
 ```cmd
 heroku config:get DATABASE_URL -a zeitgeber
 ```
-Then get the output value and update `DATABASE_URL` variable inside *`.env`*.
+Then get the output value and update `DATABASE_URL` entry inside *`.env`*. Also, make sure you have `PGSSLMODE=require` set in *`.env`* to avoid running into 'SSL off' problem.
