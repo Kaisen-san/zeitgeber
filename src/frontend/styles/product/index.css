@@ -1,0 +1,22 @@
+body {
+  font-family: var(--ff-lato);
+  display: grid;
+  grid-template:
+    "header header header" 4em
+    "main main main" max-content
+    "footer footer footer" auto
+    / 1fr minmax(400px, 5fr) 1fr;
+  background: var(--bg-clr-darker);
+}
+
+.header {
+  grid-area: header;
+}
+
+.main {
+  grid-area: main;
+}
+
+.footer {
+  grid-area: footer;
+}

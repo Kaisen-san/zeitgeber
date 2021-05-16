@@ -1,0 +1,17 @@
+<div class='purchase'>
+  <%- include( '../components/slider', {
+    images: images
+  }) %>
+
+  <%- include( '../components/options', {
+    title: title,
+    description: description,
+    options: options
+  }) %>
+</div>
+
+<div class='purchase__buy'>
+  <div class="purchase__buy__wrapper">
+    <%- include( '../components/order' ) %>
+  </div>
+</div>

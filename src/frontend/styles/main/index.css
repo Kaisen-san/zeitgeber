@@ -1,0 +1,35 @@
+body {
+  display: grid;
+  grid-template:
+    "header header header" 4em
+    "main main main" max-content
+    "cloud cloud cloud" auto
+    "slideshow slideshow slideshow" auto
+    "footer footer footer" auto
+    / 1fr minmax(320px, 5fr) 1fr;
+}
+
+.header {
+  grid-area: header;
+}
+
+.main {
+  grid-area: main;
+}
+
+#cloud {
+  grid-area: cloud;
+}
+
+.slideshow {
+  grid-area: slideshow;
+}
+
+.footer {
+  grid-area: footer;
+}
+
+.cloud__fade-in {
+  filter: opacity(0);
+  transform: translateX(-400px);
+}

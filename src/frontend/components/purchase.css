@@ -1,0 +1,42 @@
+.purchase {
+  justify-self: center;
+  display: flex;
+  padding: 3em 5%;
+}
+
+.purchase__zoom {
+  display: none;
+  cursor: zoom-out;
+}
+
+.purchase__buy {
+  display: none;
+}
+
+.purchase__buy__wrapper {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  width: 100%;
+  height: 100%;
+}
+
+.purchase__overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 10000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-transparent);
+  overflow-y: auto;
+}
+
+@media screen and (max-width: 1023.98px) {
+  .purchase {
+    flex-direction: column;
+  }
+}

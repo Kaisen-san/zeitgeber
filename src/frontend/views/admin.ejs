@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <%- include( 'partials/head', {
+    pageTitle: 'Zeitgeber Store - Admin View',
+    stylesFilename: 'admin'
+  }) %>
+</head>
+
+<body>
+  <header class='header'>
+    <%- include( '../components/logo', {
+      ref: '#',
+      src: '/img/t4p-dark.svg',
+      alt: 'Tech4People'
+    }) %>
+
+    <%- include( '../components/menu', {
+      elements: [
+        { ref: '/', content: 'Site' },
+        { ref: '/admin/logout', content: 'Logout' }
+      ]
+    }) %>
+  </header>
+
+  <article>
+    <h1 class='admin__title'>Image Upload</h1>
+    <form id='image_upload'>
+      <div class='admin__item admin__item--maximized'>
+        <h3 class='admin__label'>Select image</h3>
+        <input type='file' name='image' />
+      </div>
+      <%- include( '../components/button', { id: '', type: 'submit', content: 'Upload<i class="fas fa-file-upload icon"></i>', extraClasses: '', extraLinkClasses: '' } ) %>
+    </form>
+  </article>
+
+  <article>
+    <h1 class='admin__title'>Hero</h1>
+    <form id='hero'>
+      <div class='admin__item admin__item--maximized'>
+        <h3 class='admin__label'>Message</h3>
+        <%- include( '../components/input', { type: 'text', name: 'message', placeholder: '', iconClass: 'far fa-file-alt', value: hero.message } ) %>
+      </div>
+      <div class='admin__item admin__item--maximized'>
+        <h3 class='admin__label'>Image</h3>
+        <%- include( '../components/link', { id: '', ref: '', extraClasses: 'link--nofill', content: `<img name='image' class='image__button' src='${hero.image}'>` } ) %>
+      </div>
+      <%- include( '../components/button', { id: '', type: 'submit', content: 'Save<i class="fas fa-save icon"></i>', extraClasses: '', extraLinkClasses: '' } ) %>
+    </form>
+  </article>
+
+  <article>
+    <h1 class='admin__title'>Products</h1>
+    <div id='products' class='admin__wrapper'>
+      <% products.forEach(({ id, name, category, image }) => { %>
+        <div id='<%= id %>' class='admin__item'>
+          <h3 class='admin__label'><%= name %> - <%= category %></h3>
+          <%- include( '../components/link', { id: '', ref: `/admin/product/${id}`, extraClasses: 'link--nofill', content: `<img class='image__button' src='${image}'>` } ) %>
+          <%- include( '../components/button', { id: '', type: 'button', content: 'Delete<i class="fas fa-trash-alt icon"></i>', extraClasses: '', extraLinkClasses: 'link--danger' } ) %>
+        </div>
+      <% }); %>
+      <div class='admin__item admin__item--dark'>
+        <%- include( '../components/link', { id: 'product_add', ref: '', extraClasses: 'link--nofill link--maximized link--centered', content: '<i class="far fa-plus-square admin__add"></i>' } ) %>
+      </div>
+    </div>
+  </article>
+
+  <article>
+    <h1 class='admin__title'>Cloud</h1>
+    <form id='cloud'>
+      <div class='admin__item admin__item--maximized'>
+        <h3 class='admin__label'>Title</h3>
+        <%- include( '../components/input', { type: 'text', name: 'title', placeholder: '', iconClass: 'far fa-file-alt', value: cloud.title } ) %>
+      </div>
+      <div class='admin__item admin__item--maximized'>
+        <h3 class='admin__label'>Content</h3>
+        <%- include( '../components/textarea', { name: 'content', cols: '50', rows: '30', placeholder: '', content: cloud.content, extraClasses: 'textarea--tall' } ) %>
+      </div>
+      <div class='admin__item admin__item--maximized'>
+        <h3 class='admin__label'>Image</h3>
+        <%- include( '../components/link', { id: '', ref: '', extraClasses: 'link--nofill', content: `<img name='image' class='image__button' src='${cloud.image}'>` } ) %>
+      </div>
+      <%- include( '../components/button', { id: '', type: 'submit', content: 'Save<i class="fas fa-save icon"></i>', extraClasses: '', extraLinkClasses: '' } ) %>
+    </form>
+  </article>
+
+  <article>
+    <h1 class='admin__title'>Project Info</h1>
+    <div id='project_info' class='admin__wrapper'>
+      <% projectInfo.forEach(({ id, content, image }) => { %>
+        <div class='admin__item'>
+          <form id='<%= id %>'>
+            <%- include( '../components/link', { id: '', ref: '', extraClasses: 'link--nofill', content: `<img name='image' class='image__button' src='${image}'>` } ) %>
+            <%- include( '../components/textarea', { name: 'content', cols: '50', rows: '30', placeholder: 'Content...', content: content, extraClasses: '' } ) %>
+            <div class='admin__wrapper'>
+              <%- include( '../components/button', { id: '', type: 'button', content: 'Save<i class="fas fa-save icon"></i>', extraClasses: '', extraLinkClasses: 'project-info-save' } ) %>
+              <%- include( '../components/button', { id: '', type: 'button', content: 'Delete<i class="fas fa-trash-alt icon"></i>', extraClasses: '', extraLinkClasses: 'link--danger project-info-delete' } ) %>
+            </div>
+          </form>
+        </div>
+      <% }); %>
+      <div class='admin__item admin__item--dark'>
+        <%- include( '../components/link', { id: 'project_info_add', ref: '', extraClasses: 'link--nofill link--maximized link--centered', content: '<i class="far fa-plus-square admin__add"></i>' } ) %>
+      </div>
+    </div>
+  </article>
+
+  <div id='images_popup' class='images__wrapper'>
+    <div class='images'>
+      <div class='images__cancel'><i class='fas fa-times'></i></div>
+      <% images.forEach(({ id, image }) => { %>
+        <%- include( '../components/link', { id: '', ref: '', extraClasses: 'link--nofill images__item', content: `<img class='image__button' src='${image}'>` } ) %>
+      <% }) %>
+    </div>
+  </div>
+
+  <template>
+    <div class='admin__item'>
+      <form>
+        <%- include( '../components/link', { id: '', ref: '', extraClasses: 'link--nofill', content: '<img name="image" class="image__button">' } ) %>
+        <%- include( '../components/textarea', { name: 'content', cols: '50', rows: '30', placeholder: 'Content...', content: '', extraClasses: '' } ) %>
+        <div class='admin__wrapper'>
+          <%- include( '../components/button', { id: '', type: 'button', content: 'Save<i class="fas fa-save icon"></i>', extraClasses: '', extraLinkClasses: 'project-info-save' } ) %>
+          <%- include( '../components/button', { id: '', type: 'button', content: 'Delete<i class="fas fa-trash-alt icon"></i>', extraClasses: '', extraLinkClasses: 'link--danger project-info-delete' } ) %>
+        </div>
+      </form>
+    </div>
+  </template>
+
+  <%- include('partials/scripts', { scriptFilename: 'admin' } ) %>
+</body>
+
+</html>

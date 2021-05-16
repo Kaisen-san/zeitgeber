@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include( 'partials/head', {
+    pageTitle: 'Zeitgeber Store',
+    stylesFilename: 'main'
+  }) %>
+</head>
+
+<body>
+  <header class="header">
+    <%- include( '../components/logo', {
+      ref: '#',
+      src: '/img/t4p-light.svg',
+      alt: 'Tech4People'
+    }) %>
+
+    <%- include( '../components/menu', {
+      elements: [
+        { ref: '#products', content: 'Products' },
+        { ref: '#cloud', content: 'Cloud' },
+        { ref: '#contact', content: 'Contact' },
+        { ref: 'https://t4p.com.br/tech4people', content: 'About Us' }
+      ]
+    }) %>
+  </header>
+
+  <main class="main">
+    <%- include( '../components/hero', {
+      title: hero.message,
+      imgUrl: hero.image
+    }) %>
+
+    <%- include( '../components/cards', {
+      products: products
+    }) %>
+  </main>
+
+  <%- include( '../components/feature', {
+    id: 'cloud',
+    imageSide: 'right',
+    imageSrc: cloud.image,
+    imageAlt: 'Cloud',
+    title: cloud.title,
+    content: cloud.content.split('\n').map(c => c.trim()),
+    linkRef: 'http://app.t4p.com.br',
+    linkTitle: cloud.buttonText
+  }) %>
+
+  <%- include( '../components/slideshow', {
+    items: projectInfo.map(({ content, image }, idx) => {
+      let position = '';
+
+      if (idx === Math.floor(projectInfo.length / 2)) {
+        position = 'middle'
+      }
+      else if (idx === Math.floor(projectInfo.length / 2) - 1) {
+        position = 'left'
+      }
+      else if (idx === Math.floor(projectInfo.length / 2) + 1) {
+        position = 'right'
+      }
+      else {
+        position = 'hide'
+      }
+
+      return {
+        title: content,
+        src: image,
+        alt: '',
+        position: position
+      }
+    })
+  }) %>
+
+  <footer class="footer">
+    <%- include( '../components/contact' ) %>
+
+    <%- include( '../components/copyright', {
+      logoSrc: '/img/maua-light.png'
+    }) %>
+  </footer>
+
+  <%- include( 'partials/scripts', {
+    scriptFilename: 'main'
+  }) %>
+</body>
+
+</html>

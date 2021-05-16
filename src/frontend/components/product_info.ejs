@@ -1,0 +1,19 @@
+<section id='description' class='description'>
+	<h1 class='description__title'><%= title %></h1>
+
+	<%- include( 'divisor' ) %>
+
+	<% content.forEach( paragraph => { %>
+		<p class='description__content'><%= paragraph %></p>
+	<% }) %>
+
+	<%- include('../components/bullets',{
+		inParagraph: 'true',
+		bullets: bullets
+	}) %>
+
+	<%- include('../components/table', {
+		headers: tableHeaders,
+		rows: tableRows
+	}) %>
+</section>

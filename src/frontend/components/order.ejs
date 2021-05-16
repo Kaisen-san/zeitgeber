@@ -1,0 +1,28 @@
+<div class='order'>
+  <div class='order__cancel'><i class='fas fa-times'></i></div>
+  <h1 class='order__title'>Purchase Order</h1>
+  <form id='order_form' class='order__form'>
+    <div class='order__field__wrapper'>
+      <%- include( 'input', { type: 'text', name: 'name', placeholder: 'Name', iconClass: 'fas fa-user', value: '' } ) %>
+      <%- include( 'input', { type: 'tel', name: 'phone', placeholder: 'Phone Number', iconClass: 'fas fa-phone', value: '' } ) %>
+    </div>
+
+    <%- include( 'input', { type: 'email', name: 'email', placeholder: 'Email', iconClass: 'fas fa-envelope', value: '' } ) %>
+    <%- include( 'input', { type: 'text', name: 'address', placeholder: 'Address', iconClass: 'fas fa-location-arrow', value: '' } ) %>
+    <%- include( 'textarea', { name: 'message', extraClasses: '', cols: 30, rows: 10, placeholder: 'Message...', content: '' } ) %>
+
+    <div class='order__summary'>
+      <h1 class='order__summary__title'>Summary</h1>
+      <%- include( 'bullets', {
+        inParagraph: false,
+        bullets: []
+      }) %>
+    </div>
+
+    <%- include( 'button', { id: '', type: 'submit', content: 'Place Order<i class="fas fa-check-circle icon"></i>', extraClasses: 'button--maximized', extraLinkClasses: 'link--maximized link--rounded' } ) %>
+  </form>
+
+  <template>
+    <li class='bullets__item'></li>
+  </template>
+</div>

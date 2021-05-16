@@ -1,28 +1,22 @@
+require('dotenv/config');
 const express = require('express');
 const path = require('path');
 
-const app = express();
-const port = process.env.PORT || 3000;
+const userRouter = require('./src/backend/routes/user');
+const adminRouter = require('./src/backend/routes/admin');
 
-app.set( 'views', path.join( __dirname, 'views' ) );
+const app = express();
+const port = process.env.PORT || 4000;
+
+app.set( 'views', path.join( __dirname, 'src/frontend/views' ) );
 app.set( 'view engine', 'ejs' );
 
-
+app.use( express.json() );
+app.use( express.urlencoded({ extended: true }) );
 app.use( express.static( path.join( __dirname, 'public' ) ) );
 
-app.get( '/', ( req, res, next ) => {
-  res.render('entry/index');
-});
-
-app.get( '/product/:id', ( req, res, next ) => {
-  const productId = req.params.id;
-  res.render('product/product' + productId);
-});
-
-app.post( '/contact', ( req, res, next ) => {
-  res.redirect('/');
-});
-
+app.use('/', userRouter);
+app.use('/admin', adminRouter);
 
 app.listen( port, ( err ) => {
   if ( err ) {

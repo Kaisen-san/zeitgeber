@@ -1,0 +1,45 @@
+.contact {
+  width: 40%;
+  padding: 3em;
+  border-radius: 2em;
+  position: relative;
+  background-color: var(--bg-clr-light);
+}
+
+.contact__title {
+  margin: .75em 0;
+  color: var(--title-clr-darker);
+  letter-spacing: .2em;
+  text-align: center;
+}
+
+.contact__form {
+  width: 100%;
+}
+
+.contact__form .textarea {
+  margin-bottom: 2em;
+}
+
+.contact__form .input {
+  margin-bottom: .75em;
+}
+
+#contact .social {
+  position: absolute;
+  bottom: -1.5em;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@media screen and (max-width: 1023.98px) {
+  .contact {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 767.98px) {
+  .contact {
+    width: auto;
+  }
+}

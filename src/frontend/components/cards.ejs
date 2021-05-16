@@ -1,0 +1,14 @@
+<section id="products" class="products">
+  <h1 class="products__title">Featured Products</h1>
+  <div class="products__wrapper">
+    <% products.forEach( p => { %>
+      <%- include( 'card', {
+        id: p.id,
+        title: p.name,
+        code: p.category,
+        description: p.brief,
+        imgUrl: p.image
+      }) %>
+    <% }); %>
+  </div>
+</section>

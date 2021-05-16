@@ -1,0 +1,10 @@
+.button {
+  position: relative;
+  width: max-content;
+  background: none;
+  border: none;
+}
+
+.button--maximized {
+  width: 100%;
+}

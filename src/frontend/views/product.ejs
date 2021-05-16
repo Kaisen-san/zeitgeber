@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang='pt-BR'>
+
+<head>
+  <%- include( 'partials/head', {
+    pageTitle: 'Zeitgeber Store',
+    stylesFilename: 'product'
+  }) %>
+</head>
+
+<body>
+  <header class='header'>
+    <%- include( '../components/logo', {
+      ref: '/',
+      src: '/img/t4p-dark.svg',
+      alt: 'Tech4People'
+    }) %>
+
+    <%- include( '../components/menu', {
+      elements: [
+        { ref: '#', content: 'Purchase' },
+        { ref: '#description', content: 'Description' },
+        { ref: '#contact', content: 'Contact' },
+        { ref: 'https://t4p.com.br/tech4people', content: 'About Us' }
+      ]
+    }) %>
+  </header>
+
+  <main class='main'>
+    <%- include( '../components/purchase', {
+      images: productImages.map(({ image }) => image),
+      title: `${product.name} - ${product.category}`,
+      description: productInfo.shortDescription,
+      options: productOptions
+    }) %>
+
+    <%- include( '../components/product_info', {
+      title: 'Description',
+      content: productInfo.longDescription.split('\n').map(c => c.trim()),
+      bullets: productInfo.bullets.split('\n').map(c => c.trim()),
+      tableHeaders: productInfo.characteristics.split('\n')[0].trim().split(';'),
+      tableRows: productInfo.characteristics.split('\n').filter((c, i) => i > 0).map(c => c.trim().split(';'))
+    }) %>
+  </main>
+
+  <footer class='footer'>
+    <%- include('../components/contact') %>
+
+    <%- include('../components/copyright', {
+      logoSrc: '/img/maua-dark.png'
+    }) %>
+  </footer>
+
+  <template>
+
+  </template>
+
+  <%- include('partials/scripts', { scriptFilename: 'product' } ) %>
+</body>
+
+</html>
