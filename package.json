@@ -23,7 +23,7 @@
   "devDependencies": {
     "gulp": "^4.0.2",
     "gulp-clean-css": "^4.2.0",
-    "gulp-cli": "^2.2.0",
+    "gulp-cli": "^2.3.0",
     "gulp-concat": "^2.6.1",
     "gulp-jsmin": "^0.1.5",
     "gulp-tinifier": "^1.0.2",
@@ -36,7 +36,7 @@
     "jsonwebtoken": "^8.5.1",
     "knex": "^0.20.1",
     "multer": "^1.4.2",
-    "nodemailer": "^6.3.1",
+    "nodemailer": "^6.6.0",
     "pg": "^7.12.1",
     "request": "^2.88.0",
     "sharp": "^0.23.1",
